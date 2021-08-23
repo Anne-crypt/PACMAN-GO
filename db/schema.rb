@@ -10,21 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_133236) do
+ActiveRecord::Schema.define(version: 2021_08_23_152138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+  create_table "games", force: :cascade do |t|
+    t.float "start_latitude"
+    t.float "start_longitude"
+    t.string "token"
+    t.integer "lives"
+    t.boolean "finished"
+    t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["player_id"], name: "index_games_on_player_id"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.boolean "eaten"
+    t.boolean "super"
+    t.float "longitude"
+    t.float "latitude"
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_items_on_game_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.string "role", default: [], array: true
+    t.boolean "is_winner"
+    t.string "state", default: [], array: true
+    t.bigint "game_id", null: false
+    t.bigint "players_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_participations_on_game_id"
+    t.index ["players_id"], name: "index_participations_on_players_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "nickname"
+    t.float "longitude"
+    t.float "latitude"
+    t.string "color"
+    t.string "food_types", array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "games", "players"
+  add_foreign_key "items", "games"
+  add_foreign_key "participations", "games"
+  add_foreign_key "participations", "players", column: "players_id"
 end
