@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
 
   def show
-    @game = Game.find(params[:id])
+   @game = Game.find(params[:id])
+   @current_player = Player.find(session[:player_id]) if session[:player_id]
   end
 
   def create
@@ -16,7 +17,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    # @game.player = current_user
+
     @players = Player.all
   end
 
