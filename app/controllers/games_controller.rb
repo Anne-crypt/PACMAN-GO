@@ -6,7 +6,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @game.player = current_user
+    game.token = [A..Z].sample(4)
     if @game.save
       redirect_to game_path
     else

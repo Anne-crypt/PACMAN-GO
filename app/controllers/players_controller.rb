@@ -2,9 +2,12 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    @player.player = current_user
+    if params[:type] == "guest"
+
+    end
+
     if @player.save
-      redirect_to players_path
+      session[:player_id] = @player.id
     else
       render :new
     end
@@ -16,6 +19,10 @@ class PlayersController < ApplicationController
   end
 
 private
+
+  def current_player
+    Player.find(session[:player_id]) if session[:player_id]
+  end
 
   def player_params
     params.require(:player).permit(:nickname)
