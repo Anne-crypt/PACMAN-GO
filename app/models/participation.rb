@@ -1,4 +1,4 @@
 class Participation < ApplicationRecord
   belongs_to :game
-  has_many :players
+  belongs_to :player
 end
