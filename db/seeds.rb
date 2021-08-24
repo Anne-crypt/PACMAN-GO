@@ -5,24 +5,55 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "..."
-puts "Cleaning database..."
+puts "Cleaning database...(Players, Games, Participations"
+Game.destroy_all
 Player.destroy_all
+Participation.destroy_all
 
-puts "..."
+puts " "
+puts " "
+
 puts "Creating players..."
-anne = Player.new(nickname: "Anne", color: "blue")
-raph = Player.new(nickname: "Rapkalin", color: "red")
-dorien = Player.new(nickname: "Dodo", color: "pink")
-rahim = Player.new(nickname: "Rahim", color: "Orange")
+  anne = Player.new(nickname: "Anne")
+  raph = Player.new(nickname: "Rapkalin")
+  dorien = Player.new(nickname: "Dodo")
+  rahim = Player.new(nickname: "Rahim")
+  sunny = Player.new(nickname: "Sunny")
+  players = [anne, raph, dorien, rahim, sunny]
+  players.each do |player|
+    player.save!
+    puts "#{player.nickname} has been created"
+  end
+  puts "You have created #{players.count} players"
 
-players = [anne, raph, dorien, rahim]
+puts " "
+puts " "
 
-players.each do |player|
-  player.save!
-  puts "#{player.nickname} has been created"
-end
+puts "Creating Game..."
+  game = Game.new(token: "WAGON", lives: 4, player_id: anne.id)
+  game.save!
+  puts "A game has been created: "
+  puts "Token: WAGON"
+  puts "Host: Anne - id: #{anne.id}"
 
-puts "You have created #{players.count} players"
-puts "..."
+puts " "
+puts " "
+
+puts "Creating Participation"
+
+  puts "A participation has been created for the following players:"
+  players.each do |player|
+      participation = Participation.new(game_id: game.id, players_id: player, role: "ghost")
+      participation.save!
+  end
+
+Participation.last.update!(role: "pacman")
+
+  players.each do |player|
+    puts "#{player.nickname} - id: #{player.id} - role: #{player.role}"
+  end
+
+puts " "
+puts " "
+
 puts "You are good to go! :)"
