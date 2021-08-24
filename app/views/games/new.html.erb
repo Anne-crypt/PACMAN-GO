@@ -1,10 +1,14 @@
 <div class="container">
   <h1>Game new page</h1>
 
+<%# Add here the token generator coded by Anne %>
+
   <div id="token">
     <p>Party id</p>
     <div id="generated-token">generated token</div>
   </div>
+<%# *********************** %>
+
 
 <%# Generating players list %>
   <div id="players-list">
@@ -12,11 +16,20 @@
       <% @players.each_with_index do |player, index| %>
         <p>Player<%= "_#{index + 1}" %></p>
         <p><%= "#{player.nickname}" %></p>
+
+        <div class="settings">
+          <img src="../assets/images.settings.png">
+        </div>
       <% end %>
     </div>
 <%# *********************** %>
 
+<%# List the roles for each user %>
     <div id="roles">
+        <img id="pacman-icon" src="../../assets/images/pacman.png">
+        <img id="ghost-icon" src="../../assets/images/ghost_red.png">
     </div>
+<%# *********************** %>
+
   </div>
 </div>
