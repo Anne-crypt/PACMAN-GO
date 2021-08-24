@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_143302) do
+ActiveRecord::Schema.define(version: 2021_08_24_144853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 2021_08_24_143302) do
   end
 
   create_table "participations", force: :cascade do |t|
-    t.string "role", default: [], array: true
+    t.string "role", default: "{}"
     t.boolean "is_winner"
-    t.string "state", default: [], array: true
+    t.string "state", default: "{}"
     t.bigint "game_id", null: false
     t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_143302) do
     t.float "longitude"
     t.float "latitude"
     t.string "color"
-    t.string "food_types", default: [], array: true
+    t.string "food_types", default: "{}"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
