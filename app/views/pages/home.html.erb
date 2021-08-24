@@ -1,11 +1,20 @@
 <h1>HI! WELCOME TO PACMAN-GO!</h1>
 <h2>Ready to start an exiting game?</h2>
 
-<p> form nickname + choix du guest/host </p>
-
 <%= simple_form_for @player do |f| %>
   <%= f.input :nickname, placeholder: "Your nickname" %>
+  <label><%= radio_button_tag "type", "host" %> Host</label>
+  <label><%= radio_button_tag "type", "guest" %> Guest</label>
+
+<div class=  >
+
+</div>
+
+  <%= text_field_tag "token" %>
+  <%= f.submit %>
 <% end %>
+
+
 
 <%= link_to "Play!", new_game_path %>
 
