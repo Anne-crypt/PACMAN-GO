@@ -1,4 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>HI! WELCOME TO PACMAN-GO!</h1>
+<h2>Ready to start an exiting game?</h2>
 
-<%= link_to "new game", new_game_path %>
+<p> form nickname + choix du guest/host </p>
+
+<%= simple_form_for @player do |f| %>
+  <%= f.input :nickname, placeholder: "Your nickname" %>
+<% end %>
+
+<%= link_to "Play!", new_game_path %>
+
+<p>Find me in app/views/pages/home.html.erb</p>
