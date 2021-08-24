@@ -1,5 +1,5 @@
 import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
 const placeMarker = (lat, lon, map) => {
   new mapboxgl.Marker().setLngLat([lon, lat]).addTo(map);
