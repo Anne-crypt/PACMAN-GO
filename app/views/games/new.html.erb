@@ -1,14 +1,22 @@
-<h1>Game new page</h1>
+<div class="container">
+  <h1>Game new page</h1>
 
-<div id="token">
-  <h1>Party id</h1>
-  <div id="generated-token">generated token</div>
-</div>
-
-<div id="players-list">
-  <div id="nickname-setting">
-  <%= raise %>
+  <div id="token">
+    <p>Party id</p>
+    <div id="generated-token">generated token</div>
   </div>
-  <div id="roles">
+
+<%# Generating players list %>
+  <div id="players-list">
+    <div id="nickname-setting">
+      <% @players.each_with_index do |player, index| %>
+        <p>Player<%= "_#{index + 1}" %></p>
+        <p><%= "#{player.nickname}" %></p>
+      <% end %>
+    </div>
+<%# *********************** %>
+
+    <div id="roles">
+    </div>
   </div>
 </div>
