@@ -8,9 +8,15 @@
 
 puts "Cleaning database...(Players, Games, Participations"
 Game.destroy_all
+puts "Games cleaned"
+puts " "
+puts " "
 Player.destroy_all
+puts "Players cleaned"
+puts " "
+puts " "
 Participation.destroy_all
-
+puts "Participation cleaned"
 puts " "
 puts " "
 
@@ -44,14 +50,14 @@ puts "Creating Participation"
 
   puts "A participation has been created for the following players:"
   players.each do |player|
-      participation = Participation.new(game_id: game.id, players_id: player.id, role: "ghost")
+      participation = Participation.new(game_id: game.id, player_id: player.id, role: "ghost")
       participation.save!
   end
 
 Participation.last.update!(role: "pacman")
 
-  players.each do |player|
-    puts "#{player.nickname} - id: #{player.id} - role: #{player.role}"
+  Participation.all.each do |participation|
+    puts "#{participation.player.nickname} - id: #{participation.player.id} - role: #{participation.role}"
   end
 
 puts " "
