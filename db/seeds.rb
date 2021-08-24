@@ -43,7 +43,7 @@ puts "Creating Participation"
 
   puts "A participation has been created for the following players:"
   players.each do |player|
-      participation = Participation.new(game_id: game.id, players_id: player, role: "ghost")
+      participation = Participation.new(game_id: game.id, players_id: player.id, role: "ghost")
       participation.save!
   end
 
