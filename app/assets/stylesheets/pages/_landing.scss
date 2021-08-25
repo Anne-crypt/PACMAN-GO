@@ -1,0 +1,54 @@
+body {
+  background-image: url("pacman-empty-mockup.jpg");
+  color: white;
+  font-size: 27px;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-ghost {
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  border: 5px solid #1F1FF0;
+  border-radius: 20px;
+  width: 236px;
+  height: 48px;
+}
+
+#bouton {
+  display: flex;
+  justify-content: center;
+  margin-top: 195px;
+}
+
+p {
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 1rem;
+}
+
+.class_name {
+  // margin-top: 30px;
+  // display: block;
+  // margin-left: 11px;
+  // margin-top: 25px;
+  width: 355px;
+  height: 88px;
+}
+
+#game_title {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.ghost_team {
+  margin-left: 135px;
+  margin-top: 190px;
+}
+
+.ghost {
+  width: 25px;
+  height: 25px;
+}
