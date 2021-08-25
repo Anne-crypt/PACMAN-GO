@@ -4,10 +4,10 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
 
     if @player.save!
+      session[:player_id] = @player.id
       if params['tokens']['token'].present?
         token = params['tokens']['token']
         @game = Game.where(token: token).first
-
       else
         @game = Game.new
         @game.token = ("A".."Z").to_a.sample(4).join
