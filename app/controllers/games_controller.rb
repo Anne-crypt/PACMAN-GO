@@ -15,6 +15,11 @@ class GamesController < ApplicationController
     end
   end
 
+  def edit
+   @game = Game.find(params[:id])
+   @current_player = Player.find(session[:player_id]) if session[:player_id]
+  end
+
   def new
     @game = Game.new
   end
