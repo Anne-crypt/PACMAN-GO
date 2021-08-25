@@ -15,20 +15,26 @@
   <div id="players-list">
     <% @game.participation.each_with_index do |participation, index| %>
       <div id="nickname-setting">
-        <div>
-          <p>Player<%= "_#{index + 1}:" %></p>
-          <p><%= "#{participation.player.nickname}" %></p>
-        </div>
+        <div id="settings-name">
+          <div id="player-name">
+            <p>Player<%= "_#{index + 1}:" %></p>
+            <p><%= "#{participation.player.nickname}" %></p>
+          </div>
 
-        <%# Generating settings button for each player %>
-        <div class="settings">
-          <%= image_tag "settings.png", :class => "img-icon" %>
+          <%# Generating settings button for each player %>
+          <div id="settings">
+            <%= image_tag "settings.png", :class => "img-icon" %>
+          </div>
         </div>
 
         <%# List the roles for each player %>
         <div id="roles">
+        <div id="pacman-id">
             <%= image_tag "pacman.png", :class => "img-icon" %>
+        </div>
+        <div id="ghost-id">
             <%= image_tag "ghost_red.png", :class => "img-icon" %>
+        </div>
         </div>
 
       </div>
