@@ -2,7 +2,6 @@ body {
   font-family: 'Press Start 2P', cursive;
   background-image: url('pacman-empty-mockup.jpg');
   color: white;
-  font-size: 27px;
   height: 100%;
   width: 100%;
 }
@@ -52,4 +51,8 @@ p {
 .ghost {
   width: 25px;
   height: 25px;
+}
+
+.font-landing {
+  font-size: 27px;
 }
