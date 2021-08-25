@@ -13,16 +13,13 @@ class PlayersController < ApplicationController
     end
   end
 
+
   def new
     @player = Player.find(params[:player_id])
     @player = Player.new
   end
 
 private
-
-  def current_player
-    Player.find(session[:player_id]) if session[:player_id]
-  end
 
   def player_params
     params.require(:player).permit(:nickname)

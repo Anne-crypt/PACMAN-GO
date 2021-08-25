@@ -34,7 +34,7 @@
   </div>
 
   <%# Button to start the game, link to map/plaground screen %>
-  <% if @game.player == @player %>
+  <% if @game.player == current_player %>
     <div class="start-btn">
       <%= link_to "Start", :anchor => "#players-list" %>
     </div>
