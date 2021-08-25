@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     # ||= signifie "ou égal" équivaut à @current_player = @current_player || do_somenthing
     # la méthode va associer le user connecté à la variable current_player
     # Cette méthode s'appelle de la mémoisation
-    # On pourra garder cette méthode
+    # # On pourra garder cette méthode
     if session[:player_id]
       @current_player ||= Player.find(session[:player_id])
     end
