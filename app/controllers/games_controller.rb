@@ -2,6 +2,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
+    @pacman = Participation.all.where(game_id: params[:id], role: 'pacman')
   end
 
   def create
