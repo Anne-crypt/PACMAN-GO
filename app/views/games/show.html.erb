@@ -1,1 +1,43 @@
-<h1>this is the Game show</h1>
+
+<div class="container">
+  <h1>this is the Game show</h1>
+
+  <%# Add here the token generator coded by Anne %>
+  <div id="token">
+    <p>Party id</p>
+    <div id="generated-token">generated token</div>
+  </div>
+
+
+  <%# Generating players list %>
+  <div id="players-list">
+    <% @game.participation.each_with_index do |participation, index| %>
+      <div id="nickname-setting">
+        <div>
+          <p>Player<%= "_#{index + 1}:" %></p>
+          <p><%= "#{participation.player.nickname}" %></p>
+        </div>
+
+        <%# Generating settings button for each player %>
+        <div class="settings">
+          <%= image_tag "settings.png", :class => "img-icon" %>
+        </div>
+
+        <%# List the roles for each player %>
+        <div id="roles">
+            <%= image_tag "pacman.png", :class => "img-icon" %>
+            <%= image_tag "ghost_red.png", :class => "img-icon" %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+
+  <%# Button to start the game, link to map/plaground screen %>
+  <% if @game.player == @player %>
+    <div class="start-btn">
+      <%= link_to "Start", :anchor => "#players-list" %>
+    </div>
+  <% end %>
+  <%# *********************** %>
+</div>
