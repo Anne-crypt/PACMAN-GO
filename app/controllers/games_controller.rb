@@ -1,8 +1,9 @@
 class GamesController < ApplicationController
+  before_action :authenticate_player
 
   def show
    @game = Game.find(params[:id])
-   @current_player = Player.find(session[:player_id]) if session[:player_id]
+  #  @current_player = Player.find(session[:player_id]) if session[:player_id]
   end
 
   def create
@@ -17,7 +18,8 @@ class GamesController < ApplicationController
 
   def edit
     @game = Game.find(params[:id])
-    @current_player = Player.find(session[:player_id]) if session[:player_id]
+    # @current_player = Player.find_by(id: session[:player_id]) if session[:player_id]
+    # current_player
   end
 
   def new
