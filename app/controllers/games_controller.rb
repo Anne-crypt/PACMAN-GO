@@ -1,12 +1,13 @@
 class GamesController < ApplicationController
 
   def show
-    @game = Game.find(params[:id])
+   @game = Game.find(params[:id])
+   @current_player = Player.find(session[:player_id]) if session[:player_id]
   end
 
   def create
     @game = Game.new(game_params)
-    @game.player = current_user
+    game.token = [A..Z].sample(4)
     if @game.save
       redirect_to game_path
     else
@@ -14,10 +15,13 @@ class GamesController < ApplicationController
     end
   end
 
+  def edit
+   @game = Game.find(params[:id])
+   @current_player = Player.find(session[:player_id]) if session[:player_id]
+  end
+
   def new
     @game = Game.new
-    # @game.player = current_user
-    @players = Player.all
   end
 
 private

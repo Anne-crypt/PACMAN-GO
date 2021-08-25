@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const place_marker = (lat, lon, map) => {
+const placeMarker = (lat, lon, map) => {
   new mapboxgl.Marker().setLngLat([lon, lat]).addTo(map);
  }
 
@@ -29,7 +29,7 @@ const initMapbox = () => {
 
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition((position) => {
-        place_marker(position.coords.latitude, position.coords.longitude, map);
+        placeMarker(position.coords.latitude, position.coords.longitude, map);
       });
     }
     else {
