@@ -2,17 +2,27 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    if params[:type] == "guest"
 
-    end
+    if @player.save!
+      if params['tokens']['token'].present?
+        token = params['tokens']['token']
+        @game = Game.where(token: token).first
 
-    if @player.save
-      session[:player_id] = @player.id
+      else
+        @game = Game.new
+        @game.token = ("A".."Z").to_a.sample(4).join
+        @game.player = @player
+        @game.save!
+      end
+
+      @participation = Participation.new(game_id: @game.id, player_id: @player.id, role: "ghost")
+      @participation.save!
+      redirect_to edit_game_path(@game.id)
     else
       render :new
     end
+raise
   end
-
 
   def new
     @player = Player.find(params[:player_id])
@@ -22,7 +32,8 @@ class PlayersController < ApplicationController
 private
 
   def player_params
-    params.require(:player).permit(:nickname)
+    p params
+    params.require(:player).permit(:nickname, :token, :tokens)
   end
 
 end

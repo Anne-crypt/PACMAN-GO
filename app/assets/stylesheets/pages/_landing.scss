@@ -1,4 +1,5 @@
 body {
+  font-family: 'Press Start 2P', cursive;
   background-image: url('pacman-empty-mockup.jpg');
   color: white;
   font-size: 27px;
@@ -7,7 +8,7 @@ body {
 }
 
 .btn-ghost {
-  font-size: 15px;
+  font-size: 22px;
   text-align: center;
   color: white;
   border: 5px solid #1f1ff0;
@@ -24,7 +25,7 @@ body {
 
 p {
   text-align: center;
-  margin-top: 35px;
+  margin-top: 37px;
   margin-bottom: 1rem;
 }
 
