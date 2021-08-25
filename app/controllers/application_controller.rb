@@ -13,5 +13,6 @@ class ApplicationController < ActionController::Base
     # Player.find_by(nickname: "Anne")
   end
 
+  # Ce helper permet que le current player dans les views
   helper_method :current_player
 end
