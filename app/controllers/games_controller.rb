@@ -16,7 +16,6 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    # @game.player = current_user
     @players = Player.all
   end
 

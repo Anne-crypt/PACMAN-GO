@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_144853) do
     t.float "longitude"
     t.float "latitude"
     t.string "color"
-    t.string "food_types", default: "{}"
+    t.string "food_types"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
