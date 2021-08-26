@@ -21,14 +21,16 @@ puts " "
 puts " "
 
 puts "Creating players..."
-  anne = Player.new(nickname: "Anne")
-  raph = Player.new(nickname: "Rapkalin")
-  dorien = Player.new(nickname: "Dodo")
-  rahim = Player.new(nickname: "Rahim")
-  sunny = Player.new(nickname: "Sunny")
+  seeded_players = []
+  anne = Player.new(nickname: "Anne", latitude: "48.865171", longitude: "2.379983")
+  raph = Player.new(nickname: "Rapkalin", latitude: "48.865587", longitude: "2.379623")
+  dorien = Player.new(nickname: "Dodo", latitude: "48.865933", longitude: "2.379347")
+  rahim = Player.new(nickname: "Rahim", latitude: "48.865588", longitude: "2.380347")
+  sunny = Player.new(nickname: "Sunny", latitude: "48.864959", longitude: "2.379320")
   players = [anne, raph, dorien, rahim, sunny]
   players.each do |player|
     player.save!
+    seeded_players << player
     puts "#{player.nickname} has been created"
   end
   puts "You have created #{players.count} players"

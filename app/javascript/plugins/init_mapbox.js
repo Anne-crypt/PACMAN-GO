@@ -20,6 +20,12 @@ const initMapbox = () => {
       attributionControl: false,
       interactive: false,
     });
+    const markers = JSON.parse(mapElement.dataset.markers);
+    markers.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(map);
+    });
 
     const element = document.createElement('div');
     element.className = 'marker';
@@ -27,7 +33,9 @@ const initMapbox = () => {
     element.style.backgroundSize = 'contain';
     element.style.width = '25px';
     element.style.height = '25px';
-    new mapboxgl.Marker(element).setLngLat([2.379993, 48.8640313]).addTo(map);
+
+
+
 
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition((position) => {
