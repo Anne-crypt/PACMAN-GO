@@ -29,7 +29,7 @@
               </div>
             </div>
               <%# List the roles for each player %>
-            <div id="roles" <% 'data-controller="lobby"' if @game.player == current_player %> >
+            <div id="roles" <%= 'data-controller="lobby"'.html_safe if @game.player == current_player %> >
               <div id="pacman-id" class="pacman-object <%= 'settings-hover' if index == 0 %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
                   <%= image_tag "pacman.png", :class => "img-icon" %>
               </div>
