@@ -1,14 +1,14 @@
 
 <div class="container">
 
-  <div id="page-title">
+  <div id="lobby-page-title">
     <p>Looby</p>
   </div>
 
   <%# Add here the token generator coded by Anne %>
   <div id="token">
-    <p>Party id</p>
-    <div id="generated-token">generated token</div>
+    <p>Share the below token with your fellow friends:</p>
+    <div id="generated-token"><%= @game.token %></div>
   </div>
 
   <%# Generating players list %>

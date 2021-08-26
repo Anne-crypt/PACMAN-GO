@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from '!mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const placeMarker = (lat, lon, map) => {
@@ -13,6 +13,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'gamemap',
+      // style: 'mapbox://styles/ja-dore/cksojgcmr4th017lw0hrh1fiz',
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [2.379993, 48.8640313],
       zoom: 15,
