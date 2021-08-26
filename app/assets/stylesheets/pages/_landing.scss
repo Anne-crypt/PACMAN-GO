@@ -1,16 +1,20 @@
 body {
-  background-image: url("pacman-empty-mockup.jpg");
+  font-family: 'Press Start 2P', cursive;
+  background-image: url('pacman-empty-mockup.jpg');
   color: white;
-  font-size: 27px;
   height: 100%;
   width: 100%;
 }
 
+#landing-css {
+  font-size: 27px;
+}
+
 .btn-ghost {
-  font-size: 15px;
+  font-size: 22px;
   text-align: center;
   color: white;
-  border: 5px solid #1F1FF0;
+  border: 5px solid #1f1ff0;
   border-radius: 20px;
   width: 236px;
   height: 48px;
@@ -24,7 +28,7 @@ body {
 
 p {
   text-align: center;
-  margin-top: 35px;
+  margin-top: 37px;
   margin-bottom: 1rem;
 }
 
@@ -47,4 +51,8 @@ p {
 .ghost {
   width: 25px;
   height: 25px;
+}
+
+.font-landing {
+  font-size: 27px;
 }
