@@ -2,8 +2,17 @@ class GamesController < ApplicationController
   before_action :authenticate_player
 
   def show
-   @game = Game.find(params[:id])
+    @game = Game.find(params[:id])
+  #  @game = Game.find(params[:id])
   #  @current_player = Player.find(session[:player_id]) if session[:player_id]
+    @players = @game.participation.map { |participation| participation.player}
+     @markers = @players.map do |player|
+      {
+        lat: player.latitude,
+        lng: player.longitude,
+        image_url: helpers.asset_url('https://placekitten.com/200/300')
+      }
+    end
   end
 
   def create
