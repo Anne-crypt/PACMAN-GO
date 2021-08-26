@@ -1,1 +1,47 @@
 // Specific CSS for your home-page
+body {
+  font-family: 'Press Start 2P', cursive;
+}
+.class_logo {
+  width: 355px;
+  height: 88px;
+}
+
+#home_logo {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.go {
+  text-align: center;
+  margin-top: 115px;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.ghost_team_home {
+  margin-left: 125px;
+  margin-top: 28px;
+}
+
+.ghost {
+  width: 25px;
+  height: 25px;
+}
+
+#player_nickname {
+  width: 356px;
+  height: 57px;
+  background-color: black;
+  border-color: 1F1FF0;
+  margin-left: 10px;
+}
+
+#token_generated {
+  text-align: center;
+  width: 356px;
+  height: 57px;
+}
