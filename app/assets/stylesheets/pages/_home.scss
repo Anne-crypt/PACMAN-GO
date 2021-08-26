@@ -48,6 +48,7 @@ h1 {
 }
 
 .role {
+  margin-top: 24px;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -55,11 +56,20 @@ h1 {
   width: 356px;
   height: 57px;
   background-color: #1f1ff0;
+  margin-left: 10px;
+}
+
+.host {
+  width: 178px;
+  height: 45px;
+  text-align: center;
+  margin-top: 8px;
+  padding-top: 15px;
 }
 
 .guest {
   background-color: black;
-  width: 178px;
+  width: 172px;
   height: 45px;
   margin-top: 9px;
   margin-right: 6px;
@@ -67,7 +77,42 @@ h1 {
   padding-top: 12px;
 }
 
-.host {
+#type_host {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+#type_guest {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#tokens_token {
+  width: 356px;
+  height: 57px;
+  background-color: rgb(179, 179, 179);
+  margin-top: 24px;
+  margin-left: 10px;
   text-align: center;
-  margin-top: 9px;
+  position: absolute;
+  top: 0;
+  margin-top: 632px;
+}
+
+.tokens_generated{
+  width: 356px;
+  height: 57px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.disable-tag {
+  display: none;
+}
+
+#create_player {
+    margin-top: 69px;
+    margin-left: 72px;
+
 }
