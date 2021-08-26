@@ -1,14 +1,30 @@
+
+<div id="home_logo">
+  <%= image_tag "pacman-logo.png", :class => "class_logo" %>
+</div>
+
+<div class="go">
+  <h1>GO!</h1>
+</div>
+
+<div class="ghost_team_home">
+  <%= image_tag "ghost_blue.png", :class => "ghost" %><%= image_tag "ghost_orange.png", :class => "ghost" %>
+  <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
+</div>
+
 <div data-controller="token">
-<h1>HI! WELCOME TO PACMAN-GO!</h1>
-<h2>Ready to start an exiting game?</h2>
+
 
 <%= simple_form_for @player do |f| %>
-  <%= f.input :nickname, placeholder: "Your nickname" %>
-
-
-  <label class="" data-role="host" data-action="change->token#select"><%= radio_button_tag "type", "host" %> Host</label>
-  <label class="" data-role="guest" data-action="change->token#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
-
+  <%= f.input :nickname, placeholder: "Your nickname", label: false %>
+  <div class="role">
+    <div>
+      <label class="host" data-role="host" data-action="change->token#select"><% radio_button_tag "type", "host" %> Host</label>
+    </div>
+    <div>
+      <label class="guest" data-role="guest" data-action="change->token#select"><% radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
+    </div>
+  </div>
 
   <%= simple_fields_for :tokens do |z| %>
     <%= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "d-none" } %>
@@ -17,6 +33,5 @@
 
   <%= f.submit  %>
 <% end %>
-
 
 </div>
