@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     # end
 
     # To activate only if you want to log as Host
-    Player.find_by(nickname: "new_host")
+    Player.find_by(nickname: "Anne")
   end
   # Ce helper permet que le current player dans les views
   # /!\ A garder sous la methode current_player
