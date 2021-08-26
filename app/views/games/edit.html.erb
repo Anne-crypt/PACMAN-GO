@@ -14,7 +14,7 @@
     </div>
     <%# Generating players list %>
     <div id="players-list">
-      <% @game.participation.each_with_index do |participation, index| %>
+      <% @game.participations.each_with_index do |participation, index| %>
         <div id="nickname-setting">
           <div id="settings-name">
             <div id="player-name">
@@ -27,17 +27,15 @@
               <%= image_tag "settings.png", :class => "img-icon" %>
             </div>
           </div>
-
-          <%# List the roles for each player %>
-          <div id="roles">
-          <div id="pacman-id">
-              <%= image_tag "pacman.png", :class => "img-icon" %>
+            <%# List the roles for each player %>
+          <div id="roles" data-controller="lobby">
+            <div id="pacman-id" class="pacman-object <%= 'settings-hover' if index == 0 %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
+                <%= image_tag "pacman.png", :class => "img-icon" %>
+            </div>
+            <div id="ghost-id" class="ghost-object <%= 'settings-hover' if index != 0 %>" data-role="ghost" data-action="click->lobby#select" data-lobby-target="ghostIcon">
+                <%= image_tag "ghost_red.png", :class => "img-icon" %>
+            </div>
           </div>
-          <div id="ghost-id">
-              <%= image_tag "ghost_red.png", :class => "img-icon" %>
-          </div>
-          </div>
-
         </div>
       <% end %>
     </div>
@@ -47,9 +45,13 @@
     <%# Button to start the game, link to map/plaground screen %>
     <% if @game.player == current_player %>
       <div class="start-btn">
-        <%= link_to "Start", :anchor => "#players-list" %>
+        <%= simple_form_for :player, url: game_path(@game), method: :patch do |f| %>
+          <%= f.input :pacman, as: :hidden %>
+          <%= f.submit "Start" %>
         <%= image_tag "pacman.png", :class => "pacman" %>
+        <% end %>
       </div>
+
     <% end %>
   </div>
   <%# *********************** %>

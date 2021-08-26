@@ -14,24 +14,23 @@
 
 <div data-controller="token">
 
-
-<%= simple_form_for @player do |f| %>
-  <%= f.input :nickname, placeholder: "Your nickname", label: false %>
-  <div class="role">
-    <div>
-      <label class="host" data-role="host" data-action="change->token#select"><% radio_button_tag "type", "host" %> Host</label>
+  <%= simple_form_for @player do |f| %>
+    <%= f.input :nickname, placeholder: "Your nickname", label: false %>
+    <div class="role">
+      <div>
+        <label class="host" data-role="host" data-action="change->token#select"><% radio_button_tag "type", "host" %> Host</label>
+      </div>
+      <div>
+        <label class="guest" data-role="guest" data-action="change->token#select"><% radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
+      </div>
     </div>
-    <div>
-      <label class="guest" data-role="guest" data-action="change->token#select"><% radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
-    </div>
-  </div>
 
-  <%= simple_fields_for :tokens do |z| %>
-    <%= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "d-none" } %>
-    <%= z.input :token, label: false, input_html: { data: { token_target: 'token' }  } %>
+    <%= simple_fields_for :tokens do |z| %>
+      <%= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "d-none" } %>
+      <%= z.input :token, label: false, input_html: { data: { token_target: 'token' }  } %>
+    <% end %>
+
+    <%= f.submit  %>
   <% end %>
-
-  <%= f.submit  %>
-<% end %>
 
 </div>

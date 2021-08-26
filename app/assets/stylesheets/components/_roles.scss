@@ -35,8 +35,12 @@
   transition: 1ms;
 }
 
-#settings:hover {
+.settings-hover {
   background-color: #1f1ff0;
+}
+
+.settings-hover-important {
+  background-color: black !important;
 }
 
 #roles {
@@ -65,10 +69,10 @@
   justify-content: center;
 }
 
-#ghost-id:hover {
-  background-color: #1f1ff0;
-}
+// #ghost-id:hover {
+//   background-color: #1f1ff0;
+// }
 
-#pacman-id:hover {
-  background-color: #1f1ff0;
-}
+// #pacman-id:hover {
+//   background-color: #1f1ff0;
+// }

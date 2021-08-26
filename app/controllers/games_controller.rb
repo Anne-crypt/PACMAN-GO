@@ -22,6 +22,14 @@ class GamesController < ApplicationController
     # current_player
   end
 
+  def update
+    @game = Game.find(params[:id])
+    @game.participations.update_all(role: 'ghost')
+    Participation.find_by(game: params[:id], player_id: params["player"]["pacman"]).update(role: "pacman")
+    # raise
+    redirect_to game_path(params[:id])
+  end
+
   def new
     @game = Game.new
   end
