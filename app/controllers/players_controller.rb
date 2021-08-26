@@ -32,7 +32,7 @@ private
 
   def player_params
     p params
-    params.require(:player).permit(:nickname, :token, :tokens)
+    params.require(:player).permit(:nickname, :token, :tokens, :latitude, :longitude)
   end
 
 end
