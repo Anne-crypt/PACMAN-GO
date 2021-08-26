@@ -1,8 +1,9 @@
 #token {
-  margin-bottom: 20px;
+  margin: 20px 0 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 #generated-token {
@@ -15,6 +16,9 @@
   border: 4px solid #1f1ff0;
 }
 
-#lobby-page-title {
-  font-size: 27px;
+#container-lobby {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
