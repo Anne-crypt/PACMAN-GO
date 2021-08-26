@@ -3,13 +3,14 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const placeMarker = (lat, lon, map) => {
   new mapboxgl.Marker().setLngLat([lon, lat]).addTo(map);
- }
+};
 
 const initMapbox = () => {
   const mapElement = document.getElementById('gamemap');
 
 
-  if (mapElement) { // only build a map if there's a div#map to inject into
+  if (mapElement) {
+    // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'gamemap',
@@ -18,7 +19,9 @@ const initMapbox = () => {
       center: [2.379983, 48.865171],
       zoom: 16,
       attributionControl: false,
-      interactive: true,
+
+      interactive: false,
+
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
@@ -40,8 +43,7 @@ const initMapbox = () => {
       navigator.geolocation.watchPosition((position) => {
         placeMarker(position.coords.latitude, position.coords.longitude, map);
       });
-    }
-    else {
+    } else {
       console.log("you don't have it ");
     }
   }

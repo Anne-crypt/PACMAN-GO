@@ -1,11 +1,3 @@
-body {
-  font-family: 'Press Start 2P', cursive;
-  background-image: url('pacman-empty-mockup.jpg');
-  color: white;
-  height: 100%;
-  width: 100%;
-}
-
 #landing-css {
   font-size: 27px;
 }
@@ -26,17 +18,13 @@ body {
   margin-top: 195px;
 }
 
-p {
+#best_game {
   text-align: center;
   margin-top: 37px;
   margin-bottom: 1rem;
 }
 
 .class_name {
-  // margin-top: 30px;
-  // display: block;
-  // margin-left: 11px;
-  // margin-top: 25px;
   width: 355px;
   height: 88px;
 }
@@ -48,7 +36,7 @@ p {
 }
 
 .ghost_team {
-  margin-left: 135px;
+  margin-left: 124px;
   margin-top: 190px;
 }
 
