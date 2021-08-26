@@ -14,3 +14,10 @@
   background-color: black;
   border: 4px solid #1f1ff0;
 }
+
+#container-lobby {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
