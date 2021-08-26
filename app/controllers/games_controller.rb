@@ -5,12 +5,14 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   #  @game = Game.find(params[:id])
   #  @current_player = Player.find(session[:player_id]) if session[:player_id]
-    @players = @game.participation.map { |participation| participation.player}
-     @markers = @players.map do |player|
-      {
+    @players = @game.participations.map { |participation| participation.player}
+    colors=["red", "blue", "orange", "pink", "green"]
+    @markers = []
+    @players.each_with_index do |player, index|
+      @markers << {
         lat: player.latitude,
         lng: player.longitude,
-        image_url: helpers.asset_url('https://placekitten.com/200/300')
+        image_url: helpers.asset_url("ghost_#{colors[index]}.png")
       }
     end
   end
@@ -35,7 +37,6 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @game.participations.update_all(role: 'ghost')
     Participation.find_by(game: params[:id], player_id: params["player"]["pacman"]).update(role: "pacman")
-    # raise
     redirect_to game_path(params[:id])
   end
 
