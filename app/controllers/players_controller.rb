@@ -15,7 +15,7 @@ class PlayersController < ApplicationController
         @game.save!
       end
 
-      @participation = Participation.new(game_id: @game.id, player_id: @player.id, role: "ghost")
+      @participation = Participation.new(game_id: @game.id, player_id: @player.id)
       @participation.save!
       redirect_to edit_game_path(@game.id)
     else

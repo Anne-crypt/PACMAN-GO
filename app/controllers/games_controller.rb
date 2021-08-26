@@ -9,7 +9,8 @@ class GamesController < ApplicationController
      @markers = @players.map do |player|
       {
         lat: player.latitude,
-        lng: player.longitude
+        lng: player.longitude,
+        image_url: helpers.asset_url('https://placekitten.com/200/300')
       }
     end
   end
