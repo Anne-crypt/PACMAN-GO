@@ -2,44 +2,45 @@
 <div class="container">
 
   <div id="container-lobby">
-  <div id="title-page-token">
-    <div class="title-page">
-      Looby
-    </div>
+    <div id="title-page-token">
+      <div class="title-page">
+        Looby
+      </div>
 
-    <%# Add here the token generator coded by Anne %>
-    <div id="token">
-      <p>Share the below token with your fellow friends:</p>
-      <div id="generated-token"><%= @game.token %></div>
-    </div>
-    <%# Generating players list %>
-    <div id="players-list">
-      <% @game.participations.each_with_index do |participation, index| %>
-        <div id="nickname-setting">
-          <div id="settings-name">
-            <div id="player-name">
-              <p>Player<%= "_#{index + 1}:" %></p>
-              <p><%= "#{participation.player.nickname}" %></p>
-            </div>
-
-            <%# Generating settings button for each player %>
-            <div id="settings">
-              <%= image_tag "settings.png", :class => "img-icon" %>
-            </div>
-          </div>
-            <%# List the roles for each player %>
-          <div id="roles" data-controller="lobby">
-            <div id="pacman-id" class="pacman-object <%= 'settings-hover' if index == 0 %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
-                <%= image_tag "pacman.png", :class => "img-icon" %>
-            </div>
-            <div id="ghost-id" class="ghost-object <%= 'settings-hover' if index != 0 %>" data-role="ghost" data-action="click->lobby#select" data-lobby-target="ghostIcon">
-                <%= image_tag "ghost_red.png", :class => "img-icon" %>
-            </div>
-          </div>
+      <%# Add here the token generator coded by Anne %>
+      <div id="token">
+        <p>Share the below token with your fellow friends:</p>
+        <div id="generated-token"><%= @game.token %>
         </div>
-      <% end %>
+      </div>
+      <%# Generating players list %>
+      <div id="players-list">
+        <% @game.participations.each_with_index do |participation, index| %>
+          <div id="nickname-setting">
+            <div id="settings-name">
+              <div id="player-name">
+                <p>Player<%= "_#{index + 1}:" %></p>
+                <p><%= "#{participation.player.nickname}" %></p>
+              </div>
+
+              <%# Generating settings button for each player %>
+              <div id="settings">
+                <%= image_tag "settings.png", :class => "img-icon" %>
+              </div>
+            </div>
+              <%# List the roles for each player %>
+            <div id="roles" data-controller="lobby">
+              <div id="pacman-id" class="pacman-object <%= 'settings-hover' if index == 0 %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
+                  <%= image_tag "pacman.png", :class => "img-icon" %>
+              </div>
+              <div id="ghost-id" class="ghost-object <%= 'settings-hover' if index != 0 %>" data-role="ghost" data-action="click->lobby#select" data-lobby-target="ghostIcon">
+                  <%= image_tag "ghost_red.png", :class => "img-icon" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
 
 
     <%# Button to start the game, link to map/plaground screen %>
@@ -51,8 +52,7 @@
         <%= image_tag "pacman.png", :class => "pacman" %>
         <% end %>
       </div>
-
     <% end %>
+
   </div>
-  <%# *********************** %>
 </div>
