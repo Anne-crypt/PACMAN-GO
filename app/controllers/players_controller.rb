@@ -4,6 +4,7 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
 
     if @player.save!
+      raise
       session[:player_id] = @player.id
       if params['tokens']['token'].present?
         token = params['tokens']['token']
