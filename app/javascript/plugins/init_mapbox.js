@@ -3,20 +3,21 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const placeMarker = (lat, lon, map) => {
   new mapboxgl.Marker().setLngLat([lon, lat]).addTo(map);
- }
+};
 
 const initMapbox = () => {
   const mapElement = document.getElementById('gamemap');
 
-  if (mapElement) { // only build a map if there's a div#map to inject into
+  if (mapElement) {
+    // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'gamemap',
-      style: 'mapbox://styles/ja-dore/cksojgcmr4th017lw0hrh1fiz',
+      style: 'mapbox://styles/mapbox/streets-v11',
       center: [2.379993, 48.8640313],
       zoom: 15,
       attributionControl: false,
-      interactive: false
+      interactive: false,
     });
 
     const element = document.createElement('div');
@@ -31,8 +32,7 @@ const initMapbox = () => {
       navigator.geolocation.watchPosition((position) => {
         placeMarker(position.coords.latitude, position.coords.longitude, map);
       });
-    }
-    else {
+    } else {
       console.log("you don't have it ");
     }
   }
