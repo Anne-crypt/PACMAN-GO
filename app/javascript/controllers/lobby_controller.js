@@ -24,13 +24,13 @@ export default class extends Controller {
       });
       this.ghostIconTarget.classList.remove('settings-hover');
     } else {
-      event.currentTarget.classList.add('settings-hover');
-      this.pacmanIconTarget.classList.remove('settings-hover');
-      pacmans.item(0).classList.add('settings-hover');
-      ghosts.item(0).classList.remove('settings-hover');
-      document
-        .getElementById('player_pacman')
-        .setAttribute('value', pacmans.item(0).dataset.id);
+        event.currentTarget.classList.add('settings-hover');
+        this.pacmanIconTarget.classList.remove('settings-hover');
+        pacmans.item(0).classList.add('settings-hover');
+        ghosts.item(0).classList.remove('settings-hover');
+        document
+          .getElementById('player_pacman')
+          .setAttribute('value', pacmans.item(0).dataset.id);
     }
   }
 }
