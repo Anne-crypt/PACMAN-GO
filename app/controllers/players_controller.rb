@@ -2,6 +2,8 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
+    @player.latitude = rand(48.865171..48.865933)
+    @player.longitude = rand(2.379320..2.380347)
 
     if @player.save!
       session[:player_id] = @player.id

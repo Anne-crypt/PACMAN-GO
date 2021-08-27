@@ -39,7 +39,7 @@ const initMapbox = () => {
 
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition((position) => {
-        placeMarker(position.coords.latitude, position.coords.longitude, map);
+        // placeMarker(position.coords.latitude, position.coords.longitude, map);
       });
     } else {
       console.log("you don't have it ");
