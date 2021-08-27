@@ -1,8 +1,9 @@
 body {
   font-family: 'Press Start 2P', cursive;
-  background-image: url('pacman-empty-mockup.jpg');
+  background-image: image_url('pacman-empty-mockup.jpg');
   color: white;
   height: 100vh;
+  background-size: cover;
   // width: 100%;
 }
 
