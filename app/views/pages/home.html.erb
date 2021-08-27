@@ -12,17 +12,17 @@
   <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
 </div>
 
-<div data-controller="token">
+<div data-controller="token hover">
 
 
 <%= simple_form_for @player do |f| %>
   <%= f.input :nickname, placeholder: "Your nickname", label: false %>
   <div class="role">
     <div>
-      <label class="host radio-btn" data-role="host" data-action="change->token#select"><%= radio_button_tag "type", "host" %> Host</label>
+      <label class="host radio-btn" data-hover-target="hostSelect" data-role="host" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "host" %> Host</label>
     </div>
     <div>
-      <label class="guest radio-btn" data-role="guest" data-action="change->token#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
+      <label class="guest radio-btn" data-hover-target="guestSelect" data-role="guest" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
     </div>
   </div>
   <div>
