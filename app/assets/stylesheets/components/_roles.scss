@@ -43,7 +43,7 @@
   background-color: #1f1ff0 !important;
 }
 
-.settings-hover-important {
+.settings-hover-black {
   background-color: black !important;
 }
 
@@ -71,6 +71,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.role_btn {
+  background-color: black;
 }
 
 // #ghost-id:hover {
