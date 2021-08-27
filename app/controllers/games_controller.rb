@@ -12,7 +12,7 @@ class GamesController < ApplicationController
       @markers << {
         lat: player.latitude,
         lng: player.longitude,
-        # image_url: helpers.asset_url("ghost_#{colors[index]}.png")
+        image_url: helpers.asset_url("ghost_#{colors[index]}.png")
       }
     end
   end
