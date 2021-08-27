@@ -25,10 +25,11 @@
 
               <%# Generating settings button for each player %>
               <div id="settings" data-controller="lobby" data-action="click->lobby#settings">
-                <%= image_tag "settings.png", :class => "img-icon" %>
+                <% img = image_tag "settings.png", :class => "img-icon" %>
                 <% if participation.player.id == current_player.id %>
-                  <%= link_to "", root_path %>
-                  <%#= image_tag "pacman.png", :class => "class_logo" %>
+                  <%= link_to img, root_path %>
+                  <% else %>
+                      <%= image_tag "settings.png", :class => "img-icon" %>
                 <% end %>
               </div>
             </div>
