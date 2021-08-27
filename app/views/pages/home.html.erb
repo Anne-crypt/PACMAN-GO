@@ -5,17 +5,20 @@
     <%= image_tag "pacman-logo.png", :class => "class_logo" %>
   </div>
 
-  <div class="go">
-    <h1>GO!</h1>
+  <div id="go-ghosts">
+    <div class="go">
+      <h1>GO!</h1>
+    </div>
+
+    <div class="ghost_team_home">
+      <%= image_tag "ghost_blue.png", :class => "ghost" %><%= image_tag "ghost_orange.png", :class => "ghost" %>
+      <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
+    </div>
   </div>
 
 
   <div data-controller="token hover" id="center-form">
 
-  <div class="ghost_team_home">
-    <%= image_tag "ghost_blue.png", :class => "ghost" %><%= image_tag "ghost_orange.png", :class => "ghost" %>
-    <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
-  </div>
 
   <%= simple_form_for @player do |f| %>
     <div id="nickname-input">
@@ -32,9 +35,7 @@
     <div>
       <%= simple_fields_for :tokens do |z| %>
         <%= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "disable-tag" } %>
-        <div id="party_id">
           <%= z.input :token, placeholder: "Enter Party ID", label: false, input_html: { data: { token_target: 'token' }  } %>
-        </div>
       <% end %>
     </div>
     <div id="create_player">

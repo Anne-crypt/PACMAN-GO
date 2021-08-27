@@ -1,8 +1,8 @@
 // Specific CSS for your home-page
-body {
-  font-family: 'Press Start 2P', cursive;
-  height: 100vh;
-}
+// body {
+//   font-family: 'Press Start 2P', cursive;
+//   height: 100vh;
+// }
 .class_logo {
   width: 355px;
   height: 88px;
@@ -16,21 +16,26 @@ body {
 
 .go {
   text-align: center;
-  margin-top: 115px;
+  padding-bottom: 50px;
+  // margin-top: 115px;
 }
 
 h1 {
   font-family: 'Press Start 2P', cursive;
 }
 
-// .ghost_team_home {
-//   margin-left: 125px;
-//   margin-top: 28px;
-// }
+.ghost_team_home {
+  // margin-left: 125px;
+  // margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
 
 .ghost {
   width: 25px;
   height: 25px;
+  margin: 0 3px;
 }
 
 #player_nickname {
@@ -104,7 +109,7 @@ h1 {
 }
 
 #tokens_token {
-  width: 356px;
+  width: 80%;
   height: 57px;
   border-radius: 5px;
   background-color: #b3b3b3;
@@ -115,6 +120,11 @@ h1 {
   //  position: absolute;
   //  top: 0;
   //  margin-top: 632px;
+}
+
+.tokens_token {
+  display: flex;
+  justify-content: center;
 }
 
 .tokens_generated {
@@ -129,8 +139,8 @@ h1 {
 }
 
 #create_player {
-  margin-top: 60px;
-  margin-left: 70px;
+  // margin-top: 60px;
+  // margin-left: 70px;
 }
 
 #submit_player {
@@ -194,6 +204,10 @@ h1 {
 }
 
 #party_id {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+}
+
+.visibility_token {
+  visibility: hidden;
 }

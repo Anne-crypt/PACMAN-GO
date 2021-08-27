@@ -7,19 +7,18 @@
 //   <h1 data-target="hello.output"></h1>
 // </div>
 
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = [ 'generated', 'token' ]
-
+  static targets = ['generated', 'token'];
 
   select(event) {
-    if (event.currentTarget.dataset.role == "guest") {
-      this.generatedTarget.classList.add('d-none')
-      this.tokenTarget.classList.remove('d-none')
+    if (event.currentTarget.dataset.role == 'guest') {
+      this.generatedTarget.classList.add('visibility_token');
+      this.tokenTarget.classList.remove('visibility_token');
     } else {
-      this.tokenTarget.classList.add('d-none')
-      this.generatedTarget.classList.remove('d-none')
+      this.tokenTarget.classList.add('visibility_token');
+      this.generatedTarget.classList.remove('visibility_token');
     }
   }
 }
