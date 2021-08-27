@@ -27,7 +27,8 @@
               <div id="settings" data-controller="lobby" data-action="click->lobby#settings">
                 <%= image_tag "settings.png", :class => "img-icon" %>
                 <% if participation.player.id == current_player.id %>
-                  <% link_to home_path %>
+                  <%= link_to "", root_path %>
+                  <%#= image_tag "pacman.png", :class => "class_logo" %>
                 <% end %>
               </div>
             </div>
