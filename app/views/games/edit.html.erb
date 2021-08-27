@@ -24,8 +24,11 @@
               </div>
 
               <%# Generating settings button for each player %>
-              <div id="settings">
+              <div id="settings" data-controller="lobby" data-action="click->lobby#settings">
                 <%= image_tag "settings.png", :class => "img-icon" %>
+                <% if participation.player.id == current_player.id %>
+                  <% link_to home_path %>
+                <% end %>
               </div>
             </div>
               <%# List the roles for each player %>
