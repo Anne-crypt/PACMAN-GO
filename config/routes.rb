@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
   resources :games, only: [:show, :create, :new, :edit, :update] do
     resources :items, only: :create
+    resources :settings, only: :show
   end
+
   resources :players, only: [:create, :new]
 
   get 'game', to: 'pages#game'
