@@ -1,7 +1,7 @@
 class SettingsController < ApplicationController
-  def show
+  def edit
     @game = Game.find(params[:game_id])
     @player = current_player
-    raise
+    # raise
   end
 end
