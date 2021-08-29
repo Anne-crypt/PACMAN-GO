@@ -27,6 +27,7 @@
               <div id="settings" data-controller="lobby" data-action="click->lobby#settings">
                 <% img = image_tag "settings-on.png", :class => "img-icon" %>
                 <% if participation.player.id == current_player.id %>
+                <%# The link root_path will be updated to game_settings(@game) to redirect the player to its settings %>
                   <%= link_to img, root_path %>
                   <% else %>
                       <%= image_tag "settings.png", :class => "img-icon" %>
