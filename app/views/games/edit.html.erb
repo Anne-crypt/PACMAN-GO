@@ -25,7 +25,7 @@
 
               <%# Generating settings button for each player %>
               <div id="settings" data-controller="lobby" data-action="click->lobby#settings">
-                <% img = image_tag "settings.png", :class => "img-icon" %>
+                <% img = image_tag "settings-on.png", :class => "img-icon" %>
                 <% if participation.player.id == current_player.id %>
                   <%= link_to img, root_path %>
                   <% else %>
