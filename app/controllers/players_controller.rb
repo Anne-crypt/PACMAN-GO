@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
     @player.latitude = rand(48.865171..48.865433)
     @player.longitude = rand(2.379320..2.379690)
 
-    if @player.save
+    if @player.save!
       session[:player_id] = @player.id
       if params['tokens']['token'].present?
         token = params['tokens']['token']
@@ -29,7 +29,7 @@ class PlayersController < ApplicationController
       @participation.save!
       redirect_to edit_game_path(@game.id)
     else
-      render "pages/home"
+      render :new
     end
   end
 
@@ -45,7 +45,9 @@ class PlayersController < ApplicationController
     #   @player.game.items.near([@player.latitude, @player.longitude], 4, units: :m)
     # end
 
-    # Call Websocket pour envoyer l'infos les positions (pacma, ghosts, items.where(eaten: false))
+    # Call Websocket pour envoyer l'infos les positions (pacman, ghosts, items.where(eaten: false))
+    # make l'item disappear
+    # if eaten un super (burger), peut manger ghost
   end
 
 private

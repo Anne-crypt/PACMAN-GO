@@ -6,6 +6,9 @@ class GamesController < ApplicationController
   #  @game = Game.find(params[:id])
   #  @current_player = Player.find(session[:player_id]) if session[:player_id]
     @players = @game.participations.map { |participation| participation.player}
+
+    @current_player_participation = @game.participations.find_by(player: current_player)
+
     colors=["red", "blue", "orange", "pink", "green"]
     @markers = []
     @players.each_with_index do |player, index|
@@ -19,7 +22,7 @@ class GamesController < ApplicationController
       @markers << {
         lat: item.latitude,
         lng: item.longitude,
-        image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot.png")
+        image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot-test.png")
       }
     end
   end
