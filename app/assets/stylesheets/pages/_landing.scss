@@ -10,6 +10,7 @@
   border-radius: 20px;
   width: 236px;
   height: 48px;
+  background-color: black;
 }
 
 #bouton {
@@ -36,8 +37,9 @@
 }
 
 .ghost_team {
-  margin-left: 118px;
-  margin-top: 182px;
+  display: flex;
+  justify-content: center;
+  padding-top: 125px;
 }
 
 .ghost {
@@ -47,4 +49,12 @@
 
 .font-landing {
   font-size: 27px;
+}
+
+@media(max-width: 992px) {
+  .ghost_team {
+  display: flex;
+  justify-content: center;
+  padding-top: 125px;
+}
 }
