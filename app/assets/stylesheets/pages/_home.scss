@@ -8,7 +8,7 @@ body {
 }
 
 #home_logo {
-  margin-top: 25px;
+  padding-top: 25px;
   display: flex;
   justify-content: center;
 }
@@ -22,10 +22,10 @@ h1 {
   font-family: 'Press Start 2P', cursive;
 }
 
-.ghost_team_home {
-  margin-left: 125px;
-  margin-top: 28px;
-}
+// .ghost_team_home {
+//   margin-left: 125px;
+//   margin-top: 28px;
+// }
 
 .ghost {
   width: 25px;
@@ -33,20 +33,20 @@ h1 {
 }
 
 #player_nickname {
-  width: 356px;
+  width: inherit;
   height: 57px;
   background-color: black;
   border-color: #1f1ff0;
-  margin-left: 10px;
-  margin-top: 138px;
+  // margin-left: 10px;
+  // margin-top: 138px;
   border-radius: 5px;
 }
 
-#token_generated {
-  text-align: center;
-  width: 356px;
-  height: 57px;
-}
+// #token_generated {
+//   text-align: center;
+//   width: 356px;
+//   height: 57px;
+// }
 
 .role {
   margin-top: 24px;
@@ -54,8 +54,8 @@ h1 {
   display: flex;
   // justify-content: space-between;
   font-size: 15px;
-  width: 356px;
-  height: 57px;
+  // width: 356px;
+  // height: 57px;
   border-radius: 5px;
   background-color: black;
   margin-left: 10px;
@@ -139,4 +139,30 @@ h1 {
   color: white;
   width: 236px;
   height: 48px;
+}
+
+#center-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#new_player {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player_nickname {
+  width: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+#global_container {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

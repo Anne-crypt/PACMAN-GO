@@ -1,39 +1,43 @@
 
-<div id="home_logo">
-  <%= image_tag "pacman-logo.png", :class => "class_logo" %>
-</div>
+<div id="global_container">
 
-<div class="go">
-  <h1>GO!</h1>
-</div>
+  <div id="home_logo">
+    <%= image_tag "pacman-logo.png", :class => "class_logo" %>
+  </div>
 
-<div class="ghost_team_home">
-  <%= image_tag "ghost_blue.png", :class => "ghost" %><%= image_tag "ghost_orange.png", :class => "ghost" %>
-  <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
-</div>
+  <div class="go">
+    <h1>GO!</h1>
+  </div>
 
-<div data-controller="token hover">
+  <div data-controller="token hover" id="center-form">
 
+  <div class="ghost_team_home">
+    <%= image_tag "ghost_blue.png", :class => "ghost" %><%= image_tag "ghost_orange.png", :class => "ghost" %>
+    <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
+  </div>
 
-<%= simple_form_for @player do |f| %>
-  <%= f.input :nickname, placeholder: "Your nickname", label: false %>
-  <div class="role">
-    <div>
-      <label class="host radio-btn" data-hover-target="hostSelect" data-role="host" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "host" %> Host</label>
+  <%= simple_form_for @player do |f| %>
+    <div id="nickname-input">
+      <%= f.input :nickname, placeholder: "Your nickname", label: false %>
+    </div>
+    <div class="role">
+      <div>
+        <label class="host radio-btn" data-hover-target="hostSelect" data-role="host" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "host" %> Host</label>
+      </div>
+      <div>
+        <label class="guest radio-btn" data-hover-target="guestSelect" data-role="guest" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
+      </div>
     </div>
     <div>
-      <label class="guest radio-btn" data-hover-target="guestSelect" data-role="guest" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
+      <%= simple_fields_for :tokens do |z| %>
+        <%= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "disable-tag" } %>
+        <%= z.input :token, placeholder: "Enter Party ID", label: false, input_html: { data: { token_target: 'token' }  } %>
+      <% end %>
     </div>
-  </div>
-  <div>
-    <%= simple_fields_for :tokens do |z| %>
-      <%= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "disable-tag" } %>
-      <%= z.input :token, placeholder: "Enter Party ID", label: false, input_html: { data: { token_target: 'token' }  } %>
-    <% end %>
-  </div>
-  <div id="create_player">
-    <%= f.submit id: "submit_player" %>
-  </div>
-<% end %>
+    <div id="create_player">
+      <%= f.submit id: "submit_player" %>
+    </div>
+  <% end %>
 
+  </div>
 </div>
