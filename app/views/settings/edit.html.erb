@@ -1,0 +1,17 @@
+<h1>settings</h1>
+
+      <div id="colors-choice">
+        <%= "Pick your favorite color" %>
+        <div class="colors">
+          <%= simple_form_for :player, url: game_settings_path(@game), method: :patch do |f| %>
+            <% Game::COLORS.each do |color| %>
+              <label class="">
+                <%= radio_button_tag "color", color, current_player.color == color %>
+                <%= image_tag "ghost_#{color}.png",
+                class: "ghost" %>
+              </label>
+            <% end %>
+            <%= f.submit "Start" %>
+          <% end %>
+        </div>
+      </div>

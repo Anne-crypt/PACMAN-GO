@@ -17,8 +17,11 @@ class PlayersController < ApplicationController
         @game.save!
       end
 
-      @participation = Participation.new(game_id: @game.id, player_id: @player.id)
+      @participation = Participation.new(game_id: @game.id,
+        player_id: @player.id,
+        role: @game.player == current_player ? "pacman" : "ghost")
       @participation.save!
+      # Broadcast action cable
       redirect_to edit_game_path(@game.id)
     else
       render "pages/home"
