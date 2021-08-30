@@ -1,18 +1,25 @@
 class GamesController < ApplicationController
   before_action :authenticate_player
 
+  # COLORS = {
+  #   red: ghost_red.png
+  #   blue: ghost_blue.png
+  #   orange: ghost_orange.png
+  #   pink: ghost_pink.png
+  #   green: ghost_green.png
+  # }
+
   def show
     @game = Game.find(params[:id])
   #  @game = Game.find(params[:id])
   #  @current_player = Player.find(session[:player_id]) if session[:player_id]
     @players = @game.participations.map { |participation| participation.player}
-    colors=["red", "blue", "orange", "pink", "green"]
     @markers = []
     @players.each_with_index do |player, index|
       @markers << {
         lat: player.latitude,
         lng: player.longitude,
-        image_url: helpers.asset_url("ghost_#{colors[index]}.png")
+        image_url: helpers.asset_url("ghost_#{Game::COLORS[index]}.png")
       }
     end
   end
