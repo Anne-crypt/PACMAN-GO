@@ -1,7 +1,18 @@
 class PlayersController < ApplicationController
 
+  # GameChannel.braodcast_to(@game, render_to_string(partial: "userplayer" )
+  def update
+    @game = Game.find(params[:game_id])
+    @player = Player.find(params[:id])
+    @player.latitude = params[:latitude].to_f
+    @player.longitude = params[:longitude].to_f
+    @player.save!
+    GameChannel.broadcast_to(@game, @player)
+  end
+
   def create
     @player = Player.new(player_params)
+    # Here we need to capture the location by JS
     @player.latitude = rand(48.865171..48.865433)
     @player.longitude = rand(2.379320..2.379690)
 
@@ -35,5 +46,6 @@ private
   def player_params
     params.require(:player).permit(:nickname, :token, :tokens, :latitude, :longitude)
   end
+
 
 end

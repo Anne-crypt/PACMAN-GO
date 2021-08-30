@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
   resources :players, only: [:create, :new]
 
-  get 'game', to: 'pages#game'
+  patch 'games/:game_id/players/:id', to: 'players#update'
 end
