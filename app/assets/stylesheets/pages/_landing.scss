@@ -1,50 +1,454 @@
+// @media(max-width: 992px) {
+//   .ghost_team {
+//   display: flex;
+//   justify-content: center;
+//   padding-top: 125px;
+// }
+// }
+@media(max-height: 1366px) {
+  #landing-css {
+    font-size: 27px;
+  }
+
+  #game_title {
+    display: flex;
+    justify-content: center;
+    padding-top: 68px;
+  }
+
+  .class_name {
+    width: 700px;
+    height: 150px;
+  }
+
+  .ghost_team {
+    display: flex;
+    justify-content: center;
+    padding-top: 210px;
+  }
+
+  .ghost {
+    width: 60px;
+    height: 60px;
+  }
+
+  #best_game {
+    text-align: center;
+    padding-top: 170px;
+    margin-bottom: 1rem;
+    font-size: 50px;
+  }
+
+  .btn-ghost {
+    font-size: 35px;
+    text-align: center;
+    color: white;
+    border: 10px solid #1f1ff0;
+    border-radius: 30px;
+    width: 485px;
+    height: 75px;
+    background-color: black;
+  }
+
+  #bouton {
+    display: flex;
+    justify-content: center;
+    margin-top: 252px;
+  }
+
+  .font-landing {
+    font-size: 27px;
+  }
+}
+
+@media(max-height: 1024px) {
+  #landing-css {
+    font-size: 27px;
+  }
+
+  #game_title {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  .class_name {
+    width: 700px;
+    height: 150px;
+  }
+
+  .ghost_team {
+    display: flex;
+    justify-content: center;
+    padding-top: 140px;
+  }
+
+  .ghost {
+    width: 60px;
+    height: 60px;
+  }
+
+  #best_game {
+    text-align: center;
+    padding-top: 120px;
+    margin-bottom: 1rem;
+    font-size: 38px;
+  }
+
+  .btn-ghost {
+    font-size: 28px;
+    text-align: center;
+    color: white;
+    border: 10px solid #1f1ff0;
+    border-radius: 30px;
+    width: 420px;
+    height: 65px;
+    background-color: black;
+  }
+
+  #bouton {
+    display: flex;
+    justify-content: center;
+    margin-top: 173px;
+  }
+
+  .font-landing {
+    font-size: 27px;
+  }
+}
+
+@media(max-height: 823px) {
+  #landing-css {
+    font-size: 27px;
+  }
+
+  #game_title {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .class_name {
+    width: 340px;
+    height: 85px;
+  }
+
+  .ghost_team {
+    display: flex;
+    justify-content: center;
+    padding-top: 207px;
+  }
+
+  .ghost {
+    width: 25px;
+    height: 25px;
+  }
+
+  #best_game {
+    text-align: center;
+    padding-top: 66px;
+    margin-bottom: 1rem;
+    font-size: 20px;
+  }
+
+  .btn-ghost {
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    border: 5px solid #1f1ff0;
+    border-radius: 30px;
+    width: 270px;
+    height: 40px;
+    background-color: black;
+  }
+
+  #bouton {
+    display: flex;
+    justify-content: center;
+    margin-top: 91px;
+  }
+
+  .font-landing {
+    font-size: 27px;
+  }
+}
+
+@media(max-height: 812px) {
+  #landing-css {
+    font-size: 27px;
+  }
+
+  #game_title {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .class_name {
+    width: 340px;
+    height: 85px;
+  }
+
+  .ghost_team {
+    display: flex;
+    justify-content: center;
+    padding-top: 207px;
+  }
+
+  .ghost {
+    width: 25px;
+    height: 25px;
+  }
+
+  #best_game {
+    text-align: center;
+    padding-top: 58px;
+    margin-bottom: 1rem;
+    font-size: 20px;
+  }
+
+  .btn-ghost {
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    border: 5px solid #1f1ff0;
+    border-radius: 30px;
+    width: 200px;
+    height: 40px;
+    background-color: black;
+  }
+
+  #bouton {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+  }
+
+  .font-landing {
+    font-size: 27px;
+  }
+}
+
+@media(max-height: 736px) {
+  #landing-css {
+    font-size: 27px;
+  }
+
+  #game_title {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+  }
+
+  .class_name {
+    width: 365px;
+    height: 90px;
+  }
+
+  .ghost_team {
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+  }
+
+  .ghost {
+    width: 30px;
+    height: 30px;
+  }
+
+  #best_game {
+    text-align: center;
+    padding-top: 65px;
+    margin-bottom: 1rem;
+    font-size: 22px;
+  }
+
+  .btn-ghost {
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    border: 5px solid #1f1ff0;
+    border-radius: 30px;
+    width: 220px;
+    height: 40px;
+    background-color: black;
+  }
+
+  #bouton {
+    display: flex;
+    justify-content: center;
+    margin-top: 83px;
+  }
+
+  .font-landing {
+    font-size: 27px;
+  }
+}
+
+@media(max-height: 667px) {
+  #landing-css {
+    font-size: 27px;
+  }
+
+  #game_title {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .class_name {
+    width: 340px;
+    height: 85px;
+  }
+
+  .ghost_team {
+    display: flex;
+    justify-content: center;
+    padding-top: 135px;
+  }
+
+  .ghost {
+    width: 25px;
+    height: 25px;
+  }
+
+  #best_game {
+    text-align: center;
+    padding-top: 58px;
+    margin-bottom: 1rem;
+    font-size: 20px;
+  }
+
+  .btn-ghost {
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    border: 5px solid #1f1ff0;
+    border-radius: 30px;
+    width: 200px;
+    height: 40px;
+    background-color: black;
+  }
+
+  #bouton {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+  }
+
+  .font-landing {
+    font-size: 27px;
+  }
+}
+
+@media(max-height: 640px) {
+  #landing-css {
+    font-size: 27px;
+  }
+
+  #game_title {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .class_name {
+    width: 340px;
+    height: 85px;
+  }
+
+  .ghost_team {
+    display: flex;
+    justify-content: center;
+    padding-top: 125px;
+  }
+
+  .ghost {
+    width: 25px;
+    height: 25px;
+  }
+
+  #best_game {
+    text-align: center;
+    padding-top: 55px;
+    margin-bottom: 1rem;
+    font-size: 18px;
+  }
+
+  .btn-ghost {
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    border: 5px solid #1f1ff0;
+    border-radius: 30px;
+    width: 200px;
+    height: 40px;
+    background-color: black;
+  }
+
+  #bouton {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+  }
+
+  .font-landing {
+    font-size: 27px;
+  }
+}
+
+  @media(max-height: 568px) {
 #landing-css {
   font-size: 27px;
-}
-
-.btn-ghost {
-  font-size: 22px;
-  text-align: center;
-  color: white;
-  border: 5px solid #1f1ff0;
-  border-radius: 20px;
-  width: 236px;
-  height: 48px;
-}
-
-#bouton {
-  display: flex;
-  justify-content: center;
-  margin-top: 195px;
-}
-
-#best_game {
-  text-align: center;
-  margin-top: 33px;
-  margin-bottom: 1rem;
-}
-
-.class_name {
-  width: 355px;
-  height: 88px;
 }
 
 #game_title {
   display: flex;
   justify-content: center;
-  padding-top: 18px;
+  padding-top: 20px;
+}
+
+.class_name {
+  width: 290px;
+  height: 75px;
 }
 
 .ghost_team {
-  margin-left: 118px;
-  margin-top: 182px;
+  display: flex;
+  justify-content: center;
+  padding-top: 109px;
 }
 
 .ghost {
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
+}
+
+#best_game {
+  text-align: center;
+  padding-top: 50px;
+  margin-bottom: 1rem;
+  font-size: 17px;
+}
+
+.btn-ghost {
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  border: 5px solid #1f1ff0;
+  border-radius: 30px;
+  width: 185px;
+  height: 40px;
+  background-color: black;
+}
+
+#bouton {
+  display: flex;
+  justify-content: center;
+  margin-top: 75px;
 }
 
 .font-landing {
   font-size: 27px;
+}
 }

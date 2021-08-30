@@ -10,3 +10,137 @@
 body {
   position: relative;
 }
+
+@media(max-height: 1366px) {
+  .full_heart {
+  width: 52px;
+  height: 52px;;
+}
+
+.hearts {
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  padding-left: 75px;
+
+}
+
+.half_heart {
+  width: 42px;
+  height: 42px;;
+}
+
+#game_score {
+  position: absolute;
+  bottom: -5px;
+  left: 85px;
+  font-size: 32px;
+}
+}
+
+@media(max-height: 1024px) {
+  .full_heart {
+  width: 39px;
+  height: 39px;;
+}
+
+.hearts {
+  margin: 0;
+  padding: 0;
+  padding-top: 6px;
+  padding-left: 55px;
+
+}
+
+.half_heart {
+  width: 33px;
+  height: 33px;;
+}
+
+#game_score {
+  position: absolute;
+  bottom: -5px;
+  left: 60px;
+  font-size: 22px;
+}
+}
+
+@media(max-height: 812px) {
+  .full_heart {
+  width: 29px;
+  height: 29px;;
+}
+
+.hearts {
+  margin: 0;
+  padding: 0;
+  padding-top: 6px;
+  padding-left: 30px;
+
+}
+
+.half_heart {
+  width: 25px;
+  height: 25px;;
+}
+
+#game_score {
+  position: absolute;
+  bottom: -8px;
+  left: 35px;
+  font-size: 20px;
+}
+}
+
+@media(max-height: 736px) {
+  .full_heart {
+  width: 29px;
+  height: 29px;;
+}
+
+.hearts {
+  margin: 0;
+  padding: 0;
+  padding-top: 4px;
+  padding-left: 30px;
+
+}
+
+.half_heart {
+  width: 25px;
+  height: 25px;;
+}
+
+#game_score {
+  position: absolute;
+  bottom: -8px;
+  left: 35px;
+}
+}
+
+@media(max-height: 667px) {
+  .full_heart {
+  width: 25px;
+  height: 25px;;
+}
+
+.hearts {
+  margin: 0;
+  padding: 0;
+  padding-top: 0px;
+  padding-left: 30px;
+
+}
+
+.half_heart {
+  width: 21px;
+  height: 21px;;
+}
+
+#game_score {
+  position: absolute;
+  bottom: -12px;
+  left: 35px;
+  font-size: 15px;
+}
+}

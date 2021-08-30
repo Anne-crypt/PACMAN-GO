@@ -9,6 +9,8 @@ export default class extends Controller {
 
   settings(event) {
     console.log(event);
+    // if (event.currentTarget.dataset.role == 'pacman') {
+    // }
   }
 
   select(event) {
