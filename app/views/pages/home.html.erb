@@ -24,12 +24,8 @@
       <%= f.input :nickname, placeholder: "Your nickname", label: false %>
     </div>
     <div class="role">
-      <%# <div class="role_btn"> %>
         <label class="host radio-btn" data-hover-target="hostSelect" data-role="host" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "host" %> Host</label>
-      <%# </div> %>
-      <%# <div class="role_btn"> %>
         <label class="guest radio-btn" data-hover-target="guestSelect" data-role="guest" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
-      <%# </div> %>
     </div>
     <div>
       <%= simple_fields_for :tokens do |z| %>

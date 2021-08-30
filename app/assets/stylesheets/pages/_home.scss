@@ -43,7 +43,7 @@ h1 {
   height: 57px;
   background-color: black;
   border-color: #1f1ff0;
-  // margin-left: 10px;
+  margin-left: 5%;
   // margin-top: 138px;
   border-radius: 5px;
 }
@@ -172,8 +172,6 @@ h1 {
 
 .player_nickname {
   width: inherit;
-  display: flex;
-  justify-content: center;
 }
 
 #global_container {
@@ -203,11 +201,12 @@ h1 {
   width: 75%;
 }
 
-#party_id {
-  // display: flex;
-  // justify-content: center;
-}
-
 .visibility_token {
   visibility: hidden;
+}
+
+.invalid-feedback {
+  font-size: 9px;
+  width: 90%;
+  margin-left: 5%;
 }
