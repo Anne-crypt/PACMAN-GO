@@ -15,6 +15,13 @@ class GamesController < ApplicationController
         image_url: helpers.asset_url("ghost_#{colors[index]}.png")
       }
     end
+    @game.items.each_with_index do |item, index|
+      @markers << {
+        lat: item.latitude,
+        lng: item.longitude,
+        image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot.png")
+      }
+    end
   end
 
   def create
