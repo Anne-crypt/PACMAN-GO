@@ -5,33 +5,36 @@
     <%= image_tag "pacman-logo.png", :class => "class_logo" %>
   </div>
 
-  <div class="go">
-    <h1>GO!</h1>
+  <div id="go-ghosts">
+    <div class="go">
+      <h1>GO!</h1>
+    </div>
+
+    <div class="ghost_team_home">
+      <%= image_tag "ghost_blue.png", :class => "ghost" %><%= image_tag "ghost_orange.png", :class => "ghost" %>
+      <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
+    </div>
   </div>
 
   <div data-controller="token hover" id="center-form">
 
-  <div class="ghost_team_home">
-    <%= image_tag "ghost_blue.png", :class => "ghost" %><%= image_tag "ghost_orange.png", :class => "ghost" %>
-    <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
-  </div>
 
   <%= simple_form_for @player do |f| %>
     <div id="nickname-input">
       <%= f.input :nickname, placeholder: "Your nickname", label: false %>
     </div>
     <div class="role">
-      <div>
+      <%# <div class="role_btn"> %>
         <label class="host radio-btn" data-hover-target="hostSelect" data-role="host" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "host" %> Host</label>
-      </div>
-      <div>
+      <%# </div> %>
+      <%# <div class="role_btn"> %>
         <label class="guest radio-btn" data-hover-target="guestSelect" data-role="guest" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
-      </div>
+      <%# </div> %>
     </div>
     <div>
       <%= simple_fields_for :tokens do |z| %>
         <%= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "disable-tag" } %>
-        <%= z.input :token, placeholder: "Enter Party ID", label: false, input_html: { data: { token_target: 'token' }  } %>
+          <%= z.input :token, placeholder: "Enter Party ID", label: false, input_html: { data: { token_target: 'token' }  } %>
       <% end %>
     </div>
     <div id="create_player">
