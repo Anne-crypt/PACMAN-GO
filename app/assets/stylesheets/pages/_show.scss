@@ -11,30 +11,6 @@ body {
   position: relative;
 }
 
-.hearts {
-  margin: 0;
-  padding: 0;
-  padding-top: 4px;
-  padding-left: 30px;
-
-}
-
-.full_heart {
-  width: 33px;
-  height: 33px;;
-}
-
-.half_heart {
-  width: 28px;
-  height: 28px;;
-}
-
-#game_score {
-  position: absolute;
-  bottom: -9px;
-  left: 35px;
-}
-
 @media(max-height: 1366px) {
   .full_heart {
   width: 52px;
