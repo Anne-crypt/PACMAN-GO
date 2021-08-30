@@ -33,7 +33,7 @@
     </div>
     <div>
       <%= simple_fields_for :tokens do |z| %>
-        <%= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "disable-tag" } %>
+        <%#= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "disable-tag" } %>
           <%= z.input :token, placeholder: "Enter Party ID", label: false, input_html: { data: { token_target: 'token' }  } %>
       <% end %>
     </div>
