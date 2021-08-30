@@ -1,20 +1,20 @@
 
-<div id="global_container">
+
 
   <div id="home_logo">
     <%= image_tag "pacman-logo.png", :class => "class_logo" %>
   </div>
 
-  <div id="go-ghosts">
-    <div class="go">
-      <h1>GO!</h1>
-    </div>
 
-    <div class="ghost_team_home">
-      <%= image_tag "ghost_blue.png", :class => "ghost" %><%= image_tag "ghost_orange.png", :class => "ghost" %>
-      <%= image_tag "ghost_pink.png", :class => "ghost" %><%= image_tag "ghost_red.png", :class => "ghost" %>
-    </div>
+  <div class="go">
+    <h1 id="go">GO!</h1>
   </div>
+
+  <div class="ghost_team_home">
+    <%= image_tag "ghost_blue.png", :class => "ghost_home" %><%= image_tag "ghost_orange.png", :class => "ghost_home" %>
+    <%= image_tag "ghost_pink.png", :class => "ghost_home" %><%= image_tag "ghost_red.png", :class => "ghost_home" %>
+  </div>
+
 
   <div data-controller="token hover" id="center-form">
 
@@ -39,4 +39,3 @@
   <% end %>
 
   </div>
-</div>
