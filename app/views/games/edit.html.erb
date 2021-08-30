@@ -4,13 +4,14 @@
   <div id="container-lobby">
     <div id="title-page-token">
       <div class="title-page">
-        Looby
+        LOBBY
       </div>
 
       <%# Add here the token generator coded by Anne %>
       <div id="token">
-        <p>Share the below token with your fellow friends:</p>
-        <div id="generated-token"><%= @game.token %>
+        <p>GIVE THE "PARTY ID"<br> TO YOUR FRIENDS</p>
+        <div id="generated-token">
+        <%= @game.token %>
         </div>
       </div>
       <%# Generating players list %>
@@ -19,8 +20,7 @@
           <div id="nickname-setting">
             <div id="settings-name">
               <div id="player-name">
-                <p>Player<%= "_#{index + 1}:" %></p>
-                <p><%= "#{participation.player.nickname}" %></p>
+                <p>Player<%= "_#{index + 1}:   " %> <%= "  #{participation.player.nickname}" %></p>
               </div>
 
               <%# Generating settings button for each player %>
