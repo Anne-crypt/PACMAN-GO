@@ -39,7 +39,7 @@ class PlayersController < ApplicationController
   end
 
   def update
-    # Update du player
+    # Update du player (code Dorien)
 
     # if player is pacman
     #   @player.game.items.near([@player.latitude, @player.longitude], 4, units: :m)
