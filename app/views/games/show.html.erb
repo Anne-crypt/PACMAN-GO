@@ -38,6 +38,33 @@
   <%= image_tag "heart.png", :class => "full_heart", :id => "heart_1" %><%= image_tag "heat-unactivated.png", :class => "half_heart", :id => "heart_2" %><%= image_tag "heat-unactivated.png", :class => "half_heart", :id => "heart_3" %>
 </div>
 
+
+<div>
+  <div id="gamemap"
+    <%# style="width: 325px; height: 737px;" %>
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
 <div classe="score">
 <p id="game_score"><%= "score: 0" %></p>
 </div>
+
+<% if @game.finished? %>
+  <div id="global_container">
+
+
+    <div id="popup">
+      <div class="go">
+
+        <% if @current_player_participation.is_winner? %>
+          <h1>YOU WIN!</h1>
+        <% else %>
+          <h1>GAME OVER</h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
