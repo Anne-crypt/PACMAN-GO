@@ -11,8 +11,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-<<<<<<< Updated upstream
-
+  #  @current_player = Player.find(session[:player_id]) if session[:player_id]
+   
    
     #  @current_player = Player.find(session[:player_id]) if session[:player_id]
     @players = @game.participations.map {|participation| participation.player}
@@ -29,20 +29,19 @@ class GamesController < ApplicationController
     #  end
     #  @current_player = Player.find(session[:player_id]) if session[:player_id]
    
+
     @markers = []
     @game.items.each_with_index do |item, index|
     @markers << {
         lat: item.latitude,
         lng: item.longitude,
-        image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot.png")
+        image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot-test.png")
       }
     end
 
-=======
     @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
     @pacman = Participation.all.where(game_id: params[:id], role: 'pacman')
     raise
->>>>>>> Stashed changes
   end
 
   def create
