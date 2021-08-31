@@ -21,12 +21,12 @@ const initMapbox = () => {
     //   interactive: false,
     // });
 
-    const elements = document.querySelectorAll('.player-container')
+    const elements = document.querySelectorAll('.player-container');
     elements.forEach((element) => {
         const player = JSON.parse(element.dataset.player);
-        // currentMarkers[player.id].remove();
+        const imageUrl = element.dataset.image;
         element.className = 'marker';
-        element.style.backgroundImage = `url('https://placekitten.com/g/25/25/')`;
+        element.style.backgroundImage = `url('${imageUrl}')`;
         element.style.backgroundSize = 'contain';
         element.style.width = '25px';
         element.style.height = '25px';
