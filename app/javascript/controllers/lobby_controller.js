@@ -25,6 +25,8 @@ export default class extends Controller {
       document
         .getElementById('player_pacman')
         .setAttribute('value', event.currentTarget.dataset.id);
+
+      // player_pacman_id = event.currentTarget.dataset.id
       ghosts.forEach((ghost) => {
         ghost.classList.add('settings-hover');
       });
@@ -37,6 +39,22 @@ export default class extends Controller {
       document
         .getElementById('player_pacman')
         .setAttribute('value', pacmans.item(0).dataset.id);
+
+      // player_pacman_id = pacmans.item(0).dataset.id
     }
+
+    // fetch appel ajax vers le update game en PATCH
+    // 2 options:
+    // 1. on garde un form dans le DOM.
+    // - on extrait les datas du form et on fait un fetch avec les data
+
+    // 2. on a pas de form
+    // - on construit les params depuis nos data stimulus et on fait un fetch avec ces data
+
+    // fetch(XXXX,
+
+    //   method: 'PATCH',
+    //   body: { player: { pacman: player_pacman_id }}
+    // )
   }
 }

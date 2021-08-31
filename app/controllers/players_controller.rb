@@ -41,10 +41,14 @@ class PlayersController < ApplicationController
         role: @game.player == current_player ? "pacman" : "ghost")
       @participation.save!
       # Broadcast action cable
-      GameroomChannel.broadcast_to(
-       @game,
-        render_to_string(partial: "players")
-      )
+      @game.participations.each do |participation|
+        ParticipationChannel.broadcast_to(
+          participation,
+          render_to_string(partial: "players",
+          locals: { receiver_participation: participation } )
+        )
+      end
+
       redirect_to edit_game_path(@game)
     else
       render "pages/home"

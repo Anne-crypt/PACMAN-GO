@@ -56,14 +56,20 @@ class GamesController < ApplicationController
   def edit
     @game = Game.find(params[:id])
     # @current_player = Player.find_by(id: session[:player_id]) if session[:player_id]
-    # current_player
+    @participation = @game.participations.find_by(player_id: current_player.id)
+
+    # the below line retrieve the role of the current player
+    # @current_role = @game.participations.find_by(player_id: @current_player.id).role
+
   end
 
   def update
     @game = Game.find(params[:id])
     @game.participations.update_all(role: 'ghost')
     Participation.find_by(game: params[:id], player_id: params["player"]["pacman"]).update(role: "pacman")
-    redirect_to game_path(params[:id])
+    # Broadcoast
+    # respond_to
+    redirect_to edit_game_path(params[:id])
   end
 
   def new

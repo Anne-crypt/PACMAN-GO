@@ -1,36 +1,31 @@
 
-<div class="container">
-
+<div class="container player-<%= @current_player.nickname %>">
   <div id="container-lobby" >
     <div id="title-page-token">
       <div class="title-page">
-
         LOBBY
-
       </div>
 
       <%# Add here the token generator coded by Anne %>
       <div id="token">
-        <p>GIVE THE "PARTY ID"<br> TO YOUR FRIENDS</p>
+        <p>GIVE THE "PARTY ID"<br>TO YOUR FRIENDS</p>
         <div id="generated-token">
         <%= @game.token %>
         </div>
       </div>
-      <%# Generating players list %>
-      <%# insert the partial here %>
-      <%= render "players/players" %>
 
+      <%# insert the partial here that will generate the players list %>
+      <%= render "players/players", receiver_participation: @participation %>
 
-    <%# Button to start the game, link to map/plaground screen %>
-    <% if @game.player == current_player %>
-      <div class="start-btn">
-        <%= simple_form_for :player, url: game_path(@game), method: :patch do |f| %>
-          <%= f.input :pacman, as: :hidden %>
-          <%= f.submit "Start" %>
-        <%= image_tag "pacman.png", :class => "pacman" %>
-        <% end %>
-      </div>
-    <% end %>
-
+      <%# Button to start the game, link to map/plaground screen %>
+      <% if @game.player == current_player %>
+        <div class="start-btn">
+          <%= simple_form_for :player, url: game_path(@game), method: :patch do |f| %>
+            <%= f.input :pacman, as: :hidden %>
+          <%= image_tag "pacman.png", :class => "pacman" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
