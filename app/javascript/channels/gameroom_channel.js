@@ -1,8 +1,8 @@
 import consumer from './consumer';
 
 const initGameroomCable = () => {
-  const playersContainer = document.getElementById('nickname-setting');
-  // console.log(playersContainer);
+  const playersContainer = document.getElementById('players-list');
+  console.log(playersContainer);
   if (playersContainer) {
     const id = playersContainer.dataset.gameId;
     consumer.subscriptions.create(
@@ -10,7 +10,7 @@ const initGameroomCable = () => {
       {
         received(data) {
           playerContainer.insertAdjacentHTML('beforeend', data);
-          // console.log(data); // called when data is broadcast in the cable
+          console.log(data); // called when data is broadcast in the cable
         },
       }
     );

@@ -1,6 +1,6 @@
-      <div id="players-list">
+      <div id="players-list" data-game-id="<%= @game.id %>">
         <% @game.participations.each_with_index do |participation, index| %>
-          <div id="nickname-setting" data-game-id="<%= @game.id %>">
+          <div class="nickname-setting">
             <div id="settings-name">
               <div id="player-name">
                 <p>Player<%= "_#{index + 1}:" %></p>
