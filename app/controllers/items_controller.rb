@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
 
-  def new
+  def create
     @game = Game.find(params[:game_id])
-    @item = Item.new
-  end
 
+  end
 end
