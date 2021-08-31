@@ -7,6 +7,8 @@ const initMapbox = () => {
 
   if (mapElement) {
     const currentPlayerId = parseInt(mapElement.dataset.currentUser);
+    const elementGameId = document.getElementById('userplayer');
+    const currentGameId = parseInt(elementGameId.dataset.gameId)
     // only build a map if there's a div#map to inject into
     // mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     // const map = new mapboxgl.Map({
@@ -19,12 +21,12 @@ const initMapbox = () => {
     //   interactive: false,
     // });
 
-    const elements = document.querySelectorAll('.player-container')
+    const elements = document.querySelectorAll('.player-container');
     elements.forEach((element) => {
         const player = JSON.parse(element.dataset.player);
-        // currentMarkers[player.id].remove();
+        const imageUrl = element.dataset.image;
         element.className = 'marker';
-        element.style.backgroundImage = `url('https://placekitten.com/g/25/25/')`;
+        element.style.backgroundImage = `url('${imageUrl}')`;
         element.style.backgroundSize = 'contain';
         element.style.width = '25px';
         element.style.height = '25px';
@@ -52,7 +54,8 @@ const initMapbox = () => {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition((position) => {
         console.log(position.coords.longitude)
-        fetch(`/games/51/players/${currentPlayerId}`, {
+
+        fetch(`/games/${currentGameId}/players/${currentPlayerId}`, {
           method: 'PATCH',
           headers: { 'Content-Type': "application/json", 'X-CSRF-Token': csrfToken()
         },
