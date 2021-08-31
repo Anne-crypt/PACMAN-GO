@@ -1,4 +1,6 @@
-@media(max-height: 1366px) {
+
+#pages_home {
+  @media(max-height: 1366px) {
 .class_logo {
   width: 700px;
   height: 150px;
@@ -1202,7 +1204,7 @@ h1 {
   pointer-events: none;
 }
 .form-group {
-  padding-top: 17px;
+  padding-top: 18px;
 }
 
 #tokens_token {
@@ -1476,5 +1478,6 @@ h1 {
   font-size: 9px;
   width: 90%;
   margin-left: 5%;
+}
 }
 }
