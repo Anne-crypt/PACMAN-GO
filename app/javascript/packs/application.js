@@ -27,12 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initMapbox } from '../plugins/init_mapbox'
+import { initMapbox } from '../plugins/init_mapbox';
 import { initMarkers } from "../plugins/init_markers";
-import { updateMarkers } from '../plugins/update_markers'
-import {initGameCable} from '../channels/game_channel'
-
-var currentMarkers = [];
+import { updateMarkers } from '../plugins/update_markers';
+import {initGameCable} from '../channels/game_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
