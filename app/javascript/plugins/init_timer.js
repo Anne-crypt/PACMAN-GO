@@ -42,5 +42,4 @@ const hideTimer = () => {
   }
 };
 
-
 export { hideTimer };
