@@ -1,15 +1,15 @@
 import consumer from './consumer';
 
-const initGameroomCable = () => {
+const initParticipationCable = () => {
   const playersContainer = document.getElementById('players-list');
-  // console.log(playersContainer);
+  console.log(playersContainer);
   if (playersContainer) {
-    const id = playersContainer.dataset.gameId;
+    const id = playersContainer.dataset.participationId;
     consumer.subscriptions.create(
-      { channel: 'GameroomChannel', id: id },
+      { channel: 'ParticipationChannel', id: id },
       {
         received(data) {
-          playersContainer.outerHTML = data;
+          playersContainer.innerHTML = data;
           // console.log(data); // called when data is broadcast in the cable
         },
       }
@@ -17,4 +17,4 @@ const initGameroomCable = () => {
   }
 };
 
-export { initGameroomCable };
+export { initParticipationCable };

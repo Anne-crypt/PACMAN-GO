@@ -11,13 +11,12 @@ class PlayersController < ApplicationController
   end
 
   def create
-
     @player = Player.new(player_params)
     # Here we need to capture the location by JS
     @player.latitude = rand(48.865171..48.865433)
     @player.longitude = rand(2.379320..2.379690)
 
-    if @player.save!
+    if @player.save
       session[:player_id] = @player.id
       if params['tokens']['token'].present?
         token = params['tokens']['token']
@@ -42,13 +41,17 @@ class PlayersController < ApplicationController
         role: @game.player == current_player ? "pacman" : "ghost")
       @participation.save!
       # Broadcast action cable
-      GameroomChannel.broadcast_to(
-       @game,
-        render_to_string(partial: "players")
-      )
+      @game.participations.each do |participation|
+        ParticipationChannel.broadcast_to(
+          participation,
+          render_to_string(partial: "players",
+          locals: { receiver_participation: participation } )
+        )
+      end
+
       redirect_to edit_game_path(@game)
     else
-      render :new
+      render "pages/home"
     end
   end
 

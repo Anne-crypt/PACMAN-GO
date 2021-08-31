@@ -32,17 +32,14 @@ import { initMarkers } from '../plugins/init_markers';
 import { initGameCable } from '../channels/game_channel';
 import { initGameroomCable } from '../channels/gameroom_channel';
 import { hideTimer } from '../plugins/init_timer'
-// var currentMarkers = [];
-
-
-var currentMarkers = [];
+import { initParticipationCable } from '../channels/participation_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMarkers();
   initGameCable();
-  initGameroomCable();
+  initParticipationCable();
   initMapbox();
   hideTimer();
 });
