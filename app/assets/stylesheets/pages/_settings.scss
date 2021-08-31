@@ -1,19 +1,40 @@
 #pages_settings_edit {
   @media(max-height: 1366px) {
     #setting_title {
+      font-family: 'Press Start 2P', cursive;
       text-align: center;
-      font-size: 50px;
+      font-size: 88px;
+      padding-top: 102px;
     }
     #pickup {
       text-align: center;
+      font-size: 37px;
     }
     .ghost {
-      width: 30px;
-      height: 30px;
+      width: 60px;
+      height: 60px;
     }
     .colors {
+      padding-top: 100px;
       display: flex;
       justify-content: space-evenly;
+    }
+    .ghost_chosen {
+      width: 350px;
+      padding-top: 194px;
+    }
+    .confirm_color {
+      align-items: center;
+    }
+    #confirm_color {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      margin-top: 58px;
+      width: 350px;
+      height: 50px;
+      border-radius: 20px;
+      font-size: 20px;
     }
   }
 
@@ -43,7 +64,42 @@
   }
 
   @media(max-height: 736px) {
-
+    #setting_title {
+      font-family: 'Press Start 2P', cursive;
+      text-align: center;
+      font-size: 88px;
+      padding-top: 102px;
+    }
+    #pickup {
+      text-align: center;
+      font-size: 37px;
+    }
+    .ghost {
+      width: 60px;
+      height: 60px;
+    }
+    .colors {
+      padding-top: 100px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    .ghost_chosen {
+      width: 350px;
+      padding-top: 194px;
+    }
+    .confirm_color {
+      align-items: center;
+    }
+    #confirm_color {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      margin-top: 58px;
+      width: 100%;
+      height: 50px;
+      border-radius: 20px;
+      font-size: 20px;
+    }
   }
 
   @media(max-height: 667px) {
@@ -55,6 +111,46 @@
   }
 
   @media(max-height: 568px) {
+    #setting_title {
+      font-family: 'Press Start 2P', cursive;
+      text-align: center;
+      font-size: 28px;
+      padding-top: 74px;
+    }
+    #pickup {
+      text-align: center;
+      font-size: 14px;
+      padding-top: 16px;
+    }
+    .colored_ghost {
+      display: flex;
+      justify-content: center;
+    }
+    .ghost {
+      width: 20px;
+      height: 20px;
+    }
+    .colors {
+      padding-top: 26px;
+      display: block;
 
+    }
+    .ghost_chosen {
+      width: 148px;
+      padding-top: 40px;
+    }
+    .confirm_color {
+      align-items: center;
+    }
+    #confirm_color {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      margin-top: 58px;
+      width: 100%;
+      height: 50px;
+      border-radius: 20px;
+      font-size: 20px;
+    }
   }
 }

@@ -5,22 +5,29 @@
 
 <div class="colors-choice">
   <div id="pickup">
-  <%= "Pick your" %> <br> <%= "favorite color" %>
+    <%= "Pick your" %> <br> <%= "favorite color" %>
   </div>
-  <div class="colors">
-    <%= simple_form_for :player, url: game_settings_path(@game), method: :patch do |f| %>
-      <% Game::COLORS.each do |color| %>
-        <label class="">
-          <%= radio_button_tag "color", color, current_player.color == color, hidden: true %>
-          <%= image_tag "ghost_#{color}.png",
-          class: "ghost" %>
-        </label>
-      <% end %>
-      <%= f.submit "Start" %>
-    <% end %>
 
+    <div class="colored_ghost">
+      <div class="colors">
+          <%= simple_form_for :player, url: game_settings_path(@game), method: :patch do |f| %>
+        <div class="colors-ghost-choice">
+            <% Game::COLORS.each do |color| %>
+              <label class="">
+                <%= radio_button_tag "color", color, current_player.color == color, hidden: true %>
+                <%= image_tag "ghost_#{color}.png",
+                class: "ghost" %>
+              </label>
+            <% end %>
+        </div>
+            <div class="d-flex justify-content-center">
+              <%= image_tag "ghost_#{current_player.color ? current_player.color : 'red'}.png", class: "ghost_chosen" %>
+            </div>
+            <%= f.submit "CONFIRM", id: "confirm_color" %>
+          <% end %>
+
+      </div>
   </div>
-</div>
 </div>
 <%# <p>add here a condition </p>
 <p> if a player is ghost then </p>

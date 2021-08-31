@@ -31,6 +31,7 @@ import { initMarkers } from '../plugins/init_markers';
 // import { updateMarkers } from '../plugins/update_markers';
 import { initGameCable } from '../channels/game_channel';
 import { initParticipationCable } from '../channels/participation_channel';
+import { chooseColor } from '../components/choose_color';
 
 // var currentMarkers = [];
 
@@ -43,4 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   initGameCable();
   initParticipationCable();
   initMapbox();
+  chooseColor();
 });
