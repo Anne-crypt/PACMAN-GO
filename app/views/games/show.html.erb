@@ -1,5 +1,6 @@
 
 
+
 <%# show the map %>
 <div id="gamemap"
     style="width: 320px; height: 568px;"
@@ -9,7 +10,16 @@
 
     <div id="userplayer" data-game-id="<%= @game.id %>">
       <% @players.each do |player| %>
-        <div class="player-container" data-player="<%=player.to_json%>" id="player-<%= player.id %>">
+        <div
+          class="player-container"
+          data-player="<%=player.to_json%>"
+          id="player-<%= player.id %>"
+          <% if(player.id != @pacman.first.player_id) %>
+            data-image="<%= image_path("ghost_#{player.color}.png")%>"
+          <%else%>
+            data-image="<%= image_path("pacman.png")%>"
+          <%end%>
+        >
         </div>
       <% end %>
     </div>
@@ -58,3 +68,6 @@
     </div>
   </div>
 <% end %>
+
+<%# c est pour le channel gamestatus %>
+<div id="gamestatus" data-game-id="<%= @game.id %>"></div>
