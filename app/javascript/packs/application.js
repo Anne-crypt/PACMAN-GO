@@ -33,6 +33,7 @@ import { initGameCable } from '../channels/game_channel';
 import { initGamestatusCable } from '../channels/gamestatus_channel';
 import { hideTimer } from '../plugins/init_timer'
 import { initParticipationCable } from '../channels/participation_channel';
+import { chooseColor } from '../components/choose_color';
 
 // var currentMarkers = [];
 var currentMarkers = [];
@@ -45,5 +46,6 @@ document.addEventListener('turbolinks:load', () => {
   initGamestatusCable();
   initParticipationCable();
   initMapbox();
+  chooseColor();
   hideTimer();
 });
