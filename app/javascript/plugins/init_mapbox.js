@@ -54,6 +54,7 @@ const initMapbox = () => {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition((position) => {
         console.log(position.coords.longitude)
+
         fetch(`/games/${currentGameId}/players/${currentPlayerId}`, {
           method: 'PATCH',
           headers: { 'Content-Type': "application/json", 'X-CSRF-Token': csrfToken()

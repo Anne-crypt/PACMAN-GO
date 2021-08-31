@@ -3,12 +3,11 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    #  @current_player = Player.find(session[:player_id]) if session[:player_id]
     @players = @game.participations.map {|participation| participation.player}
-    # @ghost = @game.participations.select { |parti| parti.role == 'ghost'}.map { |participation| participation.player}
-    # @pacman = @game.participations.select { |participation| participation.role == 'pacman'}.map { |participation| participation.player}
     @markers = []
-    @game.items.each do |item|
+
+    @game.items.each_with_index do |item, index|
+
     @markers << {
         lat: item.latitude,
         lng: item.longitude,
@@ -65,6 +64,12 @@ class GamesController < ApplicationController
         )
       )
     end
+  end
+
+  def start
+    @game = Game.find(params[:id])
+    GamestatusChannel.broadcast_to(@game, "start")
+    redirect_to game_path(params[:id])
   end
 
   def new
