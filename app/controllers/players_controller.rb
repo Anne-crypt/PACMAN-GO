@@ -17,7 +17,7 @@ class PlayersController < ApplicationController
     @player.latitude = rand(48.865171..48.865433)
     @player.longitude = rand(2.379320..2.379690)
 
-    if @player.save!
+    if @player.save
       session[:player_id] = @player.id
       if params['tokens']['token'].present?
         token = params['tokens']['token']
@@ -48,7 +48,7 @@ class PlayersController < ApplicationController
       )
       redirect_to edit_game_path(@game)
     else
-      render :new
+      render "pages/home"
     end
   end
 
