@@ -1,12 +1,12 @@
 import consumer from './consumer';
 
-const initGameCable = () => {
+const initGameroomCable = () => {
   const playersContainer = document.getElementById('nickname-setting');
   // console.log(playersContainer);
   if (playersContainer) {
     const id = playersContainer.dataset.gameId;
     consumer.subscriptions.create(
-      { channel: 'GameChannel', id: id },
+      { channel: 'GameroomChannel', id: id },
       {
         received(data) {
           playerContainer.insertAdjacentHTML('beforeend', data);
@@ -16,3 +16,5 @@ const initGameCable = () => {
     );
   }
 };
+
+export { initGameroomCable };
