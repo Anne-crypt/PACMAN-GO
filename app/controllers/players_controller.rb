@@ -49,16 +49,6 @@ class PlayersController < ApplicationController
     @player = Player.new
   end
 
-  def update
-    # Update du player (code Dorien)
-
-    # if player is pacman
-    #   @player.game.items.near([@player.latitude, @player.longitude], 4, units: :m)
-    # end
-
-    # Call Websocket pour envoyer l'infos les positions (pacma, ghosts, items.where(eaten: false))
-  end
-
 private
 
   def player_params
