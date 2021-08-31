@@ -7,6 +7,15 @@ class PlayersController < ApplicationController
     @player.latitude = params[:latitude].to_f
     @player.longitude = params[:longitude].to_f
     @player.save!
+
+    pacman = @game.participations.find_by(role: 'pacman').player
+    gameover = @game.players.joins(:participations).where(participations: { role: 'ghost' })
+                            .near([pacman.latitude, pacman.longitude], 0.005).any?
+    if gameover?
+      @game.finished = true
+      GamestatusChannel.broadcast_to(@game)
+    end
+
     GameChannel.broadcast_to(@game, @player)
   end
 
@@ -19,7 +28,7 @@ class PlayersController < ApplicationController
     if @player.save
       session[:player_id] = @player.id
       if params['tokens']['token'].present?
-        token = params['tokens']['token']
+        token = params['tokens']['token'].upcase
         @game = Game.where(token: token).first
       else
         @game = Game.new

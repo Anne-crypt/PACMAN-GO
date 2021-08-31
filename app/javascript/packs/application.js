@@ -31,6 +31,7 @@ import { initMarkers } from '../plugins/init_markers';
 // import { updateMarkers } from '../plugins/update_markers';
 import { initGameCable } from '../channels/game_channel';
 import { initGameroomCable } from '../channels/gameroom_channel';
+import { initGamestatusCable } from '../channels/gamestatus_channel';
 
 // var currentMarkers = [];
 
@@ -43,5 +44,6 @@ document.addEventListener('turbolinks:load', () => {
   initMarkers();
   initGameCable();
   initGameroomCable();
+  initGamestatusCable();
   initMapbox();
 });

@@ -24,7 +24,7 @@
     <%# Button to start the game, link to map/plaground screen %>
     <% if @game.player == current_player %>
       <div class="start-btn">
-        <%= simple_form_for :player, url: game_path(@game), method: :patch do |f| %>
+        <%= simple_form_for :player, url: start_game_path(@game), method: :post do |f| %>
           <%= f.input :pacman, as: :hidden %>
           <%= f.submit "Start" %>
         <%= image_tag "pacman.png", :class => "pacman" %>
@@ -34,3 +34,5 @@
 
   </div>
 </div>
+<%# c est pour le channel gamestatus %>
+<div id="gamestatus" data-game-id="<%= @game.id %>"></div>

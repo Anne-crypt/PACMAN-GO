@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :games, only: [:show, :create, :new, :edit, :update] do
     resources :items, only: :create
     resource :settings, only: [:edit, :update]
+    member do
+      post 'start'
+    end
   end
 
   resources :players, only: [:create, :new]
