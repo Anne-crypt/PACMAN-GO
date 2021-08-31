@@ -1,5 +1,5 @@
-      <div id="players-list" data-participation-id="<%= receiver_participation.id %>">
-        <% @game.participations.each_with_index do |participation, index| %>
+      <div id="players-list" data-participation-id="<%= receiver_participation.id %>" >
+        <% @game.participations.order(:created_at).each_with_index do |participation, index| %>
           <div class="nickname-setting">
             <div id="settings-name">
               <div id="player-name">
@@ -20,11 +20,11 @@
             </div>
 
               <%# List the roles for each player %>
-            <div id="roles" data-roles <%= 'data-controller="lobby"'.html_safe if @game.player == receiver_participation.player %> >
-              <div id="pacman-id" class="pacman-object <%= 'settings-hover' if index == 0 %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
+            <div id="roles" data-lobby-target="players" data-lobby-game-url-value="<%= game_path(@game) %>" <%= 'data-controller="lobby"'.html_safe if @game.player == receiver_participation.player %> >
+              <div id="pacman-id" class="pacman-object <%= 'settings-hover' if participation.role == 'pacman' %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
                   <%= image_tag "pacman.png", :class => "img-icon" %>
               </div>
-              <div id="ghost-id" class="ghost-object <%= 'settings-hover' if index != 0 %>" data-role="ghost" data-action="click->lobby#select" data-lobby-target="ghostIcon">
+              <div id="ghost-id" class="ghost-object <%= 'settings-hover' if participation.role == 'ghost' %>" data-role="ghost" data-action="click->lobby#select" data-lobby-target="ghostIcon">
                   <% if participation.player.color %>
                     <%= image_tag "ghost_#{participation.player.color}.png", :class => "img-icon" %>
                     <% else %>

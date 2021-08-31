@@ -46,10 +46,25 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     @game.participations.update_all(role: 'ghost')
-    Participation.find_by(game: params[:id], player_id: params["player"]["pacman"]).update(role: "pacman")
+
+    Participation.find_by(game: params[:id], player_id: params["pacman"]).update(role: "pacman")
+
+    @game.save
+    respond_to do |format|
+        format.html { redirect_to edit_game_path(@game) }
+        format.json # Follow the classic Rails flow and look for a create.json view
+    end
+
     # Broadcoast
-    # respond_to
-    redirect_to edit_game_path(params[:id])
+    @game.participations.each do |participation|
+      ParticipationChannel.broadcast_to(
+        participation,
+        render_to_string(partial: "players/players",
+          locals: { receiver_participation: participation },
+          formats: [:html]
+        )
+      )
+    end
   end
 
   def new
