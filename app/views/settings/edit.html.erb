@@ -1,14 +1,17 @@
+<div id="pages_settings_edit">
 <div id="center-setting">
-  <h1 id="settings">SETTINGS</h1>
+  <h1 id="setting_title">SETTINGS</h1>
 </div>
 
 <div class="colors-choice">
+  <div id="pickup">
   <%= "Pick your" %> <br> <%= "favorite color" %>
+  </div>
   <div class="colors">
     <%= simple_form_for :player, url: game_settings_path(@game), method: :patch do |f| %>
       <% Game::COLORS.each do |color| %>
         <label class="">
-          <%= radio_button_tag "color", color, current_player.color == color %>
+          <%= radio_button_tag "color", color, current_player.color == color, hidden: true %>
           <%= image_tag "ghost_#{color}.png",
           class: "ghost" %>
         </label>
@@ -18,7 +21,7 @@
 
   </div>
 </div>
-
+</div>
 <%# <p>add here a condition </p>
 <p> if a player is ghost then </p>
 <p> he can change the color of its ghost </p>
