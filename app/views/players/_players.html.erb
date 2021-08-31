@@ -19,6 +19,11 @@
               </div>
             </div>
 
+            <%# 1- changer les id en class %>
+            <%# 2- retirer les current player %>
+            <%# 3- afficher les 2 div if-host-display-none et if-guest-display-none %>
+            <%# 4- ajouter le css %>
+
               <%# List the roles for each player %>
             <div id="roles" <%= 'data-controller="lobby"'.html_safe if @game.player == current_player %> >
               <div id="pacman-id" class="pacman-object <%= 'settings-hover' if index == 0 %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
