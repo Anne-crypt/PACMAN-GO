@@ -1,0 +1,39 @@
+      <div id="players-list" data-game-id="<%= @game.id %>">
+        <% @game.participations.each_with_index do |participation, index| %>
+          <div class="nickname-setting">
+            <div id="settings-name">
+              <div id="player-name">
+                <p>Player<%= "_#{index + 1}:" %></p>
+                <p><%= "#{participation.player.nickname}" %></p>
+              </div>
+
+              <%# Generating settings button for each player %>
+              <div id="settings" data-controller="lobby" data-action="click->lobby#settings">
+                <% img = image_tag "settings-on.png", :class => "img-icon" %>
+                <% if participation.player.id == current_player.id %>
+                <%# The link root_path will be updated to game_settings(@game) to redirect the player to its settings %>
+                  <%= link_to img, root_path %>
+                  <% else %>
+                      <%= image_tag "settings.png", :class => "img-icon" %>
+                <% end %>
+              </div>
+            </div>
+
+            <%# 1- changer les id en class %>
+            <%# 2- retirer les current player %>
+            <%# 3- afficher les 2 div if-host-display-none et if-guest-display-none %>
+            <%# 4- ajouter le css %>
+
+              <%# List the roles for each player %>
+            <div id="roles" <%= 'data-controller="lobby"'.html_safe if @game.player == current_player %> >
+              <div id="pacman-id" class="pacman-object <%= 'settings-hover' if index == 0 %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
+                  <%= image_tag "pacman.png", :class => "img-icon" %>
+              </div>
+              <div id="ghost-id" class="ghost-object <%= 'settings-hover' if index != 0 %>" data-role="ghost" data-action="click->lobby#select" data-lobby-target="ghostIcon">
+                  <%= image_tag "ghost_red.png", :class => "img-icon" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>

@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <div id="container-lobby">
+  <div id="container-lobby" >
     <div id="title-page-token">
       <div class="title-page">
 
@@ -17,40 +17,8 @@
         </div>
       </div>
       <%# Generating players list %>
-      <div id="players-list">
-        <% @game.participations.each_with_index do |participation, index| %>
-          <div id="nickname-setting">
-            <div id="settings-name">
-              <div id="player-name">
-                <p>Player<%= "_#{index + 1}:   " %> <%= "  #{participation.player.nickname}" %></p>
-              </div>
-
-              <%# Generating settings button for each player %>
-              <div id="settings" data-controller="lobby" data-action="click->lobby#settings">
-                <% if participation.player.id == current_player.id %>
-                <%# The link root_path will be updated to game_settings(@game) to redirect the player to its settings %>
-                  <%#= link_to img, edit_game_setting_path(@game) %>
-                <%= link_to edit_game_settings_path(@game) do %>
-                  <%= image_tag "settings-on.png", :class => "img-icon" %>
-                <% end %>
-                  <% else %>
-                  <%= image_tag "settings.png", :class => "img-icon" %>
-                <% end %>
-              </div>
-            </div>
-              <%# List the roles for each player %>
-            <div id="roles" <%= 'data-controller="lobby"'.html_safe if @game.player == current_player %> >
-              <div id="pacman-id" class="pacman-object <%= 'settings-hover' if index == 0 %>" data-role="pacman" data-id="<%= participation.player.id %>" data-action="click->lobby#select" data-lobby-target="pacmanIcon">
-                  <%= image_tag "pacman.png", :class => "img-icon" %>
-              </div>
-              <div id="ghost-id" class="ghost-object <%= 'settings-hover' if index != 0 %>" data-role="ghost" data-action="click->lobby#select" data-lobby-target="ghostIcon">
-                  <%= image_tag "ghost_red.png", :class => "img-icon" %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
+      <%# insert the partial here %>
+      <%= render "players/players" %>
 
 
     <%# Button to start the game, link to map/plaground screen %>
