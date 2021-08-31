@@ -10,8 +10,7 @@ class GamesController < ApplicationController
   # }
 
   def show
-
-  #  @game = Game.find(params[:id])
+    @game = Game.find(params[:id])
   #  @current_player = Player.find(session[:player_id]) if session[:player_id]
    
    
@@ -40,6 +39,9 @@ class GamesController < ApplicationController
       }
     end
 
+    @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
+    @pacman = Participation.all.where(game_id: params[:id], role: 'pacman')
+    raise
   end
 
   def create

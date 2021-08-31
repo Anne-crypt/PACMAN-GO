@@ -9,7 +9,6 @@ const updateMarkers = (id, long, lat) => {
       .setLngLat([long, lat])
       .addTo(window.map);
   window.currentMarkers[id] = newmarker;
-  console.log(newmarker);
 };
 
 export { updateMarkers } ;

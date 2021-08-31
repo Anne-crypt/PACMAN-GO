@@ -31,7 +31,7 @@ const initMapbox = () => {
         let marker = new mapboxgl.Marker(element)
           .setLngLat([ player.longitude, player.latitude ])
           .addTo(window.map);
-        // window.currentMarkers[player.id] = marker;
+        window.currentMarkers[player.id] = marker;
         });
 
     const markers = JSON.parse(mapElement.dataset.markers);
@@ -51,7 +51,8 @@ const initMapbox = () => {
 
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition((position) => {
-        fetch(`/games/2/players/${currentPlayerId}`, {
+        console.log(position.coords.longitude)
+        fetch(`/games/4/players/${currentPlayerId}`, {
           method: 'PATCH',
           headers: { 'Content-Type': "application/json", 'X-CSRF-Token': csrfToken()
         },
