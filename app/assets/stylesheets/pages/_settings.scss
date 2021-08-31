@@ -2,10 +2,18 @@
   @media(max-height: 1366px) {
     #setting_title {
       text-align: center;
-      .colors {
-        display: flex;
-        justify-content: space-evenly;
-      }
+      font-size: 50px;
+    }
+    #pickup {
+      text-align: center;
+    }
+    .ghost {
+      width: 30px;
+      height: 30px;
+    }
+    .colors {
+      display: flex;
+      justify-content: space-evenly;
     }
   }
 
