@@ -1,9 +1,11 @@
 
-<div id="home_logo">
-  <%= image_tag "pacman-logo.png", :class => "class_logo" %>
-</div>
 
-<div id="home_logo">
+
+  <div id="home_logo">
+    <%= image_tag "pacman-logo.png", :class => "class_logo" %>
+  </div>
+
+
   <div class="go">
     <h1 id="go">GO!</h1>
   </div>
@@ -15,22 +17,25 @@
 
 
   <div data-controller="token hover" id="center-form">
-    <%= simple_form_for @player do |f| %>
-      <div id="nickname-input">
-        <%= f.input :nickname, placeholder: "Your nickname", label: false %>
-      </div>
-      <div class="role">
-          <label class="host radio-btn" data-hover-target="hostSelect" data-role="host" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "host" %> Host</label>
-          <label class="guest radio-btn" data-hover-target="guestSelect" data-role="guest" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
-      </div>
-      <div>
-        <%= simple_fields_for :tokens do |z| %>
-          <%#= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "disable-tag" } %>
-            <%= z.input :token, placeholder: "Enter Party ID", label: false, input_html: { data: { token_target: 'token' }  } %>
-        <% end %>
-      </div>
-      <div id="create_player">
-        <%= f.submit id: "submit_player" %>
-      </div>
-    <% end %>
+
+
+  <%= simple_form_for @player do |f| %>
+    <div id="nickname-input">
+      <%= f.input :nickname, placeholder: "Your nickname", label: false %>
+    </div>
+    <div class="role">
+        <label class="host radio-btn" data-hover-target="hostSelect" data-role="host" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "host" %> Host</label>
+        <label class="guest radio-btn" data-hover-target="guestSelect" data-role="guest" data-action="change->token#select click->hover#select"><%= radio_button_tag "type", "guest", checked:"checked" %> Guest</label>
+    </div>
+    <div>
+      <%= simple_fields_for :tokens do |z| %>
+        <%#= z.input :generated, label: false, input_html: { data: { token_target: 'generated' }, placeholder:@game.token, disabled: true, class: "disable-tag" } %>
+          <%= z.input :token, placeholder: "Enter Party ID", label: false, input_html: { data: { token_target: 'token' }  } %>
+      <% end %>
+    </div>
+    <div id="create_player">
+      <%= f.submit id: "submit_player" %>
+    </div>
+  <% end %>
+
   </div>
