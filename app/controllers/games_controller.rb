@@ -12,8 +12,8 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
   #  @current_player = Player.find(session[:player_id]) if session[:player_id]
-   
-   
+
+
     #  @current_player = Player.find(session[:player_id]) if session[:player_id]
     @players = @game.participations.map {|participation| participation.player}
     #  @ghost = @game.participations.select { |parti| parti.role == 'ghost'}.map { |participation| participation.player}
@@ -28,7 +28,7 @@ class GamesController < ApplicationController
     #   }
     #  end
     #  @current_player = Player.find(session[:player_id]) if session[:player_id]
-   
+
 
     @markers = []
     @game.items.each_with_index do |item, index|
@@ -41,7 +41,6 @@ class GamesController < ApplicationController
 
     @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
     @pacman = Participation.all.where(game_id: params[:id], role: 'pacman')
-    raise
   end
 
   def create
@@ -57,14 +56,20 @@ class GamesController < ApplicationController
   def edit
     @game = Game.find(params[:id])
     # @current_player = Player.find_by(id: session[:player_id]) if session[:player_id]
-    # current_player
+    @participation = @game.participations.find_by(player_id: current_player.id)
+
+    # the below line retrieve the role of the current player
+    # @current_role = @game.participations.find_by(player_id: @current_player.id).role
+
   end
 
   def update
     @game = Game.find(params[:id])
     @game.participations.update_all(role: 'ghost')
     Participation.find_by(game: params[:id], player_id: params["player"]["pacman"]).update(role: "pacman")
-    redirect_to game_path(params[:id])
+    # Broadcoast
+    # respond_to
+    redirect_to edit_game_path(params[:id])
   end
 
   def new
