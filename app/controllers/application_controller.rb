@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :info
+
   def current_player
 
     # ||= signifie "ou égal" équivaut à @current_player = @current_player || do_somenthing

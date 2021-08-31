@@ -7,6 +7,8 @@ const initMapbox = () => {
 
   if (mapElement) {
     const currentPlayerId = parseInt(mapElement.dataset.currentUser);
+    const elementGameId = document.getElementById('userplayer');
+    const currentGameId = parseInt(elementGameId.dataset.gameId)
     // only build a map if there's a div#map to inject into
     // mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     // const map = new mapboxgl.Map({
@@ -52,7 +54,7 @@ const initMapbox = () => {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition((position) => {
         console.log(position.coords.longitude)
-        fetch(`/games/4/players/${currentPlayerId}`, {
+        fetch(`/games/${currentGameId}/players/${currentPlayerId}`, {
           method: 'PATCH',
           headers: { 'Content-Type': "application/json", 'X-CSRF-Token': csrfToken()
         },

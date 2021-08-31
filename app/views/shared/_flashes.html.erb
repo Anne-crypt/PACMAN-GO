@@ -6,11 +6,39 @@
     </button>
   </div>
 <% end %>
+
 <% if alert %>
   <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= alert %>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
+  </div>
+<% end %>
+
+<% if info %>
+  <div class="info" role="alert">
+   <div class="ghosttimer inky">
+      <div class ="ghost__body">
+        <svg viewBox="0 0 56 56">
+           <polygon  points="0 24, 4 24, 4 12, 8 12, 8 8, 12 8, 12 4, 20 4, 20 0, 36 0, 36 4, 44 4, 44 8, 48 8, 48 12, 52 12, 52 24, 56 24, 56 48, 0 48 "/>
+        </svg>
+      </div>
+      <div class="ghost__eye--left">
+        <svg viewBox="0 0 16 20">
+          <polygon points="4 0, 12 0, 12 4, 16 4, 16 16, 12 16, 12 20, 4 20, 4 16, 0 16, 0 4, 4 4 "/>
+        </svg>
+      </div>
+      <div class="ghost__eye--right">
+        <svg viewBox="0 0 16 20">
+          <polygon points="4 0, 12 0, 12 4, 16 4, 16 16, 12 16, 12 20, 4 20, 4 16, 0 16, 0 4, 4 4 "/>
+        </svg>
+      </div>
+      <div class="ghost__feet"></div>
+    </div>
+    <div class="timer-text">
+      <p><%= info %></p>
+      <h1 id='timetimer'> </h1>
+    </div>
   </div>
 <% end %>

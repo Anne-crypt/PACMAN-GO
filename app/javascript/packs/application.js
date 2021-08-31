@@ -30,11 +30,9 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initMarkers } from '../plugins/init_markers';
 // import { updateMarkers } from '../plugins/update_markers';
 import { initGameCable } from '../channels/game_channel';
+import { initGameroomCable } from '../channels/gameroom_channel';
+import { hideTimer } from '../plugins/init_timer'
 import { initParticipationCable } from '../channels/participation_channel';
-
-// var currentMarkers = [];
-
-var currentMarkers = [];
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -43,4 +41,5 @@ document.addEventListener('turbolinks:load', () => {
   initGameCable();
   initParticipationCable();
   initMapbox();
+  hideTimer();
 });

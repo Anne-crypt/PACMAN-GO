@@ -11,12 +11,9 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-  #  @current_player = Player.find(session[:player_id]) if session[:player_id]
-
-
     #  @current_player = Player.find(session[:player_id]) if session[:player_id]
     @players = @game.participations.map {|participation| participation.player}
-    #  @ghost = @game.participations.select { |parti| parti.role == 'ghost'}.map { |participation| participation.player}
+    # @ghost = @game.participations.select { |parti| parti.role == 'ghost'}.map { |participation| participation.player}
     # @pacman = @game.participations.select { |participation| participation.role == 'pacman'}.map { |participation| participation.player}
     # colors = %w[blue green orange pink red red red red]
     # @markers = []
@@ -28,8 +25,6 @@ class GamesController < ApplicationController
     #   }
     #  end
     #  @current_player = Player.find(session[:player_id]) if session[:player_id]
-
-
     @markers = []
     @game.items.each_with_index do |item, index|
     @markers << {
@@ -38,9 +33,12 @@ class GamesController < ApplicationController
         image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot-test.png")
       }
     end
-
     @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
     @pacman = Participation.all.where(game_id: params[:id], role: 'pacman')
+    
+    if @current_player.id != @pacman.first.player_id
+      flash.now[:info] = 'Give pacman a little advantage'
+    ens
   end
 
   def create
