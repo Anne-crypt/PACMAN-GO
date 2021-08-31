@@ -21,12 +21,12 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    # Here we need to capture the location by JS
     @player.latitude = rand(48.865171..48.865433)
     @player.longitude = rand(2.379320..2.379690)
 
     if @player.save
       session[:player_id] = @player.id
+
       if params['tokens']['token'].present?
         token = params['tokens']['token'].upcase
         @game = Game.where(token: token).first
@@ -45,22 +45,27 @@ class PlayersController < ApplicationController
         end
       end
 
-      @participation = Participation.new(game_id: @game.id,
-        player_id: @player.id,
-        role: @game.player == current_player ? "pacman" : "ghost")
-      @participation.save!
-      # Broadcast action cable
-      @game.participations.each do |participation|
-        ParticipationChannel.broadcast_to(
-          participation,
-          render_to_string(partial: "players",
-          locals: { receiver_participation: participation } )
-        )
+      if @game.nil?
+          flash[:alert] = "OOPS! You added a non-valid token"
+          redirect_to home_path
+      else
+        @participation = Participation.new(game_id: @game.id,
+          player_id: @player.id,
+          role: @game.player == current_player ? "pacman" : "ghost")
+        @participation.save!
+        # Broadcast action cable
+        @game.participations.each do |participation|
+          ParticipationChannel.broadcast_to(
+            participation,
+            render_to_string(partial: "players",
+            locals: { receiver_participation: participation } )
+          )
+        end
+        redirect_to edit_game_path(@game)
       end
-
-      redirect_to edit_game_path(@game)
     else
-      render "pages/home"
+      flash[:alert] = "OOPS! Something went wrong, try again! Make sure "
+      redirect_to home_path
     end
   end
 
