@@ -10,15 +10,15 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = ['generated', 'token'];
+  static targets = ['token'];
 
   select(event) {
     if (event.currentTarget.dataset.role == 'guest') {
-      this.generatedTarget.classList.add('visibility_token');
+      // this.generatedTarget.classList.add('visibility_token');
       this.tokenTarget.classList.remove('visibility_token');
     } else {
       this.tokenTarget.classList.add('visibility_token');
-      this.generatedTarget.classList.remove('visibility_token');
+      // this.generatedTarget.classList.remove('visibility_token');
     }
   }
 }
