@@ -3,7 +3,7 @@
 
 <%# show the map %>
 <div id="gamemap"
-    <%# style="width: 320px; height: 568px;" %>
+    style="width: 320px; height: 568px;"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     data-current-user="<%= current_player.id%>"
     data-markers="<%= @markers.to_json%>">
