@@ -80,6 +80,7 @@ const initMapbox = () => {
     else {
       setTimeout(setGeolocation(), 10000);
       counter ++;
+      console.log(counter);
     }
   }
 };
