@@ -1,22 +1,13 @@
 class PlayersController < ApplicationController
 
-  # GameChannel.braodcast_to(@game, render_to_string(partial: "userplayer" )
   def update
     @game = Game.find(params[:game_id])
     @player = Player.find(params[:id])
     @player.latitude = params[:latitude].to_f
     @player.longitude = params[:longitude].to_f
     @player.save!
-
-    pacman = @game.participations.find_by(role: 'pacman').player
-    gameover = @game.players.joins(:participations).where(participations: { role: 'ghost' })
-                            .near([pacman.latitude, pacman.longitude], 0.005).any?
-    # if gameover?
-    #   @game.finished = true
-    #   GamestatusChannel.broadcast_to(@game)
-    # end
+    
     GameChannel.broadcast_to(@game, @player)
-
   end
 
   def create
