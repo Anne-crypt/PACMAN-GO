@@ -1,5 +1,3 @@
-require "pry-byebug"
-
 class PlayersController < ApplicationController
 
   def update
