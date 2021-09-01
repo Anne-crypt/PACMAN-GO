@@ -52,16 +52,20 @@ class PlayersController < ApplicationController
         @participation = Participation.new(game_id: @game.id,
           player_id: @player.id,
           role: @game.player == current_player ? "pacman" : "ghost")
-        @participation.save!
-        # Broadcast action cable
-        @game.participations.each do |participation|
-          ParticipationChannel.broadcast_to(
-            participation,
-            render_to_string(partial: "players",
-            locals: { receiver_participation: participation } )
-          )
+       if @participation.save
+          # Broadcast action cable
+          @game.participations.each do |participation|
+            ParticipationChannel.broadcast_to(
+              participation,
+              render_to_string(partial: "players",
+              locals: { receiver_participation: participation } )
+            )
+          end
+          redirect_to edit_game_path(@game)
+        else
+          flash[:alert] = "OOPS! Party is already full"
+          redirect_to home_path
         end
-        redirect_to edit_game_path(@game)
       end
     else
       flash[:alert] = "OOPS! Something went wrong, try again! Make sure "
