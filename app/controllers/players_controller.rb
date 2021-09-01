@@ -8,13 +8,14 @@ class PlayersController < ApplicationController
     @player.longitude = params[:longitude].to_f
     @player.save!
 
-    pacman = @game.participations.find_by(role: 'pacman').player
-    gameover = @game.players.joins(:participations).where(participations: { role: 'ghost' })
-                            .near([pacman.latitude, pacman.longitude], 0.005).any?
-    if gameover?
-      @game.finished = true
-      GamestatusChannel.broadcast_to(@game)
-    end
+    # pacman = @game.participations.find_by(role: 'pacman').player
+    # gameover = @game.players.joins(:participations).where(participations: { role: 'ghost' })
+    #                          .near([pacman.latitude, pacman.longitude], 0.005).any?
+    # raise
+    # if gameover
+    #   @game.finished = true
+    #   GamestatusChannel.broadcast_to(@game)
+    # end
 
     GameChannel.broadcast_to(@game, @player)
   end
