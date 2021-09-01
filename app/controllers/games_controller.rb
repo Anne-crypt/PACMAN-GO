@@ -6,20 +6,18 @@ class GamesController < ApplicationController
     @players = @game.participations.map {|participation| participation.player}
     @markers = []
 
-    @game.items.each_with_index do |item, index|
+    @items = @game.items
+    # @game.items.each_with_index do |item, index|
 
-    @markers << {
-        lat: item.latitude,
-        lng: item.longitude,
-        image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot-test.png")
-      }
-    end
-    @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
-    @pacman = Participation.all.where(game_id: params[:id], role: 'pacman')
-
-    if @current_player.id != @pacman.first.player_id
-      flash.now[:info] = 'Give pacman a little advantage'
-    end
+    # @markers << {
+    #     lat: item.latitude,
+    #     lng: item.longitude,
+    #     image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot-test.png")
+    #   }
+    # end
+    # @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
+    @pacman = Participation.all.where(game_id: params[:id], role: 'pacman').first
+    flash.now[:info] = 'Give pacman a little advantage' unless @current_player.id == @pacman.player_id
   end
 
   def create
