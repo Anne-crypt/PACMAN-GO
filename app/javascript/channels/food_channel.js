@@ -1,5 +1,4 @@
 import consumer from './consumer';
-import { updateMarkers } from '../plugins/update_markers';
 
 const initFoodCable = () => {
   const markerContainer = document.getElementById('markerItem');
@@ -11,8 +10,9 @@ const initFoodCable = () => {
       {
         received(data) {
           const itemMarker = document.getElementById(`item-${data.id}`);
-          const dataNew = JSON.stringify(data);
-          itemMarker.dataset.item = dataNew;
+          itemMarker.hidden = true;
+          // const dataNew = JSON.stringify(data);
+          // itemMarker.dataset.item = dataNew;
         },
       }
     );

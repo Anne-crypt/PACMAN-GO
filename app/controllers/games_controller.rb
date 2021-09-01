@@ -72,6 +72,12 @@ class GamesController < ApplicationController
     redirect_to game_path(params[:id])
   end
 
+  # def result
+  #   @game = Game.find(params[:id])
+  #   GamestatusChannel.broadcast_to(@game, "result")
+  #   redirect_to game_path(params[:id])
+  # end
+
   def new
     @game = Game.new
   end

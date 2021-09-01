@@ -19,14 +19,14 @@ class PlayersController < ApplicationController
 
     if @participation.role == "pacman"
       # items_nearby  = @game.items.near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
-      items_not_eaten = Item.all.where(game_id: @game.id, eaten: true)
+      items_not_eaten = Item.all.where(game_id: @game.id, eaten: false)
       items_nearby  = items_not_eaten.near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
       ghosts_nearby = @game.participations.where(role: 'ghost').near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
 
       # - il y a des items neaby
       if items_nearby.length > 0
         #   -> passer tous les items nearby à eaten true
-        items_nearby.map do |item|
+        items_nearby.each do |item|
           item.eaten = true
           item.save
           #   -> Ajouter une migration pour score
@@ -42,12 +42,14 @@ class PlayersController < ApplicationController
      if Item.all.where(game_id: @game.id, eaten: true).count == @game.items.length
       #   -> fin du jeu, pacman loses
       @game.finished = true
+      @game.save
       #   -> passer participation is winner
       @participation.is_winner = true
+      @participation.save
       #   -> broadcaster la fin du jeu sur le gamestatus channel
-      # GamestatusChannel.broadcast_to(@game, @participation)
+      # redirect_to result_game_path(@game)
+      GamestatusChannel.broadcast_to(@game, "finished")
       # render # popup => new route => pages/game/game_id/result"
-
      end
 
       # CASES
