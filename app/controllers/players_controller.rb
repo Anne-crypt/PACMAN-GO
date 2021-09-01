@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
     @player.latitude = params[:latitude].to_f
     @player.longitude = params[:longitude].to_f
     @player.save!
-    
+
     GameChannel.broadcast_to(@game, @player)
   end
 
@@ -25,6 +25,7 @@ class PlayersController < ApplicationController
         @game = Game.new
         @game.token = ("A".."Z").to_a.sample(4).join
         @game.player = @player
+        # raise
         @game.save!
         coords = [[48.866089, 2.379206], [48.865979, 2.379292], [48.864892, 2.379984], [48.865792, 2.379437], [48.865644, 2.379550],
       [48.865475, 2.379684], [48.865323, 2.379829],
