@@ -41,7 +41,7 @@ const initMapbox = () => {
         window.currentMarkers[player.id] = marker;
         });
 
-      if(currentPlayerId == pacmanId){
+      // if(currentPlayerId == pacmanId){
       const itemsElements = document.querySelectorAll('.item-container');
       itemsElements.forEach((element) => {
         const item = JSON.parse(element.dataset.item);
@@ -57,7 +57,7 @@ const initMapbox = () => {
           .setLngLat([ item.longitude, item.latitude ])
           .addTo(window.map);
       });
-    }
+    // }
 
    const setGeolocation = () => {
       if (navigator.geolocation) {
