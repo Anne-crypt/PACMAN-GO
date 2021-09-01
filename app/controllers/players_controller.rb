@@ -63,7 +63,7 @@ class PlayersController < ApplicationController
           end
           redirect_to edit_game_path(@game)
         else
-          flash[:alert] = "OOPS! Party is already full"
+          flash[:alert] = "OOPS! Party is already full (max 4 players)"
           redirect_to home_path
         end
       end
