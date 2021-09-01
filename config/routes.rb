@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   resources :players, only: [:create, :new]
 
-
-  patch 'games/:game_id/players/:id', to: 'players#update'
-
+  patch '/games/:game_id/players/:id', to: 'players#update'
 
 end
