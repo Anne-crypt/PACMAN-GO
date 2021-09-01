@@ -1,13 +1,78 @@
+require "pry-byebug"
+
 class PlayersController < ApplicationController
 
   def update
-    @game = Game.find(params[:game_id])
-    @player = Player.find(params[:id])
-    @player.latitude = params[:latitude].to_f
+    @game          = Game.find(params[:game_id])
+    @player        = Player.find(params[:id])
+    @participation = @game.participations.find_by(player_id: @player.id)
+
+    @player.latitude  = params[:latitude].to_f
     @player.longitude = params[:longitude].to_f
     @player.save!
-    
+
+    # On broadcast la nouvelle info du @player au @game
     GameChannel.broadcast_to(@game, @player)
+
+    # LATER: gerer les vies
+    # LATER: gérer le "timeout" des ghosts
+
+    if @participation.role == "pacman"
+      # items_nearby  = @game.items.near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
+      items_not_eaten = Item.all.where(game_id: @game.id, eaten: true)
+      items_nearby  = items_not_eaten.near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
+      ghosts_nearby = @game.participations.where(role: 'ghost').near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
+
+      # - il y a des items neaby
+      if items_nearby.length > 0
+        #   -> passer tous les items nearby à eaten true
+        items_nearby.map do |item|
+          item.eaten = true
+          item.save
+          #   -> Ajouter une migration pour score
+          #   -> augmenter le score
+          # @game.score += 200
+
+          # Broadcoast
+          FoodChannel.broadcast_to(@game, item)
+        end
+      end
+
+      #   - ET si tous les items du game sont eaten true
+     if Item.all.where(game_id: @game.id, eaten: true).count == @game.items.length
+      #   -> fin du jeu, pacman loses
+      @game.finished = true
+      #   -> passer participation is winner
+      @participation.is_winner = true
+      #   -> broadcaster la fin du jeu sur le gamestatus channel
+      # GamestatusChannel.broadcast_to(@game, @participation)
+      # render # popup => new route => pages/game/game_id/result"
+
+     end
+
+      # CASES
+      # - il y a des items neaby
+      #   -> passer tous les items nearby à eaten true
+      #   -> augmenter le score
+      #   -> broadcaster le retrait de l'item
+      #   - ET si tous les items du game sont eaten true
+      #     -> fin du jeu, pacman wins
+      #     -> passer participation is winner true ET game finished true
+      #     -> broadcaster la fin du jeu sur le gamestatus channel
+      # - il y a un ghost nearby
+      #   -> fin du jeu, pacman loses
+      #   -> passer participation is winner false ET game finished true
+      #   -> passer toutes les participations ghost is winner true
+      #   -> broadcaster la fin du jeu sur le gamestatus channel
+
+    else
+      pacman_nearby = @game.participations.where(role: 'pacman').near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
+
+      # CASES
+      # - il y a le pacman nearby
+      #   -> fin du jeu, pacman loses
+      #   -> broadcaster la fin du jeu sur le gamestatus channel
+    end
   end
 
   def create
@@ -32,7 +97,12 @@ class PlayersController < ApplicationController
       [48.864903, 2.380183], [48.864822, 2.380248]]
         coords.each do |coord|
           burgercount = @game.items.where(super: true).count
-          @game.items.create(latitude: coord.first, longitude: coord.last, super: burgercount <= 3 ? [true, false].sample : false)
+          @game.items.create(
+            eaten: false,
+            latitude: coord.first,
+            longitude: coord.last,
+            super: burgercount <= 3 ? [true, false].sample : false
+          )
         end
       end
 

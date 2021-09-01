@@ -1,5 +1,8 @@
+require "pry-byebug"
+
 class ApplicationController < ActionController::Base
   add_flash_types :info
+
 
   def current_player
 

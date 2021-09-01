@@ -30,8 +30,9 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initMarkers } from '../plugins/init_markers';
 // import { updateMarkers } from '../plugins/update_markers';
 import { initGameCable } from '../channels/game_channel';
+import { initFoodCable } from '../channels/food_channel';
 import { initGamestatusCable } from '../channels/gamestatus_channel';
-import { hideTimer } from '../plugins/init_timer'
+import { hideTimer } from '../plugins/init_timer';
 import { initParticipationCable } from '../channels/participation_channel';
 import { chooseColor } from '../components/choose_color';
 
@@ -42,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMarkers();
+  initFoodCable();
   initGameCable();
   initGamestatusCable();
   initParticipationCable();

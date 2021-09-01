@@ -6,7 +6,7 @@ class GamesController < ApplicationController
     @players = @game.participations.map {|participation| participation.player}
     @markers = []
 
-    @game.items.each_with_index do |item, index|
+    @game.items.where(eaten: false).each_with_index do |item, index|
 
     @markers << {
         lat: item.latitude,
