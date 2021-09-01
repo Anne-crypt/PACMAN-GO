@@ -24,6 +24,5 @@ class SettingsController < ApplicationController
     # @participation = @game.participations.find_by(player: current_player)
     # @game.participations.update_all(role: 'ghost')
 
-
   end
 end
