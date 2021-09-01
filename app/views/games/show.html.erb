@@ -29,11 +29,7 @@
           class="item-container"
           data-item="<%=item.to_json%>"
           id="item-<%= item.id %>"
-          <% if(item.eaten) %>
-            data-image="<%= image_path(".png")%>"
-          <%else%>
-            data-image="<%= image_path("burger.png")%>"
-          <%end%>
+          data-image="<%= image_path("burger.png")%>"
         >
         </div>
       <%end%>
@@ -66,13 +62,12 @@
 <p id="game_score"><%= "score: 0" %></p>
 </div>
 
-
 <%# c est pour le channel gamestatus %>
-<div id="gamestatus" data-game-status="<%= @game.finished %>">
-<% if @game.finished? %>
-  <div id="global_container">
-    <div id="popup">
-      <div class="go">
+<div id="gamestatus" data-game-status="<%= @game.finished %>" data-game-id=<%#= @game.id %>>
+  <% if @game.finished? %>
+  <div id="global_container" class="info">
+    <%# <div id="popup" > %>
+      <div class="go" >
 
         <% if @current_player_participation.is_winner? %>
           <h1>YOU WIN!</h1>
@@ -80,7 +75,7 @@
           <h1>GAME OVER</h1>
         <% end %>
       </div>
-    </div>
+    <%# </div> %>
   </div>
 <% end %>
 </div>

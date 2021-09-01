@@ -5,8 +5,9 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @players = @game.participations.map {|participation| participation.player}
     @markers = []
+    @current_player_participation = @game.participations.find_by(player_id: current_player.id)
 
-    @items = @game.items
+    @items = @game.items.where(eaten: false)
     # @game.items.each_with_index do |item, index|
 
     # @markers << {
