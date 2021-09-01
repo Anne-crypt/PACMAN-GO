@@ -4,7 +4,6 @@ class Game < ApplicationRecord
   has_many :participations, dependent: :destroy
   has_many :players, through: :participations
 
-
   COLORS=["red", "blue", "orange", "pink", "green"]
 
 end

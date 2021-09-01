@@ -6,15 +6,15 @@
     style="width: 320px; height: 568px;"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     data-current-user="<%= current_player.id%>"
-    data-markers="<%= @markers.to_json%>">
-
+    data-pacman-user="<%= @pacman.player_id %>"
+    >
     <div id="userplayer" data-game-id="<%= @game.id %>">
       <% @players.each do |player| %>
         <div
           class="player-container"
           data-player="<%=player.to_json%>"
           id="player-<%= player.id %>"
-          <% if(player.id != @pacman.first.player_id) %>
+          <% if(player.id != @pacman.player_id) %>
             data-image="<%= image_path("ghost_#{player.color}.png")%>"
           <%else%>
             data-image="<%= image_path("pacman.png")%>"
@@ -23,7 +23,21 @@
         </div>
       <% end %>
     </div>
-
+  <div id="markeritem" data-game-id="<%= @game.id %>">
+      <% @items.each do |item| %>
+        <div
+          class="item-container"
+          data-item="<%=item.to_json%>"
+          id="item-<%= item.id %>"
+          <% if(item.eaten) %>
+            data-image="<%= image_path(".png")%>"
+          <%else%>
+            data-image="<%= image_path("burger.png")%>"
+          <%end%>
+        >
+        </div>
+      <%end%>
+    </div>
 </div>
 
 <%# takes all the candy + point + small points and put it on the map%>
@@ -52,6 +66,9 @@
 <p id="game_score"><%= "score: 0" %></p>
 </div>
 
+
+<%# c est pour le channel gamestatus %>
+<div id="gamestatus" data-game-status="<%= @game.finished %>">
 <% if @game.finished? %>
   <div id="global_container">
     <div id="popup">
@@ -66,6 +83,4 @@
     </div>
   </div>
 <% end %>
-
-<%# c est pour le channel gamestatus %>
-<div id="gamestatus" data-game-id="<%= @game.id %>"></div>
+</div>
