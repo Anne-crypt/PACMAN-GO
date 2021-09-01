@@ -4,7 +4,7 @@ class Game < ApplicationRecord
   has_many :participations, dependent: :destroy
   has_many :players, through: :participations
 
-  validates :particpations, length: { is: 4 }
+  validates :participations, length: { is: 4 }
 
   COLORS=["red", "blue", "orange", "pink", "green"]
 
