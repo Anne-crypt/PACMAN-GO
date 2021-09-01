@@ -18,7 +18,7 @@ class GamesController < ApplicationController
     # end
     # @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
     @pacman = Participation.all.where(game_id: params[:id], role: 'pacman').first
-    i
+
     flash.now[:info] = 'Give pacman a little advantage' unless @current_player.id == @pacman.player_id || @game.finished
   end
 
