@@ -15,8 +15,8 @@ class PlayersController < ApplicationController
     #   @game.finished = true
     #   GamestatusChannel.broadcast_to(@game)
     # end
-
     GameChannel.broadcast_to(@game, @player)
+
   end
 
   def create
