@@ -71,8 +71,10 @@
 
         <% if @current_player_participation.is_winner? %>
           <h1>Congratulations! YOU WIN!</h1>
+          <%= link_to "REPLAY", home_path, class: "btn btn-ghost" %>
         <% else %>
           <h1>GAME OVER</h1>
+          <%= link_to "REPLAY", home_path, class: "btn btn-ghost" %>
         <% end %>
       </div>
     <%# </div> %>

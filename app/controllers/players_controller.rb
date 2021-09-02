@@ -123,7 +123,7 @@ class PlayersController < ApplicationController
         end
       end
     else
-      flash[:alert] = "OOPS! Something went wrong, try again! Make sure "
+      flash[:alert] = "OOPS! Something went wrong, try again! Make sure you enter a nickname"
       redirect_to home_path
     end
   end
