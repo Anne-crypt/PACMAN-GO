@@ -78,30 +78,3 @@
   </div>
 
 </div>
-
-
-<%# takes all the candy + point + small points and put it on the map%>
-
-<%# takes pacman and put them on the map %>
-
-<%# pop-up timer of x minutes for ghost%>
-  <%# <% if current_player.role = ghosts%>
-  <%# <p>PACMAN HAS A LITTLE TIME AHEAD</p> %>
-  <%# <% end %>
-
-<%# pop-up message for the winners and losers%>
-
-
-<%# affiche lives if time left %>
-    <%# <div id='lives'>
-      <ul class='inline-list'>
-      <% for i  @game.lives %>
-    <%# </div> %>
-
-<div class="hearts">
-  <%= image_tag "heart.png", :class => "full_heart", :id => "heart_1" %><%= image_tag "heat-unactivated.png", :class => "half_heart", :id => "heart_2" %><%= image_tag "heat-unactivated.png", :class => "half_heart", :id => "heart_3" %>
-</div>
-
-<div classe="score">
-<p id="game_score"><%= "Score: #{@game.score}"%></p>
-</div>
