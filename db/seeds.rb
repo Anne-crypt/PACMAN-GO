@@ -26,8 +26,8 @@ puts "Creating players..."
   raph = Player.new(nickname: "Rapkalin", latitude: "48.865587", longitude: "2.379623")
   dorien = Player.new(nickname: "Dodo", latitude: "48.865933", longitude: "2.379347")
   rahim = Player.new(nickname: "Rahim", latitude: "48.865588", longitude: "2.380347")
-  sunny = Player.new(nickname: "Sunny", latitude: "48.864959", longitude: "2.379320")
-  players = [anne, raph, dorien, rahim, sunny]
+  # sunny = Player.new(nickname: "Sunny", latitude: "48.864959", longitude: "2.379320")
+  players = [anne, raph, dorien, rahim]
   players.each do |player|
     player.save!
     seeded_players << player
@@ -43,6 +43,7 @@ puts "Creating Game..."
   game.save!
   puts "A game has been created: "
   puts "Token: WAGON"
+  puts "Game id is: #{game.id}"
   puts "Host: Anne - id: #{anne.id}"
 
 puts " "
