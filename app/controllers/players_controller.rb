@@ -42,7 +42,7 @@ class PlayersController < ApplicationController
      end
 
      # - il y a un ghost nearby
-     if ghosts_nearby && @game.finished = false
+     if ghosts_nearby && @game.finished == false
         @game.finished = true
         @game.save
         ghosts_participations.each do |ghost_participation|

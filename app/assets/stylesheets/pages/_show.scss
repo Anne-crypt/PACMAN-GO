@@ -1,280 +1,286 @@
-#games_show {
-  background-image: none;;
-  background-color: black;
-}
-
-#gamemap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 87%;
-  height: 90%;
-}
-
-body {
-  position: relative;
-}
-
-#popup {
-  z-index: 999;
-  height: 80%;
-  width: 80%;
-  background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 5%;
-  margin-left: 10%;
-  margin-top: 4%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 4px solid blue;
-}
-
-@media(max-height: 1366px) {
-
-  #gamemap {
-    width: 100%;
-    height: 100%;
-  }
-
-  .mapboxgl-canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  .full_heart {
-  width: 52px;
-  height: 52px;;
-  }
-
-  .hearts {
-    position:relative;
-    margin: 0;
-    padding: 0;
-    padding-top: 10px;
-    padding-left: 75px;
-  }
-
-  .half_heart {
-    width: 42px;
-    height: 42px;;
-  }
-
-  #game_score {
-    position: absolute;
-    bottom: -5px;
-    left: 85px;
-    font-size: 32px;
-  }
-
-  .mapboxgl-ctrl-logo {
-    visibility: hidden;
-  }
-}
-
-@media(max-height: 1024px) {
-  #gamemap {
-    width: 100%;
-    height: 100%;
-  }
-
-  .mapboxgl-canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  .full_heart {
-  width: 39px;
-  height: 39px;;
-  }
-
-  .hearts {
-    position:relative;
-    margin: 0;
-    padding: 0;
-    padding-top: 6px;
-    padding-left: 55px;
-  }
-
-  .half_heart {
-    width: 33px;
-    height: 33px;;
-  }
-
-  #game_score {
-    position: absolute;
-    bottom: -5px;
-    left: 60px;
-    font-size: 22px;
-  }
-
-  .mapboxgl-ctrl-logo {
-    visibility: hidden;
-  }
-}
-
-@media(max-height: 823px) {
-  #gamemap {
-    width: 100%;
-    height: 100%;
-  }
-
-  .mapboxgl-canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  .full_heart {
-  width: 39px;
-  height: 39px;;
-  }
-
-  .hearts {
-    position:relative;
-    margin: 0;
-    padding: 0;
-    padding-top: 6px;
-    padding-left: 30px;
-  }
-
-  .half_heart {
-    width: 33px;
-    height: 33px;;
-  }
-
-  #game_score {
-    position: absolute;
-    bottom: -5px;
-    left: 30px;
-    font-size: 22px;
-  }
-
-  .mapboxgl-ctrl-logo {
-    visibility: hidden;
-  }
-}
-
-@media(max-height: 812px) {
-  .full_heart {
-  width: 29px;
-  height: 29px;;
+#pages_home {
+  #games_show {
+    background-image: none;;
+    background-color: black;
   }
 
   #gamemap {
-    width: 100%;
-    height: 100%;
-  }
-
-  .mapboxgl-canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  .hearts {
-    margin: 0;
-    padding: 0;
-    padding-top: 6px;
-    padding-left: 30px;
-
-  }
-
-  .half_heart {
-    width: 25px;
-    height: 25px;;
-  }
-
-  #game_score {
     position: absolute;
-    bottom: -8px;
-    left: 35px;
-    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 87%;
+    height: 90%;
   }
 
-  .mapboxgl-ctrl-logo {
-    visibility: hidden;
-  }
-}
-
-@media(max-height: 736px) {
-  .full_heart {
-  width: 29px;
-  height: 29px;;
+  body {
+    position: relative;
   }
 
-  #gamemap {
-    width: 100%;
-    height: 100%;
+  #popup {
+    z-index: 999;
+    height: 80%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 5%;
+    margin-left: 10%;
+    margin-top: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid blue;
   }
 
-  .mapboxgl-canvas {
-    width: 100%;
-    height: 100%;
+  @media(max-height: 1366px) {
+
+    #gamemap {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .full_heart {
+    width: 52px;
+    height: 52px;;
+    }
+
+    .hearts {
+      position:relative;
+      margin: 0;
+      padding: 0;
+      padding-top: 10px;
+      padding-left: 75px;
+    }
+
+    .half_heart {
+      width: 42px;
+      height: 42px;;
+    }
+
+    #game_score {
+      position: absolute;
+      bottom: -5px;
+      left: 85px;
+      font-size: 32px;
+    }
+
+    .mapboxgl-ctrl-logo {
+      visibility: hidden;
+    }
   }
 
-  .hearts {
-    position:relative;
-    margin: 0;
-    padding: 0;
-    padding-top: 10px;
-    padding-left: 30px;
+  @media(max-height: 1024px) {
+    #gamemap {
+      width: 100%;
+      height: 100%;
+    }
 
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .full_heart {
+    width: 39px;
+    height: 39px;;
+    }
+
+    .hearts {
+      position:relative;
+      margin: 0;
+      padding: 0;
+      padding-top: 6px;
+      padding-left: 55px;
+    }
+
+    .half_heart {
+      width: 33px;
+      height: 33px;;
+    }
+
+    #game_score {
+      position: absolute;
+      bottom: -5px;
+      left: 60px;
+      font-size: 22px;
+    }
+
+    .mapboxgl-ctrl-logo {
+      visibility: hidden;
+    }
   }
 
-  .half_heart {
-    width: 25px;
-    height: 25px;;
+  @media(max-height: 823px) {
+    #gamemap {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .full_heart {
+    width: 39px;
+    height: 39px;;
+    }
+
+    .hearts {
+      position:relative;
+      margin: 0;
+      padding: 0;
+      padding-top: 6px;
+      padding-left: 30px;
+    }
+
+    .half_heart {
+      width: 33px;
+      height: 33px;;
+    }
+
+    #game_score {
+      position: absolute;
+      bottom: -5px;
+      left: 30px;
+      font-size: 22px;
+    }
+
+    .mapboxgl-ctrl-logo {
+      visibility: hidden;
+    }
   }
 
-  #game_score {
-    position: absolute;
-    bottom: -8px;
-    left: 35px;
+  @media(max-height: 812px) {
+    .full_heart {
+    width: 29px;
+    height: 29px;;
+    }
+
+    #gamemap {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hearts {
+      margin: 0;
+      padding: 0;
+      padding-top: 6px;
+      padding-left: 30px;
+
+    }
+
+    .half_heart {
+      width: 25px;
+      height: 25px;;
+    }
+
+    #game_score {
+      position: absolute;
+      bottom: -8px;
+      left: 35px;
+      font-size: 20px;
+    }
+
+    .mapboxgl-ctrl-logo {
+      visibility: hidden;
+    }
   }
 
-  .mapboxgl-ctrl-logo {
-    visibility: hidden;
-  }
-}
+  @media(max-height: 736px) {
+    .full_heart {
+    width: 29px;
+    height: 29px;;
+    }
 
-@media(max-height: 667px) {
-  .full_heart {
-    z-index: 1;
-    width: 25px;
-    height: 25px;;
-  }
+    #gamemap {
+      width: 100%;
+      height: 100%;
+    }
 
-  #gamemap {
-    width: 100%;
-    height: 100%;
-  }
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+    }
 
-  .mapboxgl-canvas {
-    width: 100%;
-    height: 100%;
-  }
+    .hearts {
+      position:relative;
+      margin: 0;
+      padding: 0;
+      padding-top: 10px;
+      padding-left: 30px;
 
-  .hearts {
-    position:relative;
-    margin: 0;
-    padding: 0;
-    padding-top: 7px;
-    padding-left: 30px;
+    }
 
-  }
+    .half_heart {
+      width: 25px;
+      height: 25px;;
+    }
 
-  .half_heart {
-    width: 21px;
-    height: 21px;;
-  }
+    #game_score {
+      position: absolute;
+      bottom: -8px;
+      left: 35px;
+    }
 
-  #game_score {
-    position: absolute;
-    bottom: -12px;
-    left: 35px;
-    font-size: 15px;
+    .mapboxgl-ctrl-logo {
+      visibility: hidden;
+    }
   }
 
-  .mapboxgl-ctrl-logo {
-    visibility: hidden;
+  @media(max-height: 667px) {
+    .full_heart {
+      z-index: 1;
+      width: 25px;
+      height: 25px;;
+    }
+
+    #gamemap {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hearts {
+      position:relative;
+      margin: 0;
+      padding: 0;
+      padding-top: 7px;
+      padding-left: 30px;
+
+    }
+
+    .half_heart {
+      width: 21px;
+      height: 21px;;
+    }
+
+    #game_score {
+      position: absolute;
+      bottom: -12px;
+      left: 35px;
+      font-size: 15px;
+    }
+
+    .mapboxgl-ctrl-logo {
+      visibility: hidden;
+    }
+
+    .end_popup {
+      font-size: 20px;
+    }
   }
 }
