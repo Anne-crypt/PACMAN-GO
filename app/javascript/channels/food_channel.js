@@ -10,11 +10,13 @@ const initFoodCable = () => {
       { channel: 'FoodChannel', id: id },
       {
         received(data) {
-          console.log(data);
-          const itemMarker = document.getElementById(`item-${data.id}`);
-          itemMarker.hidden = true;
-          // const dataNew = JSON.stringify(data);
-          // itemMarker.dataset.item = dataNew;
+          data[0].forEach(item => {
+            const itemMarker = document.getElementById(`item-${item.id}`);
+            itemMarker.hidden = true;
+          });
+
+          const score = document.getElementById('game_score');
+          score.innerHTML = `Score: ${data[1]}`;
         },
       }
     );

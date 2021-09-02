@@ -11,9 +11,6 @@ class PlayersController < ApplicationController
 
     GameChannel.broadcast_to(@game, @player)
 
-    # LATER: gerer les vies
-    # LATER: gérer le "timeout" des ghosts
-
     if @participation.role == "pacman"
       # items_nearby  = @game.items.near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
       items_not_eaten = Item.all.where(game_id: @game.id, eaten: false)
@@ -27,13 +24,15 @@ class PlayersController < ApplicationController
         items_nearby.each do |item|
           item.eaten = true
           item.save
-          #   -> Ajouter une migration pour score
-          #   -> augmenter le score
-          # @game.score += 200
-
-          # Broadcoast
-          FoodChannel.broadcast_to(@game, item)
+          if item.super
+            @game.score += 100
+            @game.save
+          else
+            @game.score += 50
+            @game.save
+          end
         end
+        FoodChannel.broadcast_to(@game, [items_nearby, @game.score])
       end
 
       #   - ET si tous les items du game sont eaten true
@@ -150,6 +149,4 @@ private
   def player_params
     params.require(:player).permit(:nickname, :token, :tokens, :latitude, :longitude)
   end
-
-
 end
