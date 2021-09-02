@@ -13,57 +13,30 @@ class PlayersController < ApplicationController
     GameChannel.broadcast_to(@game, @player)
 
     if @participation.role == "pacman"
-      items_nearby = Item.all.where(game_id: @game.id, eaten: false).near([@player.latitude, @player.longitude], 0.006)
-      ghosts_nearby = @game.players.joins(:participations).where(participations: { role: 'ghost' }).near([@player.latitude, @player.longitude], 0.006).any? # distance: 1 meterµ
+      items_nearby = Item.all.where(game_id: @game.id, eaten: false).near([@player.latitude, @player.longitude], 0.025)
+      ghosts_nearby = @game.players.joins(:participations).where(participations: { role: 'ghost' }).near([@player.latitude, @player.longitude], 0.025).any? # distance: 1 meterµ
 
       if items_nearby.length > 0
-        #   -> passer tous les items nearby à eaten true
-        items_nearby.each do |item|
+       #   -> passer tous les items nearby à eaten true
+       items_nearby.each do |item|
           item.eaten = true
           item.save
-          if item.super
-            @game.score += 100
-            @game.save
-          else
-            @game.score += 50
-            @game.save
-          end
+          @game.score += item.super ? 100 : 50
+          @game.save
         end
         FoodChannel.broadcast_to(@game, [items_nearby, @game.score])
       end
 
       #   - ET si tous les items du game sont eaten true
-     if @game.finished == false && Item.all.where(game_id: @game.id, eaten: true).count == @game.items.length
-      @game.finished = true
-      @game.save
-      @participation.is_winner = true
-      @participation.save
-      GamestatusChannel.broadcast_to(@game, "finished")
-     end
+      set_end_of_game([@participation]) if @game.finished == false && Item.all.where(game_id: @game.id, eaten: true).count == @game.items.length
 
-     # - il y a un ghost nearby
-     if ghosts_nearby && @game.finished == false
-        @game.finished = true
-        @game.save
-        ghosts_participations.each do |ghost_participation|
-          ghost_participation.is_winner = true
-          ghost_participation.save
-        end
-        GamestatusChannel.broadcast_to(@game, "finished")
-     end
+      # - il y a un ghost nearby
+      set_end_of_game(ghosts_participations) if ghosts_nearby && @game.finished == false
 
     else
-      pacman_nearby = @game.players.joins(:participations).where(participations: {role: 'pacman'}).near([@player.latitude, @player.longitude], 0.006).any? # distance: 1 meter
+      pacman_nearby = @game.players.joins(:participations).where(participations: {role: 'pacman'}).near([@player.latitude, @player.longitude], 0.025).any? # distance: 1 meter
+      set_end_of_game(ghosts_participations) if pacman_nearby && @game.finished == false
 
-      if pacman_nearby && @game.finished == false
-        @game.finished = true
-        @game.save
-        ghosts_participations.each do |ghost_participation|
-          ghost_participation.is_winner = true
-          ghost_participation.save
-        end
-      GamestatusChannel.broadcast_to(@game, "finished")
-      end
     end
   end
 
@@ -122,6 +95,16 @@ class PlayersController < ApplicationController
   end
 
 private
+
+  def set_end_of_game(arrayofparticipants)
+    @game.finished = true
+        @game.save
+        arrayofparticipants.each do |ghost_participation|
+          ghost_participation.is_winner = true
+          ghost_participation.save
+        end
+        GamestatusChannel.broadcast_to(@game, "finished")
+  end
 
   def get_coords
     coords ="2.377429537018571 48.86790934548844
