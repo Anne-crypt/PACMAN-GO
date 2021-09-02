@@ -12,6 +12,17 @@ const initMapbox = () => {
     const pacmanId = parseInt(mapElement.dataset.pacmanUser);
     let counter = 0;
 
+    const spElement = document.getElementById('lewagonstart');
+    const wagonUrl = spElement.dataset.image
+    spElement.className = 'marker';
+    spElement.style.backgroundImage = `url('${wagonUrl}')`;
+    spElement.style.backgroundSize = 'contain';
+    spElement.style.backgroundRepeat = "no-repeat";
+    spElement.style.width = '45px';
+    spElement.style.height = '45px';
+    new mapboxgl.Marker(spElement, { anchor: 'bottom'})
+      .setLngLat([2.380197576721457, 48.8649])
+      .addTo(window.map);
 
     const playerElements = document.querySelectorAll('.player-container');
     playerElements.forEach((element) => {
@@ -45,17 +56,6 @@ const initMapbox = () => {
       });
     // }
 
-    const spElement = document.getElementById('lewagonstart');
-    const wagonUrl = spElement.dataset.image
-    spElement.className = 'marker';
-    spElement.style.backgroundImage = `url('${wagonUrl}')`;
-    spElement.style.backgroundSize = 'contain';
-    spElement.style.backgroundRepeat = "no-repeat";
-    spElement.style.width = '50px';
-    spElement.style.height = '50px';
-    new mapboxgl.Marker(spElement)
-      .setLngLat([2.38, 48.865])
-      .addTo(window.map);
 
 
    const setGeolocation = () => {
