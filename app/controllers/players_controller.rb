@@ -4,6 +4,7 @@ class PlayersController < ApplicationController
     @game          = Game.find(params[:game_id])
     @player        = Player.find(params[:id])
     @participation = @game.participations.find_by(player_id: @player.id)
+    ghosts_participations = @game.participations.where(role: 'ghost')
 
     @player.latitude  = params[:latitude].to_f
     @player.longitude = params[:longitude].to_f
@@ -12,24 +13,9 @@ class PlayersController < ApplicationController
     GameChannel.broadcast_to(@game, @player)
 
     if @participation.role == "pacman"
-      # items_nearby  = @game.items.near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
-      items_not_eaten = Item.all.where(game_id: @game.id, eaten: false)
-      items_nearby  = items_not_eaten.near([@player.latitude, @player.longitude], 0.05) # distance: 1 meter
+      items_nearby = Item.all.where(game_id: @game.id, eaten: false).near([@player.latitude, @player.longitude], 0.05)
+      ghosts_nearby = @game.players.joins(:participations).where(participations: { role: 'ghost' }).near([@player.latitude, @player.longitude], 0.050).any? # distance: 1 meterµ
 
-      # ghosts_players = Participation.all.where(game_id: @game.id, role: 'ghost').map do |participation|
-      #   participation.player
-      # end
-
-      ghosts_participations = @game.participations.where(role: 'ghost')
-      # ghosts_players = ghosts_participations.map do |ghost_participation|
-      #   ghost_participation.player
-      # end
-      # ghosts_nearby = @game.participations.where(role: 'ghost').near([@player.latitude, @player.longitude], 0.001) # distance: 1 meter
-
-
-      ghosts_nearby = @game.players.joins(:participations).where(participations: { role: 'ghost' }).near([@player.latitude, @player.longitude], 0.050).any? # distance: 1 meter
-
-      # - il y a des items neaby
       if items_nearby.length > 0
         #   -> passer tous les items nearby à eaten true
         items_nearby.each do |item|
@@ -48,78 +34,36 @@ class PlayersController < ApplicationController
 
       #   - ET si tous les items du game sont eaten true
      if @game.finished == false && Item.all.where(game_id: @game.id, eaten: true).count == @game.items.length
-      #   -> fin du jeu, pacman wins
       @game.finished = true
       @game.save
-      #   -> passer participation is winner
       @participation.is_winner = true
       @participation.save
-      #   -> broadcaster la fin du jeu sur le gamestatus channel
-      # redirect_to result_game_path(@game)
       GamestatusChannel.broadcast_to(@game, "finished")
-      # flash.now[:info] = "You win!"
-      # render # popup => new route => pages/game/game_id/result"
      end
 
      # - il y a un ghost nearby
-     if ghosts_nearby
-      #   -> fin du jeu, pacman loses
-      @game.finished = true
-      @game.save
-
-      #   -> ghosts is_winner is true
-      ghosts_participations.each do |ghost_participation|
-        ghost_participation.is_winner = true
-        ghost_participation.save
-      end
-
-      #     -> broadcaster la fin du jeu sur le gamestatus channel
-      GamestatusChannel.broadcast_to(@game, "finished")
-
+     if ghosts_nearby && @game.finished = false
+        @game.finished = true
+        @game.save
+        ghosts_participations.each do |ghost_participation|
+          ghost_participation.is_winner = true
+          ghost_participation.save
+        end
+        GamestatusChannel.broadcast_to(@game, "finished")
      end
 
-
-
-      # CASES
-      # - il y a des items neaby
-      #   -> passer tous les items nearby à eaten true
-      #   -> augmenter le score
-      #   -> broadcaster le retrait de l'item
-      #   - ET si tous les items du game sont eaten true
-      #     -> fin du jeu, pacman wins
-      #     -> passer participation is winner true ET game finished true
-      # - il y a un ghost nearby
-      #     -> broadcaster la fin du jeu sur le gamestatus channel
-      #   -> fin du jeu, pacman loses
-      #   -> passer participation is winner false ET game finished true
-      #   -> passer toutes les participations ghost is winner true
-      #   -> broadcaster la fin du jeu sur le gamestatus channel
-
     else
-      pacman_nearby = @game.participations.where(role: 'pacman').near([@player.latitude, @player.longitude], 0.050) # distance: 1 meter
+      pacman_nearby = @game.players.joins(:participations).where(participations: {role: 'pacman'}).near([@player.latitude, @player.longitude], 0.050) # distance: 1 meter
 
-      if pacman_nearby.count > 0
-              #   -> fin du jeu, pacman loses
-      @game.finished = true
-      @game.save
-
-      #   -> ghosts is_winner est true
-      @ghosts_participations.each do |ghost_participation|
-        ghost_participation.is_winner = true
-        ghost_participation.save
-      end
-
-      #     -> broadcaster la fin du jeu sur le gamestatus channel
+      if pacman_nearby
+        @game.finished = true
+        @game.save
+        ghosts_participations.each do |ghost_participation|
+          ghost_participation.is_winner = true
+          ghost_participation.save
+        end
       GamestatusChannel.broadcast_to(@game, "finished")
-
       end
-
-
-
-      # CASES
-      # - il y a le pacman nearby
-      #   -> fin du jeu, pacman loses
-      #   -> broadcaster la fin du jeu sur le gamestatus channel
     end
   end
 
