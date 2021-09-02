@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.float :start_longitude
       t.string :token
       t.integer :lives
-      t.boolean :finished
+      t.boolean :finished, default: false
       t.references :player, null: false, foreign_key: true
 
       t.timestamps

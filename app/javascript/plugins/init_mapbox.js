@@ -13,17 +13,6 @@ const initMapbox = () => {
     console.log(currentPlayerId);
     console.log(pacmanId);
     let counter = 0;
-    // only build a map if there's a div#map to inject into
-    // mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-    // const map = new mapboxgl.Map({
-      //   container: 'gamemap',
-      //   // style: 'mapbox://styles/ja-dore/cksojgcmr4th017lw0hrh1fiz',
-      //   style: 'mapbox://styles/mapbox/streets-v11',
-      //   center: [2.379983, 48.865171],
-      //   zoom: 16,
-      //   attributionControl: false,
-      //   interactive: false,
-      // });
 
     const playerElements = document.querySelectorAll('.player-container');
     playerElements.forEach((element) => {
