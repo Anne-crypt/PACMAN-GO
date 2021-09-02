@@ -29,7 +29,11 @@
           class="item-container"
           data-item="<%=item.to_json%>"
           id="item-<%= item.id %>"
+          <% if item.super%>
           data-image="<%= image_path("burger.png")%>"
+          <%else%>
+          data-image="<%= image_path("strawberry.png") %>"
+          <%end%>
         >
         </div>
       <%end%>
