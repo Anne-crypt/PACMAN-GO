@@ -42,7 +42,7 @@ class PlayersController < ApplicationController
      end
 
      # - il y a un ghost nearby
-     if ghosts_nearby && @game.finished = false
+     if ghosts_nearby && @game.finished == false
         @game.finished = true
         @game.save
         ghosts_participations.each do |ghost_participation|
@@ -55,7 +55,7 @@ class PlayersController < ApplicationController
     else
       pacman_nearby = @game.players.joins(:participations).where(participations: {role: 'pacman'}).near([@player.latitude, @player.longitude], 0.050) # distance: 1 meter
 
-      if pacman_nearby
+      if pacman_nearby && @game.finished == false
         @game.finished = true
         @game.save
         ghosts_participations.each do |ghost_participation|
