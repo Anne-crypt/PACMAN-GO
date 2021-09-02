@@ -9,12 +9,12 @@
       </div>
 
       <div id="gamestatus" data-game-status="<%= @game.finished %>" data-game-id=<%= @game.id %>>
-        <% if @game.finished? %>
+        <% if @game.finished %>
         <div class="info-result">
           <%# <div id="popup" > %>
             <div class="result-page" >
 
-              <% if @current_player_participation.is_winner? %>
+              <% if @current_player_participation.is_winner %>
                 <h1>BRAVO!<br>YOU WIN!</h1>
                 <%= link_to "REPLAY", home_path, class: "btn btn-ghost" %>
               <% else %>
@@ -27,10 +27,11 @@
         <% end %>
       </div>
 
-      <div class="score">
+<div class="score">
       <%#  id="game-score" %>
       <p><%= "Score: #{@game.score}"%></p>
-      </div>
+</div>
+
     </div>
 
   <div id="lewagonstart" data-image=<%= image_path ("startpoint.png")%>>
@@ -69,7 +70,11 @@
             class="item-container"
             data-item="<%=item.to_json%>"
             id="item-<%= item.id %>"
+            <%if item.super%>
             data-image="<%= image_path("burger.png")%>"
+            <%else%>
+             data-image="<%= image_path("strawberry.png")%>"
+            <%end%>
           >
           </div>
         <%end%>

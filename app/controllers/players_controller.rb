@@ -53,7 +53,7 @@ class PlayersController < ApplicationController
      end
 
     else
-      pacman_nearby = @game.players.joins(:participations).where(participations: {role: 'pacman'}).near([@player.latitude, @player.longitude], 0.006) # distance: 1 meter
+      pacman_nearby = @game.players.joins(:participations).where(participations: {role: 'pacman'}).near([@player.latitude, @player.longitude], 0.006).any? # distance: 1 meter
 
       if pacman_nearby && @game.finished == false
         @game.finished = true
