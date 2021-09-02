@@ -16,9 +16,10 @@
 
               <% if @current_player_participation.is_winner? %>
                 <h1>BRAVO!<br>YOU WIN!</h1>
-                <%= render 'shared/flashes' %>
+                <%= link_to "REPLAY", home_path, class: "btn btn-ghost" %>
               <% else %>
                 <h1>GAME OVER!</h1>
+                <%= link_to "REPLAY", home_path, class: "btn btn-ghost" %>
               <% end %>
             </div>
           <%# </div> %>
@@ -101,24 +102,4 @@
 
 <div classe="score">
 <p id="game_score"><%= "Score: #{@game.score}"%></p>
-</div>
-
-<%# c est pour le channel gamestatus %>
-<div id="gamestatus" data-game-status="<%= @game.finished %>" data-game-id=<%= @game.id %>>
-  <% if @game.finished? %>
-  <div id="global_container" class="info">
-    <%# <div id="popup" > %>
-      <div class="end_popup" >
-
-        <% if @current_player_participation.is_winner? %>
-          <h1>Congratulations! YOU WIN!</h1>
-          <%= link_to "REPLAY", home_path, class: "btn btn-ghost" %>
-        <% else %>
-          <h1>GAME OVER</h1>
-          <%= link_to "REPLAY", home_path, class: "btn btn-ghost" %>
-        <% end %>
-      </div>
-    <%# </div> %>
-  </div>
-  <% end %>
 </div>
