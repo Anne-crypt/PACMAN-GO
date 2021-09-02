@@ -85,19 +85,7 @@ class PlayersController < ApplicationController
         # raise
         @game.finished = false
         @game.save!
-        coords = [[48.866089, 2.379206], [48.865979, 2.379292], [48.864892, 2.379984], [48.865792, 2.379437], [48.865644, 2.379550],
-      [48.865475, 2.379684], [48.865323, 2.379829],
-      [48.865210, 2.379925], [48.865115, 2.380001], [48.865009, 2.380081],
-      [48.864903, 2.380183], [48.864822, 2.380248]]
-        coords.each do |coord|
-          burgercount = @game.items.where(super: true).count
-          @game.items.create(
-            eaten: false,
-            latitude: coord.first,
-            longitude: coord.last,
-            super: burgercount <= 3 ? [true, false].sample : false
-          )
-        end
+        set_items(@game)
       end
 
       if @game.nil?
@@ -107,7 +95,7 @@ class PlayersController < ApplicationController
         @participation = Participation.new(game_id: @game.id,
           player_id: @player.id,
           role: @game.player == current_player ? "pacman" : "ghost")
-       if @participation.save
+        if @participation.save
           # Broadcast action cable
           @game.participations.each do |participation|
             ParticipationChannel.broadcast_to(
@@ -134,6 +122,38 @@ class PlayersController < ApplicationController
   end
 
 private
+
+  def get_coords
+    coords ="2.377429537018571 48.86790934548844
+    2.3810129682619277 48.868530392690644
+    2.382150224884896 48.86493103474936
+    2.3786311666568167 48.86453579535777
+    2.377515367706309 48.86233369017506
+    2.377515367706309 48.864112321116664
+    2.37730079098597 48.865679157909
+    2.3793178121647145 48.86598969631302
+    2.3797898809512503 48.862517202640845
+    2.382557920655131 48.86161375015638
+    2.382879785736691 48.864182900405694
+    2.3820214788512715 48.866822494337555
+    2.3809271375731953 48.86583442735187"
+    markers = coords.split("\n")
+    return markers
+  end
+
+  def set_items(game)
+    coords = get_coords()
+    coords.each do |coord|
+          coord = coord.split(" ")
+          burgercount = game.items.where(super: true).count
+          @game.items.create(
+            eaten: false,
+            latitude: coord.last.to_f,
+            longitude: coord.first.to_f,
+            super: burgercount <= 4 ? [true, false].sample : false
+          )
+      end
+  end
 
   def player_params
     params.require(:player).permit(:nickname, :token, :tokens, :latitude, :longitude)

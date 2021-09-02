@@ -6,17 +6,7 @@ class GamesController < ApplicationController
     @players = @game.participations.map {|participation| participation.player}
     @markers = []
     @current_player_participation = @game.participations.find_by(player_id: current_player.id)
-
     @items = @game.items.where(eaten: false)
-    # @game.items.each_with_index do |item, index|
-
-    # @markers << {
-    #     lat: item.latitude,
-    #     lng: item.longitude,
-    #     image_url: item.super ? helpers.asset_url("burger.png") : helpers.asset_url("dot-test.png")
-    #   }
-    # end
-    # @ghosts = Participation.all.where(game_id: params[:id], role: 'ghost')
     @pacman = Participation.all.where(game_id: params[:id], role: 'pacman').first
 
     flash.now[:info] = 'Give pacman a little advantage' unless @current_player.id == @pacman.player_id || @game.finished
@@ -24,12 +14,7 @@ class GamesController < ApplicationController
 
   def edit
     @game = Game.find(params[:id])
-    # @current_player = Player.find_by(id: session[:player_id]) if session[:player_id]
     @participation = @game.participations.find_by(player_id: current_player.id)
-
-    # the below line retrieve the role of the current player
-    # @current_role = @game.participations.find_by(player_id: @current_player.id).role
-
   end
 
   def update
@@ -42,7 +27,7 @@ class GamesController < ApplicationController
     respond_to do |format|
         format.html { redirect_to edit_game_path(@game) }
         format.json # Follow the classic Rails flow and look for a create.json view
-    end
+      end
 
     # Broadcoast
     @game.participations.each do |participation|
