@@ -79,17 +79,6 @@ const initMapbox = () => {
       setTimeout(function(){ counter ++; setGeolocation()}, 5000);
     }
   }
-  const place_marker = (location) => {
-    new mapboxgl.Marker()
-      .setLngLat([location.lng, location.lat])
-      .addTo(window.map);
-    console.log(`${location.lng} ${location.lat}`);
-  };
-
-  window.map.on('click', function (e) {
-    const location = e.lngLat;
-    place_marker(location);
-  });
 };
 
 export { initMapbox };
