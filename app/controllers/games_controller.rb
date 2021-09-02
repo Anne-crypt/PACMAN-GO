@@ -22,16 +22,6 @@ class GamesController < ApplicationController
     flash.now[:info] = 'Give pacman a little advantage' unless @current_player.id == @pacman.player_id || @game.finished
   end
 
-  def create
-    @game = Game.new(game_params)
-    game.token = [A..Z].sample(4)
-    if @game.save
-      redirect_to edit_game_path(@game)
-    else
-      render :new
-    end
-  end
-
   def edit
     @game = Game.find(params[:id])
     # @current_player = Player.find_by(id: session[:player_id]) if session[:player_id]
@@ -72,15 +62,6 @@ class GamesController < ApplicationController
     redirect_to game_path(params[:id])
   end
 
-  # def result
-  #   @game = Game.find(params[:id])
-  #   GamestatusChannel.broadcast_to(@game, "result")
-  #   redirect_to game_path(params[:id])
-  # end
-
-  def new
-    @game = Game.new
-  end
 
 private
 
