@@ -1,6 +1,10 @@
 #games_show {
-  background-image: none;;
+  background-image: none;
   background-color: black;
+}
+
+.score {
+  padding-left: 30px;
 }
 
 #gamemap {
@@ -27,11 +31,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid blue;
+  border: 4px solid #1f1ff0;
 }
 
-@media(max-height: 1366px) {
+#container-map-result {
+  height: inherit;
+}
 
+#container-child {
+  height: inherit;
+}
+
+#container-style {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#gamestatus {
+  text-align: center;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+}
+
+@media (max-height: 1366px) {
   #gamemap {
     width: 100%;
     height: 100%;
@@ -43,12 +69,12 @@ body {
   }
 
   .full_heart {
-  width: 52px;
-  height: 52px;;
+    width: 52px;
+    height: 52px;
   }
 
   .hearts {
-    position:relative;
+    position: relative;
     margin: 0;
     padding: 0;
     padding-top: 10px;
@@ -57,7 +83,7 @@ body {
 
   .half_heart {
     width: 42px;
-    height: 42px;;
+    height: 42px;
   }
 
   #game_score {
@@ -72,7 +98,7 @@ body {
   }
 }
 
-@media(max-height: 1024px) {
+@media (max-height: 1024px) {
   #gamemap {
     width: 100%;
     height: 100%;
@@ -84,12 +110,12 @@ body {
   }
 
   .full_heart {
-  width: 39px;
-  height: 39px;;
+    width: 39px;
+    height: 39px;
   }
 
   .hearts {
-    position:relative;
+    position: relative;
     margin: 0;
     padding: 0;
     padding-top: 6px;
@@ -98,7 +124,7 @@ body {
 
   .half_heart {
     width: 33px;
-    height: 33px;;
+    height: 33px;
   }
 
   #game_score {
@@ -113,7 +139,7 @@ body {
   }
 }
 
-@media(max-height: 823px) {
+@media (max-height: 823px) {
   #gamemap {
     width: 100%;
     height: 100%;
@@ -125,12 +151,12 @@ body {
   }
 
   .full_heart {
-  width: 39px;
-  height: 39px;;
+    width: 39px;
+    height: 39px;
   }
 
   .hearts {
-    position:relative;
+    position: relative;
     margin: 0;
     padding: 0;
     padding-top: 6px;
@@ -139,7 +165,7 @@ body {
 
   .half_heart {
     width: 33px;
-    height: 33px;;
+    height: 33px;
   }
 
   #game_score {
@@ -154,10 +180,10 @@ body {
   }
 }
 
-@media(max-height: 812px) {
+@media (max-height: 812px) {
   .full_heart {
-  width: 29px;
-  height: 29px;;
+    width: 29px;
+    height: 29px;
   }
 
   #gamemap {
@@ -175,12 +201,11 @@ body {
     padding: 0;
     padding-top: 6px;
     padding-left: 30px;
-
   }
 
   .half_heart {
     width: 25px;
-    height: 25px;;
+    height: 25px;
   }
 
   #game_score {
@@ -195,10 +220,10 @@ body {
   }
 }
 
-@media(max-height: 736px) {
+@media (max-height: 736px) {
   .full_heart {
-  width: 29px;
-  height: 29px;;
+    width: 29px;
+    height: 29px;
   }
 
   #gamemap {
@@ -212,17 +237,16 @@ body {
   }
 
   .hearts {
-    position:relative;
+    position: relative;
     margin: 0;
     padding: 0;
     padding-top: 10px;
     padding-left: 30px;
-
   }
 
   .half_heart {
     width: 25px;
-    height: 25px;;
+    height: 25px;
   }
 
   #game_score {
@@ -236,11 +260,11 @@ body {
   }
 }
 
-@media(max-height: 667px) {
+@media (max-height: 667px) {
   .full_heart {
     z-index: 1;
     width: 25px;
-    height: 25px;;
+    height: 25px;
   }
 
   #gamemap {
@@ -254,17 +278,16 @@ body {
   }
 
   .hearts {
-    position:relative;
+    position: relative;
     margin: 0;
     padding: 0;
     padding-top: 7px;
     padding-left: 30px;
-
   }
 
   .half_heart {
     width: 21px;
-    height: 21px;;
+    height: 21px;
   }
 
   #game_score {

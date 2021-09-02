@@ -18,19 +18,44 @@
   perspective: 40px;
   padding: 2px;
   margin: 5px;
+  text-align: center;
+
+  h1 {
+    font-family: 'Press Start 2P', cursive;
+  }
+}
+
+.info-result {
+  z-index: 999;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #1f1ff0;
+  width: 80%;
+  border-radius: 5%;
+  h1 {
+    font-family: 'Press Start 2P', cursive;
+  }
+}
+
+.result-page h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.go {
+  position: absolute;
   align-items: center;
   text-align: center;
   h1 {
     font-family: 'Press Start 2P', cursive;
   }
 }
-.go{
-  position: absolute;
-  align-items: center;
-  text-align: center;
-   h1 {
-  font-family: 'Press Start 2P', cursive;
-  }
+
+#go-home {
+  width: 100%;
 }
 
 .timer-text {
@@ -38,7 +63,7 @@
   display: table;
   text-align: center;
   overflow: auto;
-  p{
+  p {
     vertical-align: middle;
     display: table-cell;
     width: 100%;
@@ -46,18 +71,18 @@
     top: 45%;
   }
   h1 {
-  position: absolute;
-  top: 75%;
-  vertical-align: middle;
-  display: table-cell;
-  width:100%;
-  font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 75%;
+    vertical-align: middle;
+    display: table-cell;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
   }
 }
 
-$ghost-color: #1EDD88;
-$ghosts: blinky, pinky, clyde, inky ;
-$colors: red, pink, orange, cyan ;
+$ghost-color: #1edd88;
+$ghosts: blinky, pinky, clyde, inky;
+$colors: red, pink, orange, cyan;
 $ghosts-colors: zip($ghosts, $colors);
 $duration: 6s;
 
@@ -149,78 +174,27 @@ $duration: 6s;
 
 @keyframes feet {
   0% {
-    box-shadow:
-        4px 0 $ghost-color,
-        8px 0 $ghost-color,
-        12px 0 $ghost-color,
-
-        4px 4px $ghost-color,
-        8px 4px $ghost-color,
-
-        20px 0 $ghost-color,
-        24px 0 $ghost-color,
-        28px 0 $ghost-color,
-        32px 0 $ghost-color,
-
-        24px 4px $ghost-color,
-        28px 4px $ghost-color,
-
-        40px 0 $ghost-color,
-        44px 0 $ghost-color,
-        48px 0 $ghost-color,
-        52px 0 $ghost-color,
-
-        44px 4px $ghost-color,
-        48px 4px $ghost-color
-      ;
+    box-shadow: 4px 0 $ghost-color, 8px 0 $ghost-color, 12px 0 $ghost-color,
+      4px 4px $ghost-color, 8px 4px $ghost-color, 20px 0 $ghost-color,
+      24px 0 $ghost-color, 28px 0 $ghost-color, 32px 0 $ghost-color,
+      24px 4px $ghost-color, 28px 4px $ghost-color, 40px 0 $ghost-color,
+      44px 0 $ghost-color, 48px 0 $ghost-color, 52px 0 $ghost-color,
+      44px 4px $ghost-color, 48px 4px $ghost-color;
   }
   50% {
-    box-shadow:
-        0 4px $ghost-color,
-        4px 0 $ghost-color,
-
-        12px 0 $ghost-color,
-        16px 0 $ghost-color,
-        20px 0 $ghost-color,
-        16px 4px $ghost-color,
-        20px 4px $ghost-color,
-
-        32px 0 $ghost-color,
-        36px 0 $ghost-color,
-        40px 0 $ghost-color,
-        32px 4px $ghost-color,
-        36px 4px $ghost-color,
-
-        48px 0 $ghost-color,
-        52px 0 $ghost-color,
-        52px 4px $ghost-color
-      ;
+    box-shadow: 0 4px $ghost-color, 4px 0 $ghost-color, 12px 0 $ghost-color,
+      16px 0 $ghost-color, 20px 0 $ghost-color, 16px 4px $ghost-color,
+      20px 4px $ghost-color, 32px 0 $ghost-color, 36px 0 $ghost-color,
+      40px 0 $ghost-color, 32px 4px $ghost-color, 36px 4px $ghost-color,
+      48px 0 $ghost-color, 52px 0 $ghost-color, 52px 4px $ghost-color;
   }
   100% {
-    box-shadow:
-        4px 0 $ghost-color,
-        8px 0 $ghost-color,
-        12px 0 $ghost-color,
-
-        4px 4px $ghost-color,
-        8px 4px $ghost-color,
-
-        20px 0 $ghost-color,
-        24px 0 $ghost-color,
-        28px 0 $ghost-color,
-        32px 0 $ghost-color,
-
-        24px 4px $ghost-color,
-        28px 4px $ghost-color,
-
-        40px 0 $ghost-color,
-        44px 0 $ghost-color,
-        48px 0 $ghost-color,
-        52px 0 $ghost-color,
-
-        44px 4px $ghost-color,
-        48px 4px $ghost-color
-      ;
+    box-shadow: 4px 0 $ghost-color, 8px 0 $ghost-color, 12px 0 $ghost-color,
+      4px 4px $ghost-color, 8px 4px $ghost-color, 20px 0 $ghost-color,
+      24px 0 $ghost-color, 28px 0 $ghost-color, 32px 0 $ghost-color,
+      24px 4px $ghost-color, 28px 4px $ghost-color, 40px 0 $ghost-color,
+      44px 0 $ghost-color, 48px 0 $ghost-color, 52px 0 $ghost-color,
+      44px 4px $ghost-color, 48px 4px $ghost-color;
   }
 }
 
@@ -230,8 +204,8 @@ body {
 
 .ghosttimer {
   position: absolute;
-    top: 0;
-    left: 50%;
+  top: 0;
+  left: 50%;
   width: 56px;
   height: 56px;
 
@@ -243,7 +217,7 @@ body {
 }
 .ghost__feet {
   animation-name: feet;
-  animation-duration: .4s;
+  animation-duration: 0.4s;
   animation-fill-mode: forwards;
   animation-timing-function: steps(1);
   animation-iteration-count: infinite;
@@ -252,8 +226,8 @@ body {
   content: '';
   display: block;
   position: absolute;
-    top: 48px;
-    left: 0;
+  top: 48px;
+  left: 0;
   width: 4px;
   height: 4px;
   z-index: 1;
@@ -264,7 +238,7 @@ body {
 %ghost__eye {
   fill: #fff;
   position: absolute;
-    top: 16px;
+  top: 16px;
   width: 16px;
   height: 20px;
 
@@ -274,13 +248,13 @@ body {
   animation-timing-function: steps(1);
   animation-iteration-count: infinite;
 
-    &:after {
+  &:after {
     background: blue;
     content: '';
     display: block;
     position: absolute;
-      top: 8px;
-      left: 0;
+    top: 8px;
+    left: 0;
     width: 8px;
     height: 8px;
 
@@ -293,9 +267,9 @@ body {
 }
 .ghost__eye--left {
   @extend %ghost__eye;
-    left: 8px;
+  left: 8px;
 }
 .ghost__eye--right {
   @extend %ghost__eye;
-    right: 8px;
+  right: 8px;
 }
