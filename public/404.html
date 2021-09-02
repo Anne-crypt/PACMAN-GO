@@ -4,8 +4,19 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
+
+@media (max-height: 1366px) {
+    .title-page {
+      font-size: 60px;
+    }}
+
+  #rails-default-error-page {
+    background-image: url("/images/teahub.io-error-404-wallpaper-3620408.jpeg");
+    height: 100vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -54,14 +65,14 @@
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
+<body class="rails-default-error-page" id=rails-default-error-page>
+  <!-- This file lives in public/404.html
+  <div class="dialog"> -->
+    <!-- <div>
       <h1>The page you were looking for doesn't exist.</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
-  </div>
+  </div> -->
 </body>
 </html>
