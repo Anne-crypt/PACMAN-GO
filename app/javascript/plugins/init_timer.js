@@ -3,9 +3,8 @@ const hideTimer = () => {
   const timerText = document.getElementById('timetimer');
   if (timerText) {
     const tohiddenArea = document.querySelector('.info');
-    console.log('started');
-    let sec = 0;
-    let min = 2;
+    let sec = 40;
+    let min = 1;
 
     const displayTimer = (sec, min) => {
       if (sec < 10 || sec == 0) {
@@ -20,7 +19,7 @@ const hideTimer = () => {
     const initiateTimeOut = (sec, min) => {
       if(sec >= 0 && min >= 0){
         displayTimer(sec, min);
-        setTimeout(function () { doStuff(sec, min) }, 100);
+        setTimeout(function () { doStuff(sec, min) }, 50);
       }
       else {
         tohiddenArea.style['visibility'] = 'hidden';

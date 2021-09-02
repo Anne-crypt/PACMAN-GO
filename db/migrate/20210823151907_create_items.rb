@@ -1,7 +1,7 @@
 class CreateItems < ActiveRecord::Migration[6.0]
   def change
     create_table :items do |t|
-      t.boolean :eaten
+      t.boolean :eaten, default: false
       t.boolean :super
       t.float :longitude
       t.float :latitude

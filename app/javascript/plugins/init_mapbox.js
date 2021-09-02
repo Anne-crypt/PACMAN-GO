@@ -10,25 +10,11 @@ const initMapbox = () => {
     const elementGameId = document.getElementById('userplayer');
     const currentGameId = parseInt(elementGameId.dataset.gameId);
     const pacmanId = parseInt(mapElement.dataset.pacmanUser);
-    console.log(currentPlayerId);
-    console.log(pacmanId);
     let counter = 0;
-    // only build a map if there's a div#map to inject into
-    // mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-    // const map = new mapboxgl.Map({
-      //   container: 'gamemap',
-      //   // style: 'mapbox://styles/ja-dore/cksojgcmr4th017lw0hrh1fiz',
-      //   style: 'mapbox://styles/mapbox/streets-v11',
-      //   center: [2.379983, 48.865171],
-      //   zoom: 16,
-      //   attributionControl: false,
-      //   interactive: false,
-      // });
 
     const playerElements = document.querySelectorAll('.player-container');
     playerElements.forEach((element) => {
         const player = JSON.parse(element.dataset.player);
-        console.log(player);
         const imageUrl = element.dataset.image;
         element.className = 'marker';
         element.style.backgroundImage = `url('${imageUrl}')`;
@@ -36,7 +22,7 @@ const initMapbox = () => {
         element.style.width = '25px';
         element.style.height = '25px';
         let marker = new mapboxgl.Marker(element)
-          .setLngLat([ player.longitude, player.latitude ])
+          .setLngLat([ 0, 0 ])
           .addTo(window.map);
         window.currentMarkers[player.id] = marker;
         });
@@ -45,7 +31,6 @@ const initMapbox = () => {
       const itemsElements = document.querySelectorAll('.item-container');
       itemsElements.forEach((element) => {
         const item = JSON.parse(element.dataset.item);
-        console.log(item);
         const imageUrl = element.dataset.image;
         element.className = 'marker';
         element.style.backgroundImage = `url('${imageUrl}')`;
@@ -62,7 +47,6 @@ const initMapbox = () => {
    const setGeolocation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.watchPosition((position) => {
-          console.log(position.coords.longitude)
 
           fetch(`/games/${currentGameId}/players/${currentPlayerId}`, {
             method: 'PATCH',
@@ -78,9 +62,7 @@ const initMapbox = () => {
         setGeolocation();
     }
     else {
-      setTimeout(setGeolocation(), 10000);
-      counter ++;
-      console.log(counter);
+      setTimeout(function(){ counter ++; setGeolocation()}, 5000);
     }
   }
 };

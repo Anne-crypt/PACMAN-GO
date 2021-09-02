@@ -19,8 +19,20 @@
   padding: 2px;
   margin: 5px;
   align-items: center;
-  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  h1 {
+    font-family: 'Press Start 2P', cursive;
+  }
 }
+.go{
+  position: absolute;
+  align-items: center;
+  text-align: center;
+   h1 {
+  font-family: 'Press Start 2P', cursive;
+  }
+}
+
 .timer-text {
   height: 100%;
   display: table;

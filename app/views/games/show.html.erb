@@ -59,7 +59,7 @@
 </div>
 
 <div classe="score">
-<p id="game_score"><%= "score: 0" %></p>
+<p id="game_score"><%= "Score: #{@game.score}"%></p>
 </div>
 
 <%# c est pour le channel gamestatus %>
@@ -70,7 +70,7 @@
       <div class="go" >
 
         <% if @current_player_participation.is_winner? %>
-          <h1>YOU WIN!</h1>
+          <h1>Congratulations! YOU WIN!</h1>
         <% else %>
           <h1>GAME OVER</h1>
         <% end %>
