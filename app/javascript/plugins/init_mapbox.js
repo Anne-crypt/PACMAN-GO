@@ -12,6 +12,7 @@ const initMapbox = () => {
     const pacmanId = parseInt(mapElement.dataset.pacmanUser);
     let counter = 0;
 
+
     const playerElements = document.querySelectorAll('.player-container');
     playerElements.forEach((element) => {
         const player = JSON.parse(element.dataset.player);
@@ -38,11 +39,24 @@ const initMapbox = () => {
         element.style.backgroundRepeat = 'no-repeat';
         element.style.width = '25px';
         element.style.height = '25px';
-        let marker = new mapboxgl.Marker(element)
+        new mapboxgl.Marker(element)
           .setLngLat([ item.longitude, item.latitude ])
           .addTo(window.map);
       });
     // }
+
+    const spElement = document.getElementById('lewagonstart');
+    const wagonUrl = spElement.dataset.image
+    spElement.className = 'marker';
+    spElement.style.backgroundImage = `url('${wagonUrl}')`;
+    spElement.style.backgroundSize = 'contain';
+    spElement.style.backgroundRepeat = "no-repeat";
+    spElement.style.width = '50px';
+    spElement.style.height = '50px';
+    new mapboxgl.Marker(spElement)
+      .setLngLat([2.38, 48.865])
+      .addTo(window.map);
+
 
    const setGeolocation = () => {
       if (navigator.geolocation) {
@@ -65,6 +79,17 @@ const initMapbox = () => {
       setTimeout(function(){ counter ++; setGeolocation()}, 5000);
     }
   }
+  const place_marker = (location) => {
+    new mapboxgl.Marker()
+      .setLngLat([location.lng, location.lat])
+      .addTo(window.map);
+    console.log(`${location.lng} ${location.lat}`);
+  };
+
+  window.map.on('click', function (e) {
+    const location = e.lngLat;
+    place_marker(location);
+  });
 };
 
 export { initMapbox };

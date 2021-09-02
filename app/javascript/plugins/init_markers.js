@@ -11,7 +11,7 @@ const initMarkers = () => {
       style: 'mapbox://styles/ja-dore/cksojgcmr4th017lw0hrh1fiz',
       // style: 'mapbox://styles/mapbox/streets-v11',
       center: [2.379983, 48.865171],
-      zoom: 16,
+      zoom: 15,
       attributionControl: false,
       interactive: false,
     });
