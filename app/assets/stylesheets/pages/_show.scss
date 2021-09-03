@@ -89,9 +89,9 @@ body {
     height: 42px;
   }
 
+}
 
-
-  @media(max-height: 1366px) {
+@media(max-height: 1366px) {
 
   #game_score {
     position: absolute;
@@ -232,22 +232,22 @@ body {
     }
   }
 
-  @media(max-height: 736px) {
+@media(max-height: 736px) {
     .full_heart {
 
     width: 29px;
     height: 29px;
-  }
+   }
 
-  #gamemap {
+   #gamemap {
     width: 100%;
     height: 100%;
-  }
+   }
 
-  .mapboxgl-canvas {
+   .mapboxgl-canvas {
     width: 100%;
     height: 100%;
-  }
+   }
 
   .hearts {
     position: relative;
@@ -355,4 +355,3 @@ body {
 .ghostwinner path #mounthwinner{
   transform-origin: 50% 50%;
 }
-
