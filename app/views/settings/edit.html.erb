@@ -23,7 +23,7 @@
             <div class="d-flex justify-content-center">
               <%= image_tag "ghost_#{current_player.color ? current_player.color : 'red'}.png", class: "ghost_chosen" %>
             </div>
-            <%= f.submit "CONFIRM", id: "confirm_color" %>
+            <%= f.submit "CONFIRM", id: "confirm_color", class: "btn btn-ghost" %>
           <% end %>
 
       </div>

@@ -1,3 +1,4 @@
+
 #games_show {
   background-image: none;
   background-color: black;
@@ -50,6 +51,7 @@ body {
   justify-content: space-between;
 }
 
+
 #gamestatus {
   text-align: center;
   z-index: 2;
@@ -87,12 +89,17 @@ body {
     height: 42px;
   }
 
+
+
+  @media(max-height: 1366px) {
+
   #game_score {
     position: absolute;
     bottom: -5px;
     left: 85px;
     font-size: 32px;
   }
+
 
   .mapboxgl-ctrl-logo {
     visibility: hidden;
@@ -187,45 +194,47 @@ body {
   .full_heart {
     width: 29px;
     height: 29px;
+
+    }
+
+    #gamemap {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hearts {
+      margin: 0;
+      padding: 0;
+      padding-top: 6px;
+      padding-left: 30px;
+
+    }
+
+    .half_heart {
+      width: 25px;
+      height: 25px;;
+    }
+
+    #game_score {
+      position: absolute;
+      bottom: -8px;
+      left: 35px;
+      font-size: 20px;
+    }
+
+    .mapboxgl-ctrl-logo {
+      visibility: hidden;
+    }
   }
 
-  #gamemap {
-    width: 100%;
-    height: 100%;
-  }
+  @media(max-height: 736px) {
+    .full_heart {
 
-  .mapboxgl-canvas {
-    width: 100%;
-    height: 100%;
-  }
-
-  .hearts {
-    margin: 0;
-    padding: 0;
-    padding-top: 6px;
-    padding-left: 30px;
-        z-index: 3;
-  }
-
-  .half_heart {
-    width: 25px;
-    height: 25px;
-  }
-
-  #game_score {
-    position: absolute;
-    bottom: -8px;
-    left: 35px;
-    font-size: 20px;
-  }
-
-  .mapboxgl-ctrl-logo {
-    visibility: hidden;
-  }
-}
-
-@media (max-height: 736px) {
-  .full_heart {
     width: 29px;
     height: 29px;
   }
@@ -263,6 +272,7 @@ body {
   .mapboxgl-ctrl-logo {
     visibility: hidden;
   }
+
 }
 
 @media (max-height: 667px) {
@@ -345,3 +355,4 @@ body {
 .ghostwinner path #mounthwinner{
   transform-origin: 50% 50%;
 }
+

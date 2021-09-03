@@ -1,5 +1,7 @@
 #pages_home {
+
   @media (max-height: 1366px) {
+
     .class_logo {
       width: 700px;
       height: 150px;
@@ -18,7 +20,9 @@
     #go {
       padding-top: 40px;
       font-size: 60px;
+
       text-align: center;
+
     }
 
     h1 {
@@ -38,9 +42,11 @@
     }
 
     #nickname-input {
-      padding-top: 145px;
-      display: flex;
-      justify-content: center;
+
+        padding-top: 145px;
+        display: flex;
+        justify-content: center;
+
     }
 
     #player_nickname {
@@ -185,7 +191,9 @@
     }
   }
 
+
   @media (max-height: 1024px) {
+
     .class_logo {
       width: 680px;
       height: 140px;
@@ -204,7 +212,9 @@
     #go {
       padding-top: 15px;
       font-size: 50px;
+
       text-align: center;
+
     }
 
     h1 {
@@ -224,9 +234,11 @@
     }
 
     #nickname-input {
-      padding-top: 70px;
-      display: flex;
-      justify-content: center;
+
+        padding-top: 70px;
+        display: flex;
+        justify-content: center;
+
     }
 
     #player_nickname {
@@ -371,7 +383,9 @@
     }
   }
 
+
   @media (max-height: 823px) {
+
     .class_logo {
       width: 370px;
       height: 85px;
@@ -390,7 +404,9 @@
     #go {
       padding-top: 115px;
       font-size: 35px;
+
       text-align: center;
+
     }
 
     h1 {
@@ -410,9 +426,11 @@
     }
 
     #nickname-input {
-      padding-top: 56px;
-      display: flex;
-      justify-content: center;
+
+        padding-top: 56px;
+        display: flex;
+        justify-content: center;
+
     }
 
     #player_nickname {
@@ -1487,4 +1505,5 @@
       margin-left: 5%;
     }
   }
+
 }
