@@ -1,190 +1,190 @@
 
 #pages_home {
-  @media(max-height: 2316px) {
-    .class_logo {
-      width: 940px;
-      height: 250px;
-    }
+  // @media(max-height: 2316px) {
+  //   .class_logo {
+  //     width: 940px;
+  //     height: 250px;
+  //   }
 
-    #home_logo {
-      padding-top: 45px;
-      display: flex;
-      justify-content: center;
-    }
+  //   #home_logo {
+  //     padding-top: 45px;
+  //     display: flex;
+  //     justify-content: center;
+  //   }
 
-    .go {
-      text-align: center;
-    }
+  //   .go {
+  //     text-align: center;
+  //   }
 
-    #go {
-      padding-top: 360px;
-      font-size: 100px;
-    }
+  //   #go {
+  //     padding-top: 360px;
+  //     font-size: 100px;
+  //   }
 
-    h1 {
-      font-family: 'Press Start 2P', cursive;
-    }
+  //   h1 {
+  //     font-family: 'Press Start 2P', cursive;
+  //   }
 
-    .ghost_team_home {
-      display: flex;
-      justify-content: center;
-      padding-top: 100px;
-    }
+  //   .ghost_team_home {
+  //     display: flex;
+  //     justify-content: center;
+  //     padding-top: 100px;
+  //   }
 
-    .ghost_home {
-      width: 80px;
-      height: 80px;
-      margin: 0 5px;
-    }
+  //   .ghost_home {
+  //     width: 80px;
+  //     height: 80px;
+  //     margin: 0 5px;
+  //   }
 
-    #nickname-input {
-        padding-top: 145px;
-        display: flex;
-        justify-content: center;
-    }
+  //   #nickname-input {
+  //       padding-top: 145px;
+  //       display: flex;
+  //       justify-content: center;
+  //   }
 
-    #player_nickname {
-      width: 740px;
-      height: 90px;
-      font-size: 35px;
-      background-color: black;
-      border-color: #1f1ff0;
-      border-radius: 5px;
-    }
+  //   #player_nickname {
+  //     width: 740px;
+  //     height: 90px;
+  //     font-size: 35px;
+  //     background-color: black;
+  //     border-color: #1f1ff0;
+  //     border-radius: 5px;
+  //   }
 
-    .role {
-      padding-top: 25px;
-      width: 90%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      border-radius: 5px;
-    }
+  //   .role {
+  //     padding-top: 25px;
+  //     width: 90%;
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: center;
+  //     font-size: 25px;
+  //     border-radius: 5px;
+  //   }
 
-    .host {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 230px;
-      height: 60px;
-      text-align: center;
-      border: 4px solid #1f1ff0;
-      background-color: black;
-    }
+  //   .host {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     width: 230px;
+  //     height: 60px;
+  //     text-align: center;
+  //     border: 4px solid #1f1ff0;
+  //     background-color: black;
+  //   }
 
-    .guest {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 230px;
-      height: 60px;
-      text-align: center;
-      border: 4px solid #1f1ff0;
-      background-color: #1f1ff0;
-    }
+  //   .guest {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     width: 230px;
+  //     height: 60px;
+  //     text-align: center;
+  //     border: 4px solid #1f1ff0;
+  //     background-color: #1f1ff0;
+  //   }
 
-    #type_host {
-      position: fixed;
-      opacity: 0;
-      pointer-events: none;
-    }
-    #type_guest {
-      position: fixed;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .form-group {
-      padding-top: 70px;
-    }
+  //   #type_host {
+  //     position: fixed;
+  //     opacity: 0;
+  //     pointer-events: none;
+  //   }
+  //   #type_guest {
+  //     position: fixed;
+  //     opacity: 0;
+  //     pointer-events: none;
+  //   }
+  //   .form-group {
+  //     padding-top: 70px;
+  //   }
 
-    #tokens_token {
-      width: 80%;
-      height: 57px;
-      border-radius: 5px;
-      background-color: #b3b3b3;
-      margin: 0;
-      text-align: center;
-    }
+  //   #tokens_token {
+  //     width: 80%;
+  //     height: 57px;
+  //     border-radius: 5px;
+  //     background-color: #b3b3b3;
+  //     margin: 0;
+  //     text-align: center;
+  //   }
 
-    .tokens_token {
-      display: flex;
-      justify-content: center;
-    }
+  //   .tokens_token {
+  //     display: flex;
+  //     justify-content: center;
+  //   }
 
-    .tokens_generated {
-      width: 356px;
-      height: 57px;
-      margin-left: 10px;
-      text-align: center;
-    }
+  //   .tokens_generated {
+  //     width: 356px;
+  //     height: 57px;
+  //     margin-left: 10px;
+  //     text-align: center;
+  //   }
 
-    .disable-tag {
-      display: none;
-    }
+  //   .disable-tag {
+  //     display: none;
+  //   }
 
-    #create_player {
-      padding-top: 118px;
-    }
+  //   #create_player {
+  //     padding-top: 118px;
+  //   }
 
-    #submit_player {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 30px;
-      background-color: black;
-      height: 50px;
-      border: 8px solid #1f1ff0;
-      border-radius: 25px;
-      color: white;
-      width: 520px;
-      height: 80px;
-      font-size: 25px;
-    }
+  //   #submit_player {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     margin-bottom: 30px;
+  //     background-color: black;
+  //     height: 50px;
+  //     border: 8px solid #1f1ff0;
+  //     border-radius: 25px;
+  //     color: white;
+  //     width: 520px;
+  //     height: 80px;
+  //     font-size: 25px;
+  //   }
 
-    #center-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  //   #center-form {
+  //     display: flex;
+  //     flex-direction: column;
+  //     align-items: center;
+  //   }
 
-    #new_player {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  //   #new_player {
+  //     width: 100%;
+  //     display: flex;
+  //     flex-direction: column;
+  //     align-items: center;
+  //   }
 
-    .role_btn_guest {
-      width: 50%;
-      display: flex;
-      justify-content: flex-start;
-    }
+  //   .role_btn_guest {
+  //     width: 50%;
+  //     display: flex;
+  //     justify-content: flex-start;
+  //   }
 
-    .role_btn_guest .radio-btn {
-      width: 55%;
-    }
+  //   .role_btn_guest .radio-btn {
+  //     width: 55%;
+  //   }
 
-    .role_btn_host {
-      width: 50%;
-      display: flex;
-      justify-content: flex-end;
-    }
+  //   .role_btn_host {
+  //     width: 50%;
+  //     display: flex;
+  //     justify-content: flex-end;
+  //   }
 
-    .role_btn_host label {
-      width: 75%;
-    }
+  //   .role_btn_host label {
+  //     width: 75%;
+  //   }
 
-    .visibility_token {
-      visibility: hidden;
-    }
+  //   .visibility_token {
+  //     visibility: hidden;
+  //   }
 
-    .invalid-feedback {
-      font-size: 9px;
-      width: 90%;
-      margin-left: 5%;
-    }
-  }
+  //   .invalid-feedback {
+  //     font-size: 9px;
+  //     width: 90%;
+  //     margin-left: 5%;
+  //   }
+  // }
 
 
 @media(max-height: 1366px) {
