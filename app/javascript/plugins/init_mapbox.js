@@ -76,7 +76,7 @@ const initMapbox = () => {
         setGeolocation();
     }
     else {
-      setTimeout(function(){ counter ++; setGeolocation()}, 5000);
+      setTimeout(function(){ counter ++; setGeolocation()}, 20000);
     }
   }
 };
