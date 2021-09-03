@@ -13,8 +13,8 @@ class PlayersController < ApplicationController
     GameChannel.broadcast_to(@game, @player)
 
     if @participation.role == "pacman"
-      items_nearby = Item.all.where(game_id: @game.id, eaten: false).near([@player.latitude, @player.longitude], 0.025)
-      ghosts_nearby = @game.players.joins(:participations).where(participations: { role: 'ghost' }).near([@player.latitude, @player.longitude], 0.025).any? # distance: 1 meterµ
+      items_nearby = Item.all.where(game_id: @game.id, eaten: false).near([@player.latitude, @player.longitude], 0.013)
+      ghosts_nearby = @game.players.joins(:participations).where(participations: { role: 'ghost' }).near([@player.latitude, @player.longitude], 0.013).any? # distance: 1 meterµ
 
       if items_nearby.length > 0
        #   -> passer tous les items nearby à eaten true
