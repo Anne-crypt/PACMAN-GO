@@ -1,0 +1,5 @@
+meta_product_name: 'Pacman Go'
+meta_title: 'Pacman Go - Play it in the streets!'
+meta_description: 'With Pacman Go, play with your friends at Pacman in your streets!'
+meta_image: 'pacman-go-og.png' # should exist in `app/assets/images/`
+twitter_account: '@officialpacman'
