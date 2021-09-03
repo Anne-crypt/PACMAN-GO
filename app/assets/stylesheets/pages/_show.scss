@@ -40,10 +40,6 @@ body {
   height: inherit;
 }
 
-#container-child {
-  height: inherit;
-}
-
 #container-style {
   height: inherit;
   display: flex;
@@ -57,6 +53,7 @@ body {
   z-index: 2;
   display: flex;
   justify-content: center;
+  margin-top: 40px
 }
 
 @media (max-height: 1366px) {
