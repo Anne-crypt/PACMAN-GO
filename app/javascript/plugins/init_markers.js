@@ -10,8 +10,8 @@ const initMarkers = () => {
       container: 'gamemap',
       style: 'mapbox://styles/ja-dore/cksojgcmr4th017lw0hrh1fiz',
       // style: 'mapbox://styles/mapbox/streets-v11',
-      center: [2.379983, 48.865171],
-      zoom: 15,
+      center: [2.379777221004275, 48.86534970278436],
+      zoom: 17,
       attributionControl: false,
       interactive: false,
     });

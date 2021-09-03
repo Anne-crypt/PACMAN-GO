@@ -18,8 +18,8 @@ const initMapbox = () => {
     spElement.style.backgroundImage = `url('${wagonUrl}')`;
     spElement.style.backgroundSize = 'contain';
     spElement.style.backgroundRepeat = "no-repeat";
-    spElement.style.width = '45px';
-    spElement.style.height = '45px';
+    spElement.style.width = '25px';
+    spElement.style.height = '25px';
     new mapboxgl.Marker(spElement, { anchor: 'bottom'})
       .setLngLat([2.380197576721457, 48.8649])
       .addTo(window.map);
@@ -71,6 +71,18 @@ const initMapbox = () => {
         })
       }
     }
+
+    // const placeMarker = (position) => {
+    //   new mapboxgl.Marker()
+    //     .setLngLat([position.lng, position.lat])
+    //     .addTo(window.map);
+    // };
+
+    // window.map.on('click', function(e){
+    //   const position = e.lngLat
+    //   console.log(`${position.lng} ${position.lat}`);
+    //   placeMarker(position);
+    // } );
 
     if (currentPlayerId == pacmanId || counter != 0){
         setGeolocation();
