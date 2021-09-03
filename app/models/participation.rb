@@ -7,7 +7,7 @@ class Participation < ApplicationRecord
   private
 
   def max_players
-    if game.participations.size >= 4
+    if game.participations.size >= 6
       errors.add :base, "Party is already full"
     end
   end

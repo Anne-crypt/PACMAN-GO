@@ -19,7 +19,7 @@ const hideTimer = () => {
     const initiateTimeOut = (sec, min) => {
       if(sec >= 0 && min >= 0){
         displayTimer(sec, min);
-        setTimeout(function () { doStuff(sec, min) }, 50);
+        setTimeout(function () { doStuff(sec, min) }, 200);
       }
       else {
         tohiddenArea.style['visibility'] = 'hidden';
