@@ -55,7 +55,6 @@ body {
   z-index: 2;
   display: flex;
   justify-content: center;
-  height: 40vh;
 }
 
 @media (max-height: 1366px) {
@@ -307,4 +306,43 @@ body {
   .mapboxgl-ctrl-logo {
     visibility: hidden;
   }
+}
+
+.ghostWinner {
+  animation: float 3s ease-out infinite;
+}
+
+@keyframes float {
+  50% {
+     transform: translate(0, 20px);
+  }
+}
+.shadowFrameWinner {
+  width: 130px;
+  margin-top: 15px;
+}
+.shadowWinner {
+  animation: shrink 3s ease-out infinite;
+  transform-origin: center center;
+  ellipse {
+    transform-origin: center center;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 90%;
+    margin: 0 5%;
+  }
+  50% {
+    width: 60%;
+    margin: 0 18%;
+  }
+  100% {
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+.ghostwinner path #mounthwinner{
+  transform-origin: 50% 50%;
 }

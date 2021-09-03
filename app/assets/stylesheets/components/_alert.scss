@@ -37,12 +37,17 @@
   border-radius: 5%;
   h1 {
     font-family: 'Press Start 2P', cursive;
+    margin-top: 10px;
   }
 }
 
 .result-page h1 {
-  margin: 0;
   font-size: 30px;
+}
+.result-page {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .go {
