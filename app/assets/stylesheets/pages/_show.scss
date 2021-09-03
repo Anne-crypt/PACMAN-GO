@@ -1,4 +1,4 @@
-#pages_home {
+#pages_games_show {
   #games_show {
     background-image: none;;
     background-color: black;
@@ -29,6 +29,48 @@
     justify-content: center;
     align-items: center;
     border: 4px solid blue;
+  }
+
+    @media(max-height: 2316px) {
+
+    #gamemap {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mapboxgl-canvas {
+      width: 100%;
+      height: 100%;
+    }
+
+    .full_heart {
+    width: 52px;
+    height: 52px;;
+    }
+
+    .hearts {
+      position:relative;
+      margin: 0;
+      padding: 0;
+      padding-top: 10px;
+      padding-left: 75px;
+    }
+
+    .half_heart {
+      width: 42px;
+      height: 42px;;
+    }
+
+    #game_score {
+      position: absolute;
+      bottom: -5px;
+      left: 85px;
+      font-size: 32px;
+    }
+
+    .mapboxgl-ctrl-logo {
+      visibility: hidden;
+    }
   }
 
   @media(max-height: 1366px) {
